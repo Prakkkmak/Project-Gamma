@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm842h44ddm1c"]
+
+[ext_resource type="Script" path="res://ui/card/card.gd" id="1_4q8l6"]
+[ext_resource type="Texture2D" uid="uid://bkqjaw203i4jx" path="res://assets/art/example.svg" id="1_k1qx3"]
+
+[node name="Card" type="ColorRect"]
+custom_minimum_size = Vector2(100, 150)
+size_flags_vertical = 8
+color = Color(0.641934, 0.641934, 0.641934, 1)
+script = ExtResource("1_4q8l6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Poisson"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_k1qx3")
+expand_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="UseButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Use"
+
+[node name="DiscardButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Discard"
