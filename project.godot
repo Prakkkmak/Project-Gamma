@@ -1,0 +1,47 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Project Gamma"
+run/main_scene="res://scenes/aquarium/aquarium.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://assets/art/entities/fishs/godot_fish.svg"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+gdscript/warnings/inferred_declaration=2
+gdscript/warnings/unsafe_property_access=2
+gdscript/warnings/unsafe_method_access=2
+gdscript/warnings/unsafe_cast=2
+gdscript/warnings/unsafe_call_argument=2
+gdscript/warnings/return_value_discarded=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://resources/": "orange",
+"res://scripts/": "blue"
+}
+
+[layer_names]
+
+2d_physics/layer_1="fish"
+2d_physics/layer_2="plant"
+2d_physics/layer_3="equipement"
+2d_physics/layer_4="food"
+2d_physics/layer_5="prop"
+2d_physics/layer_10="wall"

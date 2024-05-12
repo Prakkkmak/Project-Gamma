@@ -1,0 +1,163 @@
+[gd_scene load_steps=13 format=3 uid="uid://b4yjxy1qh5583"]
+
+[ext_resource type="Script" path="res://scenes/fish/fish.gd" id="1_4jih3"]
+[ext_resource type="Texture2D" uid="uid://dh5ghfw7uud5k" path="res://assets/fishs/godot_fish.svg" id="1_e5til"]
+[ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="2_msqfi"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_mo3f7"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_ag4xe"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="4_f52o4"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_qylb3"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_3kq5b"]
+
+[sub_resource type="Animation" id="Animation_kx1gc"]
+resource_name = "swim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.6, 1.3), Vector2(1.2, 0.9), Vector2(1, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_t0tti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2v4r"]
+_data = {
+"RESET": SubResource("Animation_t0tti"),
+"swim": SubResource("Animation_kx1gc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfsd1"]
+size = Vector2(119, 20)
+
+[node name="Fish" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_4jih3")
+infos = ExtResource("2_msqfi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_i2v4r")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0.0156863, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 0.226563)
+texture = ExtResource("1_e5til")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_cfsd1")
+
+[node name="StateChart" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_mo3f7")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("4_f52o4")
+
+[node name="Movement" type="Node" parent="StateChart/Root"]
+script = ExtResource("4_ag4xe")
+initial_state = NodePath("Swiming")
+
+[node name="ToIdle" type="Node" parent="StateChart/Root/Movement"]
+script = ExtResource("6_3kq5b")
+to = NodePath("../Idle")
+event = &"idle"
+
+[node name="Idle" type="Node" parent="StateChart/Root/Movement"]
+unique_name_in_owner = true
+script = ExtResource("5_qylb3")
+
+[node name="ToSwiming" type="Node" parent="StateChart/Root/Movement/Idle"]
+script = ExtResource("6_3kq5b")
+to = NodePath("../../Swiming")
+event = &"swim"
+
+[node name="ToFeeding" type="Node" parent="StateChart/Root/Movement/Idle"]
+script = ExtResource("6_3kq5b")
+to = NodePath("../../Feeding")
+event = &"hungry"
+
+[node name="Swiming" type="Node" parent="StateChart/Root/Movement"]
+unique_name_in_owner = true
+script = ExtResource("5_qylb3")
+
+[node name="Feeding" type="Node" parent="StateChart/Root/Movement"]
+script = ExtResource("4_ag4xe")
+initial_state = NodePath("SearchingFood")
+
+[node name="SearchingFood" type="Node" parent="StateChart/Root/Movement/Feeding"]
+unique_name_in_owner = true
+script = ExtResource("5_qylb3")
+
+[node name="ToSwimingToFood" type="Node" parent="StateChart/Root/Movement/Feeding/SearchingFood"]
+script = ExtResource("6_3kq5b")
+to = NodePath("../../SwimingToFood")
+event = &"on_swiming_to_food"
+
+[node name="SwimingToFood" type="Node" parent="StateChart/Root/Movement/Feeding"]
+unique_name_in_owner = true
+script = ExtResource("5_qylb3")
+
+[node name="ToEating" type="Node" parent="StateChart/Root/Movement/Feeding/SwimingToFood"]
+script = ExtResource("6_3kq5b")
+to = NodePath("../../Eating")
+event = &"on_food_reached"
+
+[node name="Eating" type="Node" parent="StateChart/Root/Movement/Feeding"]
+unique_name_in_owner = true
+script = ExtResource("5_qylb3")
+
+[node name="Life" type="Node" parent="StateChart/Root"]
+script = ExtResource("4_ag4xe")
+initial_state = NodePath("Grow")
+
+[node name="Grow" type="Node" parent="StateChart/Root/Life"]
+script = ExtResource("5_qylb3")
+
+[node name="Adult" type="Node" parent="StateChart/Root/Life"]
+script = ExtResource("5_qylb3")
+
+[node name="Elder" type="Node" parent="StateChart/Root/Life"]
+script = ExtResource("5_qylb3")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = -20.0
+offset_top = -95.0
+offset_right = 20.0
+offset_bottom = -55.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FoodLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2

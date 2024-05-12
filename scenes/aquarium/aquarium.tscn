@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjbe3uptptyyj"]
+
+[ext_resource type="PackedScene" uid="uid://b4yjxy1qh5583" path="res://scenes/fish/fish.tscn" id="1_nfbtc"]
+[ext_resource type="PackedScene" uid="uid://cyyip1ltnw412" path="res://scenes/fish_food/fish_food.tscn" id="2_logl1"]
+[ext_resource type="Texture2D" uid="uid://bkqjaw203i4jx" path="res://assets/art/example.svg" id="3_xcru3"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_58u1i"]
+vertices = PackedVector2Array(522, 195, -541, 184, -541, -292, 529, -292)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-551, -302, 540, -303, 532, 206, -552, 194)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vln3g"]
+size = Vector2(2295, 131)
+
+[node name="Aquarium" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_58u1i")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="BackgroundColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -766.0
+offset_top = -412.0
+offset_right = 767.0
+offset_bottom = 387.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.281371, 0.528877, 0.593713, 0.0862745)
+
+[node name="Fish" parent="." instance=ExtResource("1_nfbtc")]
+
+[node name="FishFood" parent="." instance=ExtResource("2_logl1")]
+position = Vector2(-235, -69)
+constant_force = Vector2(1, 0)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 290)
+collision_layer = 512
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+scale = Vector2(20, 1)
+texture = ExtResource("3_xcru3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_vln3g")

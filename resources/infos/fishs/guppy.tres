@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="FishInfos" load_steps=2 format=3 uid="uid://bb2t6k7708afk"]
+
+[ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_ityvh"]
+
+[resource]
+script = ExtResource("1_ityvh")
+max_food = 100
+food_regimes = Array[int]([1])
+food_threshold = 20
+max_speed = 10.0
+acceleration = 1.0
+start_scale = 0.2
+end_scale = 1.0
+max_health = 50
+min_temperature = 22
+max_temperature = 26
+min_ph = 6
+max_ph = 8
+min_luminosity = 10
+max_luminosity = 90
+min_sanity = 50
+grow_time = 20
+life_span = 600
+display_name = "Guppy"
+description = "-"
+rarity = 0
+cost = 0
