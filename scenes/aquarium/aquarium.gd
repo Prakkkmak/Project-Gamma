@@ -49,8 +49,7 @@ func add_fish(fish_infos: FishInfos, position: Vector2 = Vector2.ZERO) -> void:
 	fish.infos = fish_infos
 	fish.position = position
 	entities_node.add_child(fish)
-	entities.append(fish)
-	
+	_track_entity(fish)
 
 
 func add_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> void:
@@ -64,13 +63,19 @@ func add_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> vo
 		if slot.get_child_count() > 0:
 			continue
 		slot.add_child(plant)
-		entities.append(plant)
+		_track_entity(plant)
 		break
 
 func add_food(position: Vector2 = Vector2.ZERO) -> void:
 	var fish_food: FishFood = fish_food_scene.instantiate()
 	fish_food.global_position = Vector2(position.x,-300)
 	entities_node.add_child(fish_food)
+
+
+func _track_entity(entity: Node) -> void:
+	entities.append(entity)
+	entity.tree_exited.connect(_on_untrack_entity.bind(entity))
+
 
 func _update_constants(delta: float) -> void:
 	for entity: Node in entities:
@@ -101,3 +106,7 @@ func _update_acidity_label() -> void:
 
 func _update_oxygen_label() -> void:
 	oxygen_label.text = "Oxygen Saturation: " + str(ceil(oxygen)) + "%"
+
+
+func _on_untrack_entity(entity: Node) -> void:
+	entities.erase(entity)

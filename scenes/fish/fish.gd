@@ -124,7 +124,7 @@ func _on_swiming_state_physics_processing(delta: float) -> void:
 func _on_locate_food_entered() -> void:
 	target_food = _find_target_food()
 	if target_food:
-		target_food.depleted.connect(_on_food_depleted, ConnectFlags.CONNECT_ONE_SHOT)
+		target_food.depleted.connect(_on_food_depleted)
 		state_chart.send_event("food_located")
 	else:
 		state_chart.send_event("swim")
@@ -157,6 +157,7 @@ func _on_eating_state_processing(delta: float) -> void:
 			current_food += eated
 		else:
 			target_food.stop_eating()
+			target_food.depleted.disconnect(_on_food_depleted)
 			target_food = null
 			state_chart.send_event("idle")
 	else:
@@ -166,6 +167,7 @@ func _on_eating_state_processing(delta: float) -> void:
 func _on_food_depleted() -> void:
 	print("Food depleted, so stop focus")
 	target_food.stop_eating()
+	target_food.depleted.disconnect(_on_food_depleted)
 	target_food = null
 	state_chart.send_event.call_deferred("idle")
 	

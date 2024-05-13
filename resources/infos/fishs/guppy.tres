@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_ityvh")
-max_food = 100
+max_food = 5
 food_regimes = Array[int]([1])
-food_threshold = 20
+food_threshold = 1
 max_speed = 250.0
 acceleration = 4.0
-max_health = 50
+max_health = 5
 min_temperature = 22
 max_temperature = 26
 min_acidity = 6
