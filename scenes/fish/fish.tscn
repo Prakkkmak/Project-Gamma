@@ -69,6 +69,7 @@ _data = {
 size = Vector2(119, 20)
 
 [node name="Fish" type="CharacterBody2D"]
+collision_mask = 512
 motion_mode = 1
 script = ExtResource("1_4jih3")
 infos = ExtResource("2_msqfi")
@@ -80,7 +81,6 @@ libraries = {
 }
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 debug_path_custom_color = Color(1, 0.0156863, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -153,25 +153,46 @@ script = ExtResource("5_qylb3")
 
 [node name="Life" type="Node" parent="StateChart/Root"]
 script = ExtResource("4_ag4xe")
-initial_state = NodePath("Grow")
+initial_state = NodePath("Young")
 
-[node name="Grow" type="Node" parent="StateChart/Root/Life"]
+[node name="Young" type="Node" parent="StateChart/Root/Life"]
 script = ExtResource("5_qylb3")
+
+[node name="ToAdult" type="Node" parent="StateChart/Root/Life/Young"]
+script = ExtResource("6_3kq5b")
+to = NodePath("../../Adult")
+event = &"grow"
 
 [node name="Adult" type="Node" parent="StateChart/Root/Life"]
 script = ExtResource("5_qylb3")
 
+[node name="ToElder" type="Node" parent="StateChart/Root/Life/Adult"]
+script = ExtResource("6_3kq5b")
+to = NodePath("../../Elder")
+event = &"grow"
+
 [node name="Elder" type="Node" parent="StateChart/Root/Life"]
 script = ExtResource("5_qylb3")
 
+[node name="ToDead" type="Node" parent="StateChart/Root/Life/Elder"]
+script = ExtResource("6_3kq5b")
+to = NodePath("../../Dead")
+event = &"grow"
+
+[node name="Dead" type="Node" parent="StateChart/Root/Life"]
+script = ExtResource("5_qylb3")
+
 [node name="StateChartDebugger" parent="." instance=ExtResource("9_niima")]
+visible = false
 offset_left = -133.0
 offset_top = -341.0
 offset_right = 121.0
 offset_bottom = -97.0
+enabled = false
 initial_node_to_watch = NodePath("../StateChart")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 offset_left = -20.0
 offset_top = -95.0
 offset_right = 20.0

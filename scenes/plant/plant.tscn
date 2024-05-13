@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bssw0yhkh8n64"]
+
+[ext_resource type="Texture2D" uid="uid://bkqjaw203i4jx" path="res://assets/art/example.svg" id="1_8621t"]
+[ext_resource type="PackedScene" uid="uid://coeetj41k63yn" path="res://components/food_component/food_component.tscn" id="2_hscoc"]
+
+[node name="Plant" type="Node2D"]
+modulate = Color(0.545098, 1, 0.152941, 1)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+scale = Vector2(0.120001, 1)
+texture = ExtResource("1_8621t")
+
+[node name="LeaveSprite" type="Sprite2D" parent="Sprite"]
+position = Vector2(-141.666, -37)
+rotation = 0.0196189
+scale = Vector2(1.59557, 0.070766)
+texture = ExtResource("1_8621t")
+
+[node name="LeaveSprite2" type="Sprite2D" parent="Sprite"]
+position = Vector2(108.333, -15)
+rotation = -0.0157155
+scale = Vector2(1.38725, 0.0459858)
+texture = ExtResource("1_8621t")
+
+[node name="FoodComponent" parent="." instance=ExtResource("2_hscoc")]
+
+[node name="FoodComponent2" parent="." instance=ExtResource("2_hscoc")]

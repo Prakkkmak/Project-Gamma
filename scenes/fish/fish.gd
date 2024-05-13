@@ -32,14 +32,18 @@ var acceleration: float = 1
 
 
 func _ready() -> void:
+	
 	if infos:
 		current_health = infos.max_health
 	name_label.text = infos.display_name
+	
+	
 	swiming.state_entered.connect(_on_swiming_state_entered)
 	swiming.state_physics_processing.connect(_on_swiming_state_physics_processing)
 	idle.state_entered.connect(_on_idle_state_entered)
 	locate_food.state_entered.connect(_on_locate_food_entered)
 	swiming_to_food.state_physics_processing.connect(_on_swiming_to_food_state_physics_processing)
+	swiming_to_food.state_entered.connect(_on_swiming_to_food_state_entered)
 	eating.state_entered.connect(_on_eating_state_entered)
 	eating.state_processing.connect(_on_eating_state_processing)
 	
@@ -116,6 +120,9 @@ func _on_locate_food_entered() -> void:
 	else:
 		state_chart.send_event("swim")
 
+
+func _on_swiming_to_food_state_entered() -> void:
+	animation_player.play("swim")
 
 func _on_swiming_to_food_state_physics_processing(delta: float) -> void:
 	print("Target food " + str(target_food))

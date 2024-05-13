@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcqj5iy5ck7yl"]
+
+[ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
+[ext_resource type="PackedScene" uid="uid://b4yjxy1qh5583" path="res://scenes/fish/fish.tscn" id="2_mgdgo"]
+[ext_resource type="PackedScene" uid="uid://btnf52ln1b6px" path="res://ui/hand_panel/hand_panel.tscn" id="2_v3xj4"]
+[ext_resource type="PackedScene" uid="uid://cogmgrpb7vwke" path="res://debug/debug_panel.tscn" id="3_cxsxr"]
+[ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_oiyhp"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_lxdxq")
+fish_scene = ExtResource("2_mgdgo")
+fish_infos = Array[Resource("res://resources/infos/fish_infos.gd")]([ExtResource("3_oiyhp")])
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Aquarium" parent="." instance=ExtResource("1_kdlov")]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HandPanel" parent="CanvasLayer" instance=ExtResource("2_v3xj4")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 0.0
+size_flags_horizontal = 4
+
+[node name="DebugPanel" parent="CanvasLayer" instance=ExtResource("3_cxsxr")]
+
+[editable path="Aquarium"]

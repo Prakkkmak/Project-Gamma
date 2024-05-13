@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Project Gamma"
-run/main_scene="res://scenes/aquarium/aquarium.tscn"
+run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://assets/art/entities/fishs/godot_fish.svg"
 
