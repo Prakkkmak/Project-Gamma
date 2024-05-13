@@ -60,8 +60,11 @@ func eat(value: float = 0.0) -> float:
 		return value
 
 
-func add_food(amount: float) -> void:
+func add_food(amount: float, not_eddible_required: bool = true) -> void:
+	if not_eddible_required && eddible:
+		return
 	current_food += amount
+	food_sprite.scale = initial_sprite_scale * current_food / max_food
 	if current_food >= max_food:
 		current_food = max_food
 		eddible = true

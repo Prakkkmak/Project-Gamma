@@ -20,7 +20,7 @@ extends CharacterBody2D
 @onready var name_label: Label = %NameLabel
 
 
-var current_health: int = 10
+var current_health: float = 10
 var current_food: float = 5
 
 
@@ -35,8 +35,10 @@ func _ready() -> void:
 	
 	if infos:
 		current_health = infos.max_health
-	name_label.text = infos.display_name
-	
+		max_speed = infos.max_speed
+		acceleration = infos.acceleration
+		name_label.text = infos.display_name
+		scale = Vector2.ONE * infos.end_scale
 	
 	swiming.state_entered.connect(_on_swiming_state_entered)
 	swiming.state_physics_processing.connect(_on_swiming_state_physics_processing)
@@ -50,6 +52,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	current_food -= delta
+	if current_food < 0:
+		current_health -= delta
+	if current_health < 0:
+		_die()
 	food_label.text = "Food: " + str(floor(current_food))
 	health_label.text = "Health: " + str(current_health)
 
@@ -59,6 +65,10 @@ func _physics_process(delta: float) -> void:
 
 func is_food_needed() -> bool:
 	return current_food <= infos.food_threshold
+
+
+func _die() -> void:
+	queue_free()
 
 
 func _swim(delta: float) -> void:
@@ -115,7 +125,7 @@ func _on_swiming_state_physics_processing(delta: float) -> void:
 func _on_locate_food_entered() -> void:
 	target_food = _find_target_food()
 	if target_food:
-		target_food.depleted.connect(_on_food_depleted)
+		target_food.depleted.connect(_on_food_depleted, ConnectFlags.CONNECT_ONE_SHOT)
 		state_chart.send_event("food_located")
 	else:
 		state_chart.send_event("swim")
@@ -142,14 +152,16 @@ func _on_eating_state_entered() -> void:
 
 
 func _on_eating_state_processing(delta: float) -> void:
-	if target_food && current_food < infos.max_food:
-		var eated: float = target_food.eat(delta * 10)
-		current_food += eated
+	if target_food:
+		if current_food < infos.max_food:
+			var eated: float = target_food.eat(delta * 10)
+			current_food += eated
+		else:
+			target_food.stop_eating()
+			target_food = null
+			state_chart.send_event("idle")
 	else:
-		print("Free target food from var")
-		target_food = null
 		state_chart.send_event("idle")
-		target_food.stop_eating()
 
 
 func _on_food_depleted() -> void:

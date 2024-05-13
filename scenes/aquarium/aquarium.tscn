@@ -47,19 +47,66 @@ texture = ExtResource("3_xcru3")
 position = Vector2(1, -10.5)
 shape = SubResource("RectangleShape2D_vln3g")
 
-[node name="Entities" type="Node2D" parent="."]
+[node name="EntitiesNode" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Slots" type="Node2D" parent="Entities"]
+[node name="Slots" type="Node2D" parent="EntitiesNode"]
 unique_name_in_owner = true
 
-[node name="Ground" type="Node2D" parent="Entities/Slots"]
+[node name="Ground" type="Node2D" parent="EntitiesNode/Slots"]
 
-[node name="Slot1" type="Marker2D" parent="Entities/Slots/Ground"]
+[node name="Slot1" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
 position = Vector2(-478, 199)
 
-[node name="Slot2" type="Marker2D" parent="Entities/Slots/Ground"]
+[node name="Slot2" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
 position = Vector2(-162, 199)
 
-[node name="Slot3" type="Marker2D" parent="Entities/Slots/Ground"]
+[node name="Slot3" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
 position = Vector2(365, 201)
+
+[node name="Slot4" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-368, 194)
+
+[node name="Slot5" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-52, 194)
+
+[node name="Slot6" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(475, 196)
+
+[node name="Slot7" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-264, 194)
+
+[node name="Slot8" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(52, 194)
+
+[node name="Slot9" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(202, 193)
+
+[node name="AquariumInfosContainer" type="PanelContainer" parent="."]
+offset_left = 340.0
+offset_top = -293.0
+offset_right = 534.0
+offset_bottom = -189.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AquariumInfosContainer"]
+layout_mode = 2
+
+[node name="TemperatureLabel" type="Label" parent="AquariumInfosContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Temperature: 22 °C"
+
+[node name="QualityLabel" type="Label" parent="AquariumInfosContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quality: 15 ppm"
+
+[node name="AcidityLabel" type="Label" parent="AquariumInfosContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Acidity: 8 pH"
+
+[node name="OxygenLabel" type="Label" parent="AquariumInfosContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Oxygen Saturation: 100%"

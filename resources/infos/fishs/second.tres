@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="FishInfos" load_steps=2 format=3 uid="uid://c5v21dn3asjyq"]
+
+[ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_akh3r"]
+
+[resource]
+script = ExtResource("1_akh3r")
+max_food = 200
+food_regimes = Array[int]([1])
+food_threshold = 40
+max_speed = 75.0
+acceleration = 2.0
+max_health = 50
+min_temperature = 22
+max_temperature = 26
+min_ph = 6
+max_ph = 8
+min_luminosity = 10
+max_luminosity = 90
+min_sanity = 50
+grow_time = 20
+life_span = 600
+start_scale = 0.1
+end_scale = 0.6
+display_name = "Second"
+description = "-"
+rarity = 0
+cost = 0
