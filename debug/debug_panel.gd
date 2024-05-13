@@ -32,4 +32,4 @@ func _on_spawn_plant_1_button_pressed() -> void:
 
 
 func _on_spawn_food_1_button_pressed() -> void:
-	spawn_plant_requested.emit(1)
+	spawn_food_requested.emit(0)

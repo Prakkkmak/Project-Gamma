@@ -19,6 +19,7 @@ extends CharacterBody2D
 @onready var food_label: Label = %FoodLabel
 @onready var name_label: Label = %NameLabel
 
+@onready var sprite: Sprite2D = $ScalePivot/Sprite2D
 
 var current_health: float = 10
 var current_food: float = 5
@@ -73,7 +74,10 @@ func _die() -> void:
 func _swim(delta: float) -> void:
 	var direction: Vector2 = (navigation_agent.get_next_path_position() - global_position).normalized()
 	velocity = velocity.lerp(direction * max_speed, 1 - exp(-acceleration * delta))
+	look_at(global_position + velocity)
+	sprite.flip_v = velocity.x < 0
 	move_and_slide()
+
 
 
 func _find_new_target_position() -> void:
@@ -134,7 +138,6 @@ func _on_swiming_to_food_state_entered() -> void:
 	animation_player.play("swim")
 
 func _on_swiming_to_food_state_physics_processing(delta: float) -> void:
-	print("Target food " + str(target_food))
 	if target_food:
 		print("Target food  aftr if" + str(target_food))
 		navigation_agent.target_position = target_food.global_position

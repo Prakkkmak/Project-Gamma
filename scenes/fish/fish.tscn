@@ -66,7 +66,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfsd1"]
-size = Vector2(119, 20)
+size = Vector2(61, 49)
 
 [node name="Fish" type="CharacterBody2D"]
 collision_mask = 512
@@ -90,7 +90,7 @@ texture = ExtResource("3_4vakq")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_cfsd1")
 
 [node name="StateChart" type="Node" parent="."]

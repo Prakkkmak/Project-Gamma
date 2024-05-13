@@ -2,6 +2,7 @@ class_name Card
 extends TextureRect
 
 signal used
+signal dragged(is_dragged: bool)
 signal discarded
 
 @export var entity_infos: EntityInfos
@@ -9,36 +10,55 @@ signal discarded
 @onready var use_button: Button = %UseButton
 @onready var discard_button: Button = %DiscardButton
 @onready var name_label: Label = %NameLabel
-@onready var card: Card = $"."
+@onready var texture_rect: TextureRect = %TextureRect
 
-var zoom_scale:Vector2 = Vector2(1.2, 1.2)  
-var original_scale:Vector2 = Vector2(1, 1) 
+
+var base_position: Vector2 = Vector2.ZERO
+var selection_position_offset: float = 10.0
+var drag_position: Vector2 = Vector2.ZERO
+var drag_enabled: bool = false
+var disable_mouse_features: bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	name_label.text = entity_infos.display_name
-	use_button.pressed.connect(_on_use_button_pressed)
-	discard_button.pressed.connect(_on_discard_button_pressed)
-	set_mouse_filter(MOUSE_FILTER_STOP)
-	card.mouse_entered.connect(_on_mouse_entered)
-	card.mouse_exited.connect(_on_mouse_exited)
-	#pivot_offset.y = size.y
-	
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+	gui_input.connect(_on_gui_input)
 
 
-func _on_use_button_pressed() -> void:
-	used.emit()
+func _process(delta: float) -> void:
+	if drag_enabled:
+		global_position = get_global_mouse_position() + drag_position
 
-
-func _on_discard_button_pressed() -> void:
-	discarded.emit()
 
 func _on_mouse_entered() -> void:
-	scale = zoom_scale
+	if disable_mouse_features && !drag_enabled:
+		return
+	if !drag_enabled:
+		base_position = global_position
+	global_position = global_position + Vector2.UP * selection_position_offset
 	z_index = 1
 
 
 func _on_mouse_exited() -> void:
-	scale = original_scale
+	if disable_mouse_features && !drag_enabled:
+		return
+	global_position = base_position
 	z_index = 0
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if disable_mouse_features && !drag_enabled:
+		return
+	if (event is InputEventMouseButton):
+		if event.is_action_pressed("click"):
+			drag_position = global_position - get_global_mouse_position()
+			drag_enabled = true
+			dragged.emit(drag_enabled)
+		if event.is_action_released("click"):
+			drag_enabled = false
+			global_position = base_position
+			dragged.emit(drag_enabled)
 

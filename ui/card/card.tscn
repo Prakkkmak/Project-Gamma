@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm842h44ddm1c"]
+[gd_scene load_steps=5 format=3 uid="uid://bm842h44ddm1c"]
 
 [ext_resource type="Script" path="res://ui/card/card.gd" id="1_4q8l6"]
-[ext_resource type="Texture2D" uid="uid://de3mkhkqty031" path="res://assets/art/ui/card3.png" id="1_jhroh"]
+[ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_i5cha"]
 [ext_resource type="Texture2D" uid="uid://bnjy3yyowl3v8" path="res://assets/art/ui/fish_placeholder.png" id="3_j1x6g"]
+[ext_resource type="Texture2D" uid="uid://de3mkhkqty031" path="res://assets/art/ui/card3.png" id="3_u2dhb"]
 
 [node name="Card" type="TextureRect"]
 anchors_preset = 7
@@ -10,23 +11,17 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -192.0
-offset_right = 64.0
 grow_horizontal = 2
 grow_vertical = 0
-pivot_offset = Vector2(67, 191)
-size_flags_vertical = 8
-texture = ExtResource("1_jhroh")
+texture = ExtResource("3_u2dhb")
 script = ExtResource("1_4q8l6")
+entity_infos = ExtResource("3_i5cha")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+offset_left = 10.0
+offset_right = 110.0
+offset_bottom = 134.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(100, 15)
@@ -55,17 +50,3 @@ text = "Poisson"
 custom_minimum_size = Vector2(100, 10)
 layout_mode = 2
 size_flags_horizontal = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="UseButton" type="Button" parent="VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Use"
-
-[node name="DiscardButton" type="Button" parent="VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Discard"

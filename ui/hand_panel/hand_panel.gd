@@ -22,6 +22,7 @@ func add_card(entity_info: EntityInfos) -> void:
 	var card: Card = card_scene.instantiate()
 	card.used.connect(_on_card_used.bind(card))
 	card.discarded.connect(_on_card_discarded.bind(card))
+	card.dragged.connect(_on_card_dragged)
 	card.entity_infos = entity_info
 	cards_container.add_child(card)
 	card.name=str(hand_cards.size())
@@ -47,3 +48,7 @@ func _on_card_used(card: Card) -> void:
 	card_used.emit(card.entity_infos)
 	delete_card(hand_cards.find(card))
 
+
+func _on_card_dragged(is_dragged: bool) -> void:
+	for card: Card in hand_cards:
+		card.disable_mouse_features = is_dragged
