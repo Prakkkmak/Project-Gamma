@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/fish/fish.gd" id="1_4jih3"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="2_msqfi"]
-[ext_resource type="Texture2D" uid="uid://dh5ghfw7uud5k" path="res://assets/art/entities/fishs/godot_fish.svg" id="3_0csct"]
+[ext_resource type="Texture2D" uid="uid://bnjy3yyowl3v8" path="res://assets/art/ui/fish_placeholder.png" id="3_4vakq"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_mo3f7"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_ag4xe"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="4_f52o4"]
@@ -86,8 +86,8 @@ debug_path_custom_color = Color(1, 0.0156863, 0, 1)
 [node name="ScalePivot" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScalePivot"]
-scale = Vector2(0.907262, 0.153243)
-texture = ExtResource("3_0csct")
+texture = ExtResource("3_4vakq")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
