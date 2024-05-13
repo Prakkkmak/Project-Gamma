@@ -34,19 +34,17 @@ func _process(delta: float) -> void:
 
 
 func _on_mouse_entered() -> void:
-	if disable_mouse_features && !drag_enabled:
+	if disable_mouse_features:
 		return
 	if !drag_enabled:
 		base_position = global_position
 	global_position = global_position + Vector2.UP * selection_position_offset
-	z_index = 1
 
 
 func _on_mouse_exited() -> void:
-	if disable_mouse_features && !drag_enabled:
+	if disable_mouse_features:
 		return
 	global_position = base_position
-	z_index = 0
 
 
 func _on_gui_input(event: InputEvent) -> void:
@@ -57,8 +55,10 @@ func _on_gui_input(event: InputEvent) -> void:
 			drag_position = global_position - get_global_mouse_position()
 			drag_enabled = true
 			dragged.emit(drag_enabled)
+			z_index = 1
 		if event.is_action_released("click"):
 			drag_enabled = false
 			global_position = base_position
 			dragged.emit(drag_enabled)
+			z_index = 0
 

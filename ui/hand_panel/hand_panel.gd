@@ -25,7 +25,7 @@ func add_card(entity_info: EntityInfos) -> void:
 	card.dragged.connect(_on_card_dragged)
 	card.entity_infos = entity_info
 	cards_container.add_child(card)
-	card.name=str(hand_cards.size())
+	card.name = str(hand_cards.size())
 	hand_cards.append(card)
 
 
@@ -50,5 +50,7 @@ func _on_card_used(card: Card) -> void:
 
 
 func _on_card_dragged(is_dragged: bool) -> void:
+	print("Dragged")
 	for card: Card in hand_cards:
+		print("set to " + str(is_dragged))
 		card.disable_mouse_features = is_dragged

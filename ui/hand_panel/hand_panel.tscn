@@ -18,12 +18,3 @@ card_scene = ExtResource("2_e0vau")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
-
-[node name="Card" parent="CardsContainer" instance=ExtResource("2_e0vau")]
-layout_mode = 2
-
-[node name="Card2" parent="CardsContainer" instance=ExtResource("2_e0vau")]
-layout_mode = 2
-
-[node name="Card3" parent="CardsContainer" instance=ExtResource("2_e0vau")]
-layout_mode = 2
