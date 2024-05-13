@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="PlantInfos" load_steps=2 format=3 uid="uid://cowcm5o3mwc4d"]
+
+[ext_resource type="Script" path="res://resources/infos/plant_infos.gd" id="1_ew3a7"]
+
+[resource]
+script = ExtResource("1_ew3a7")
+max_health = 100
+min_temperature = 22
+max_temperature = 26
+min_acidity = 6
+max_acidity = 8
+min_quality = 50
+min_oxygen_saturation = 90
+max_oxygen_saturation = 110
+grow_time = 50
+life_span = 600
+start_scale = 0.2
+end_scale = 1.0
+display_name = "Gotod"
+description = "Plante qui à beaucoup de nourriture"
+rarity = 0
+cost = 0
+oxygen_variation = 3.0
+temperature_variation = -1.0
+quality_variation = 2.0
+acidity_variation = 0.0
