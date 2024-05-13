@@ -49,3 +49,17 @@ shape = SubResource("RectangleShape2D_vln3g")
 
 [node name="Entities" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="Slots" type="Node2D" parent="Entities"]
+unique_name_in_owner = true
+
+[node name="Ground" type="Node2D" parent="Entities/Slots"]
+
+[node name="Slot1" type="Marker2D" parent="Entities/Slots/Ground"]
+position = Vector2(-478, 199)
+
+[node name="Slot2" type="Marker2D" parent="Entities/Slots/Ground"]
+position = Vector2(-162, 199)
+
+[node name="Slot3" type="Marker2D" parent="Entities/Slots/Ground"]
+position = Vector2(365, 201)

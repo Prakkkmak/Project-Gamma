@@ -15,5 +15,4 @@ func _on_food_component_depleted() -> void:
 
 func _on_food_component_eated(old_amount: float, new_amount: float) -> void:
 	linear_velocity = Vector2.ZERO
-	gpu_particles_2d.emitting = true
 	food_amount_label.text = str(new_amount)

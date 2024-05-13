@@ -40,3 +40,15 @@ extends EntityInfos
 
 ## Life span in secondes
 @export var life_span: int = 60 * 10 # 10 minutes
+
+
+## Start scale
+@export var start_scale: float = 0.2
+
+
+## End scale
+@export var end_scale: float = 1.0
+
+
+## Texture
+@export var texture: Texture

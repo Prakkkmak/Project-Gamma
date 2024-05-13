@@ -136,7 +136,9 @@ func _on_swiming_to_food_state_physics_processing(delta: float) -> void:
 
 
 func _on_eating_state_entered() -> void:
-	animation_player.play("eat")
+	if target_food && current_food < infos.max_food:
+		target_food.start_eating()
+		animation_player.play("eat")
 
 
 func _on_eating_state_processing(delta: float) -> void:
@@ -147,12 +149,15 @@ func _on_eating_state_processing(delta: float) -> void:
 		print("Free target food from var")
 		target_food = null
 		state_chart.send_event("idle")
+		target_food.stop_eating()
 
 
 func _on_food_depleted() -> void:
 	print("Food depleted, so stop focus")
+	target_food.stop_eating()
 	target_food = null
 	state_chart.send_event.call_deferred("idle")
+	
 
 #endregion
 

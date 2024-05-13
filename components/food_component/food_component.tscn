@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://coeetj41k63yn"]
+[gd_scene load_steps=4 format=3 uid="uid://coeetj41k63yn"]
 
 [ext_resource type="Script" path="res://components/food_component/food_component.gd" id="1_cefob"]
+[ext_resource type="Material" uid="uid://dcl0ho3x5y35b" path="res://resources/vfx/particles/food_particle.tres" id="2_r0r1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lfsth"]
 
@@ -11,3 +12,8 @@ script = ExtResource("1_cefob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lfsth")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+process_material = ExtResource("2_r0r1o")
