@@ -38,8 +38,7 @@ func _ready() -> void:
 		max_speed = infos.max_speed
 		acceleration = infos.acceleration
 		name_label.text = infos.display_name
-		scale = Vector2.ONE * infos.end_scale
-	
+		scale = scale * infos.end_scale
 	swiming.state_entered.connect(_on_swiming_state_entered)
 	swiming.state_physics_processing.connect(_on_swiming_state_physics_processing)
 	idle.state_entered.connect(_on_idle_state_entered)
@@ -57,7 +56,7 @@ func _process(delta: float) -> void:
 	if current_health < 0:
 		_die()
 	food_label.text = "Food: " + str(floor(current_food))
-	health_label.text = "Health: " + str(current_health)
+	health_label.text = "Health: " + str(floor(current_health))
 
 func _physics_process(delta: float) -> void:
 	pass

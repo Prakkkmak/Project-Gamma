@@ -1,8 +1,10 @@
 class_name Aquarium
 extends Node2D
 
+## Second per aquarium tick
+@export var seconds_per_tick: float = 10.0
 ## Quality in percent is 0 to 100
-@export_range(0,100) var quality: float = 20.0
+@export_range(0,100) var quality: float = 100.0
 ## Acidity in pH 0 to 14 with 7 neutral
 @export_range(0,14) var acidity: float = 7.0
 ## Temperatire 10 to 40 with 21 as neutral
@@ -14,6 +16,7 @@ extends Node2D
 @export var plant_scene: PackedScene
 @export var fish_food_scene: PackedScene
 
+
 @onready var temperature_label: Label = %TemperatureLabel
 @onready var quality_label: Label = %QualityLabel
 @onready var acidity_label: Label = %AcidityLabel
@@ -22,6 +25,9 @@ extends Node2D
 
 @onready var entities_node: Node2D = %EntitiesNode
 @onready var ground_slots: Node2D = %Slots/Ground
+
+
+
 
 
 var entities: Array[Node] = []
@@ -59,6 +65,7 @@ func add_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> vo
 			continue
 		slot.add_child(plant)
 		entities.append(plant)
+		break
 
 func add_food(position: Vector2 = Vector2.ZERO) -> void:
 	var fish_food: FishFood = fish_food_scene.instantiate()
@@ -70,10 +77,11 @@ func _update_constants(delta: float) -> void:
 		var entity_infos: EntityInfos = entity.get("infos") as EntityInfos
 		if !entity_infos:
 			return
-		temperature += entity_infos.temperature_variation * delta
-		quality += entity_infos.quality_variation * delta
-		acidity += entity_infos.acidity_variation * delta
-		oxygen += entity_infos.oxygen_variation * delta
+		temperature += entity_infos.temperature_variation * delta / seconds_per_tick
+		quality += entity_infos.quality_variation * delta / seconds_per_tick
+		acidity += entity_infos.acidity_variation * delta / seconds_per_tick
+		oxygen += entity_infos.oxygen_variation * delta / seconds_per_tick
+	quality = clamp(quality, 0, 100)
 	_update_temperature_label()
 	_update_quality_label()
 	_update_acidity_label()
