@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="FishInfos" load_steps=3 format=3 uid="uid://c5v21dn3asjyq"]
+
+[ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_3xf0u"]
+[ext_resource type="Texture2D" uid="uid://dvx4jcwygihca" path="res://assets/art/entities/fishs/NarwhaleConstellation.png" id="2_kqvhe"]
+
+[resource]
+script = ExtResource("1_3xf0u")
+max_food = 300
+food_regimes = Array[int]([0])
+food_threshold = 100
+max_speed = 50.0
+acceleration = 4.0
+max_health = 30
+min_temperature = 22
+max_temperature = 26
+min_acidity = 6
+max_acidity = 8
+min_quality = 50
+max_quality = 120
+min_oxygen_saturation = 90
+max_oxygen_saturation = 110
+grow_time = 20
+life_span = 600
+start_scale = 0.05
+end_scale = 2.0
+display_name = "Whalle"
+description = "-"
+rarity = 0
+cost = 0
+oxygen_variation = 0.0
+temperature_variation = 0.0
+quality_variation = 0.0
+acidity_variation = 0.0
+texture = ExtResource("2_kqvhe")

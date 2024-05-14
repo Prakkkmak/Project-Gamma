@@ -1,26 +1,28 @@
-[gd_resource type="Resource" script_class="FishInfos" load_steps=2 format=3 uid="uid://da3acdfcvk0w0"]
+[gd_resource type="Resource" script_class="FishInfos" load_steps=3 format=3 uid="uid://da3acdfcvk0w0"]
 
 [ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_cmg3u"]
+[ext_resource type="Texture2D" uid="uid://bsdguy6b3nmde" path="res://assets/art/entities/fishs/Manta.png" id="2_4t43o"]
 
 [resource]
 script = ExtResource("1_cmg3u")
-max_food = 10
+max_food = 30
 food_regimes = Array[int]([1])
-food_threshold = 1
-max_speed = 100.0
-acceleration = 2.0
+food_threshold = 10
+max_speed = 300.0
+acceleration = 4.0
 max_health = 15
 min_temperature = 22
 max_temperature = 26
 min_acidity = 6
 max_acidity = 8
 min_quality = 50
+max_quality = 120
 min_oxygen_saturation = 90
 max_oxygen_saturation = 130
 grow_time = 50
 life_span = 600
 start_scale = 0.2
-end_scale = 1.0
+end_scale = 1.5
 display_name = "Seraphin"
 description = "-"
 rarity = 0
@@ -29,3 +31,4 @@ oxygen_variation = -1.0
 temperature_variation = 1.0
 quality_variation = -1.0
 acidity_variation = 0.0
+texture = ExtResource("2_4t43o")

@@ -1,11 +1,15 @@
 class_name Card
 extends TextureRect
 
-signal used
-signal dragged(is_dragged: bool)
-signal discarded
+
+signal selected
+signal unselected
+signal drag_started
+signal drag_stopped(drop_position: Vector2)
+
 
 @export var entity_infos: EntityInfos
+@export var usage_area_rect: Rect2
 
 @onready var use_button: Button = %UseButton
 @onready var discard_button: Button = %DiscardButton
@@ -28,7 +32,7 @@ var base_position: Vector2 = Vector2.ZERO
 var selection_position_offset: float = 10.0
 var drag_position: Vector2 = Vector2.ZERO
 var drag_enabled: bool = false
-var disable_mouse_features: bool = false
+var selectable: bool = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -37,6 +41,10 @@ func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 	gui_input.connect(_on_gui_input)
+
+
+func reset_position() -> void:
+	global_position = base_position
 
 
 func _fill_infos() -> void:
@@ -69,6 +77,7 @@ func _fill_entity_infos(entity_infos: EntityInfos) -> void:
 	else:
 		acidity_condition_variation_label.text = "-"
 
+
 func _fill_living_infos(living_infos: LivingInfos) -> void:
 	temperature_condition_value_label.text = str(living_infos.min_temperature) + "-" + str(living_infos.max_temperature)
 	oxygen_condition_value_label.text = str(living_infos.min_oxygen_saturation) + "-" + str(living_infos.max_oxygen_saturation)
@@ -84,15 +93,14 @@ func _fill_fish_infos(plant_infos: FishInfos) -> void:
 func _fill_plant_infos(plant_infos: PlantInfos) -> void:
 	pass
 
+
 func _process(delta: float) -> void:
 	if drag_enabled:
 		global_position = get_global_mouse_position() + drag_position
 
 
-
-
 func _on_mouse_entered() -> void:
-	if disable_mouse_features:
+	if !selectable:
 		return
 	if !drag_enabled:
 		base_position = global_position
@@ -100,26 +108,23 @@ func _on_mouse_entered() -> void:
 
 
 func _on_mouse_exited() -> void:
-	if disable_mouse_features:
+	if !selectable:
 		return
-	global_position = base_position
+	reset_position()
 
 
 func _on_gui_input(event: InputEvent) -> void:
-	if disable_mouse_features && !drag_enabled:
+	if !selectable && !drag_enabled:
 		return
 	if (event is InputEventMouseButton):
 		if event.is_action_pressed("click"):
 			drag_position = global_position - get_global_mouse_position()
 			drag_enabled = true
-			dragged.emit(drag_enabled)
+			drag_started.emit()
 			z_index = 1
 		if event.is_action_released("click"):
 			drag_enabled = false
 			#Check here if area for deletion and check if the drop is in good position
-			print(get_global_mouse_position())
-			used.emit(get_global_mouse_position())
-			global_position = base_position
-			dragged.emit(drag_enabled)
 			z_index = 0
+			drag_stopped.emit(get_global_mouse_position())
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=11 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -9,21 +9,22 @@
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_oiyhp"]
 [ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="3_pxkae"]
 [ext_resource type="Resource" uid="uid://c5v21dn3asjyq" path="res://resources/infos/fishs/whalle.tres" id="3_twokq"]
-[ext_resource type="Resource" uid="uid://da3acdfcvk0w0" path="res://resources/infos/fishs/seraphin.tres" id="4_hg2qq"]
-[ext_resource type="Resource" uid="uid://c1ijeeu6deqp6" path="res://resources/infos/fishs/bob.tres" id="5_xeeyg"]
 [ext_resource type="PackedScene" uid="uid://bssw0yhkh8n64" path="res://scenes/plant/plant.tscn" id="6_l2bk5"]
-[ext_resource type="Resource" uid="uid://cowcm5o3mwc4d" path="res://resources/infos/plants/mais.tres" id="7_68613"]
-[ext_resource type="Resource" uid="uid://j3khiuqeyi1e" path="res://resources/infos/plants/sucrelune.tres" id="8_sj6da"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
-fish_infos = Array[Resource("res://resources/infos/fish_infos.gd")]([ExtResource("3_oiyhp"), ExtResource("3_twokq"), ExtResource("4_hg2qq"), ExtResource("5_xeeyg")])
-plant_infos = Array[Resource("res://resources/infos/plant_infos.gd")]([ExtResource("3_pxkae"), ExtResource("7_68613"), ExtResource("8_sj6da")])
+fish_infos = Array[Resource("res://resources/infos/fish_infos.gd")]([ExtResource("3_oiyhp"), ExtResource("3_twokq")])
+plant_infos = Array[Resource("res://resources/infos/plant_infos.gd")]([ExtResource("3_pxkae")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Aquarium" parent="." instance=ExtResource("1_kdlov")]
 unique_name_in_owner = true
+seconds_per_tick = 10.0
+quality = 100.0
+acidity = 7.0
+temperature = 21.0
+oxygen = 100.0
 fish_scene = ExtResource("2_mgdgo")
 plant_scene = ExtResource("6_l2bk5")
 fish_food_scene = ExtResource("3_djjks")
@@ -32,6 +33,7 @@ fish_food_scene = ExtResource("3_djjks")
 
 [node name="HandPanel" parent="CanvasLayer" instance=ExtResource("2_v3xj4")]
 unique_name_in_owner = true
+size_flags_horizontal = 4
 
 [node name="DebugPanel" parent="CanvasLayer" instance=ExtResource("3_cxsxr")]
 

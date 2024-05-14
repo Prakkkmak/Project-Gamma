@@ -53,3 +53,7 @@ click={
 2d_physics/layer_4="food"
 2d_physics/layer_5="prop"
 2d_physics/layer_10="wall"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

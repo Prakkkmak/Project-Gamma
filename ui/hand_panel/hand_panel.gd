@@ -1,5 +1,7 @@
 class_name HandPanel 
-extends PanelContainer
+extends Control
+
+enum DropZone {NORMAL, USE, DISCARD}
 
 signal card_used(entity_info: EntityInfos, position: Vector2)
 signal card_discarded(entity_info: EntityInfos)
@@ -7,15 +9,19 @@ signal card_discarded(entity_info: EntityInfos)
 @export var card_scene: PackedScene
 
 @onready var cards_container: HBoxContainer = %CardsContainer
+@onready var use_area: ColorRect = %UseArea
+@onready var discard_area: ColorRect = %DiscardArea
+
+
+
 
 var hand_cards: Array[Card] = []
 
 
 func add_card(entity_info: EntityInfos) -> void:
 	var card: Card = card_scene.instantiate()
-	card.used.connect(_on_card_used.bind(card))
-	card.discarded.connect(_on_card_discarded.bind(card))
-	card.dragged.connect(_on_card_dragged)
+	card.drag_started.connect(_on_card_drag_started.bind(card))
+	card.drag_stopped.connect(_on_card_drag_stopped.bind(card))
 	card.entity_infos = entity_info
 	cards_container.add_child(card)
 	card.name = str(hand_cards.size())
@@ -31,18 +37,29 @@ func delete_card(index: int) -> void:
 	hand_cards[index].queue_free()
 	hand_cards.remove_at(index)
 
-
-func _on_card_discarded(card: Card) -> void:
-	delete_card(hand_cards.find(card))
-	card_discarded.emit(card.entity_infos)
-
-
-func _on_card_used(used_position: Vector2, card: Card) -> void:
-	card_used.emit(card.entity_infos, used_position)
-	delete_card(hand_cards.find(card))
+func _get_drop_zone(drop_position: Vector2) -> DropZone:
+	if use_area.get_global_rect().has_point(drop_position):
+		return DropZone.USE
+	if discard_area.get_global_rect().has_point(drop_position):
+		return DropZone.DISCARD
+	return DropZone.NORMAL
 
 
-func _on_card_dragged(is_dragged: bool) -> void:
-	for card: Card in hand_cards:
-		print("set to " + str(is_dragged))
-		card.disable_mouse_features = is_dragged
+func _on_card_drag_started(card: Card) -> void:
+	for hand_card: Card in hand_cards:
+		hand_card.selectable = false
+
+
+func _on_card_drag_stopped(drop_position: Vector2, card: Card) -> void:
+	for hand_card: Card in hand_cards:
+		hand_card.selectable = true
+	var drop_zone: DropZone = _get_drop_zone(drop_position)
+	print(drop_zone)
+	if drop_zone == DropZone.USE:
+		card_used.emit(card.entity_infos, drop_position)
+		delete_card(hand_cards.find(card))
+	elif drop_zone == DropZone.DISCARD:
+		delete_card(hand_cards.find(card))
+		card_discarded.emit(card.entity_infos)
+	else:
+		card.reset_position()

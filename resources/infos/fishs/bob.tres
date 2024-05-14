@@ -1,20 +1,22 @@
-[gd_resource type="Resource" script_class="FishInfos" load_steps=2 format=3 uid="uid://c1ijeeu6deqp6"]
+[gd_resource type="Resource" script_class="FishInfos" load_steps=3 format=3 uid="uid://c1ijeeu6deqp6"]
 
 [ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_c5v5d"]
+[ext_resource type="Texture2D" uid="uid://db0kv18gm0r8e" path="res://assets/art/entities/fishs/Fish-1.png" id="2_7h3s8"]
 
 [resource]
 script = ExtResource("1_c5v5d")
-max_food = 3
+max_food = 100
 food_regimes = Array[int]([1])
-food_threshold = 1
-max_speed = 100.0
-acceleration = 2.0
+food_threshold = 50
+max_speed = 40.0
+acceleration = 1.0
 max_health = 3
 min_temperature = 22
 max_temperature = 26
 min_acidity = 6
 max_acidity = 8
 min_quality = 50
+max_quality = 120
 min_oxygen_saturation = 90
 max_oxygen_saturation = 110
 grow_time = 10
@@ -29,3 +31,4 @@ oxygen_variation = -1.0
 temperature_variation = 1.0
 quality_variation = -1.0
 acidity_variation = 0.0
+texture = ExtResource("2_7h3s8")

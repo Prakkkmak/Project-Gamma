@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/fish/fish.gd" id="1_4jih3"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="2_msqfi"]
-[ext_resource type="Texture2D" uid="uid://bnjy3yyowl3v8" path="res://assets/art/ui/fish_placeholder.png" id="3_4vakq"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_mo3f7"]
+[ext_resource type="Texture2D" uid="uid://c0sn25klwn13b" path="res://assets/art/entities/fishs/Fish-2.png" id="3_n40j0"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_ag4xe"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="4_f52o4"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_qylb3"]
@@ -65,8 +65,8 @@ _data = {
 "swim": SubResource("Animation_kx1gc")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfsd1"]
-size = Vector2(61, 49)
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdbe1"]
+radius = 16.0
 
 [node name="Fish" type="CharacterBody2D"]
 collision_mask = 512
@@ -86,12 +86,12 @@ debug_path_custom_color = Color(1, 0.0156863, 0, 1)
 [node name="ScalePivot" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScalePivot"]
-texture = ExtResource("3_4vakq")
+scale = Vector2(2, 2)
+texture = ExtResource("3_n40j0")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_cfsd1")
+shape = SubResource("CircleShape2D_qdbe1")
 
 [node name="StateChart" type="Node" parent="."]
 unique_name_in_owner = true
@@ -194,6 +194,7 @@ enabled = false
 initial_node_to_watch = NodePath("../StateChart")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 offset_left = -20.0
 offset_top = -95.0
 offset_right = 20.0
