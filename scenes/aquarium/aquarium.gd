@@ -9,11 +9,11 @@ signal income_perseved(income: float)
 ## Quality in percent is 0 to 100
 @export_range(0,100) var quality: float = 100.0
 ## Acidity in pH 0 to 14 with 7 neutral
-@export_range(0,14) var acidity: float = 7.0
+@export_range(0,100) var acidity: float = 100.0
 ## Temperatire 10 to 40 with 21 as neutral
-@export_range(10,40) var temperature: float = 21.0
+@export_range(0,100) var temperature: float = 100.0
 ## Saturation of oxygen, 100 is perfect
-@export_range(50,150) var oxygen: float = 100.0
+@export_range(0,100) var oxygen: float = 100.0
 
 @export var fish_scene: PackedScene
 @export var plant_scene: PackedScene

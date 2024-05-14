@@ -1,24 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=9 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
+[ext_resource type="Resource" uid="uid://bjif1w1tyqkgs" path="res://resources/decks/base_deck.tres" id="2_eas1m"]
 [ext_resource type="PackedScene" uid="uid://b4yjxy1qh5583" path="res://scenes/fish/fish.tscn" id="2_mgdgo"]
 [ext_resource type="PackedScene" uid="uid://btnf52ln1b6px" path="res://ui/hand_panel/hand_panel.tscn" id="2_v3xj4"]
 [ext_resource type="PackedScene" uid="uid://cogmgrpb7vwke" path="res://debug/debug_panel.tscn" id="3_cxsxr"]
 [ext_resource type="PackedScene" uid="uid://cyyip1ltnw412" path="res://scenes/fish_food/fish_food.tscn" id="3_djjks"]
-[ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_oiyhp"]
-[ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="3_pxkae"]
-[ext_resource type="Resource" uid="uid://c5v21dn3asjyq" path="res://resources/infos/fishs/whalex.tres" id="3_twokq"]
-[ext_resource type="Resource" uid="uid://da3acdfcvk0w0" path="res://resources/infos/fishs/seraphin.tres" id="4_hg2qq"]
-[ext_resource type="Resource" uid="uid://c1ijeeu6deqp6" path="res://resources/infos/fishs/bob.tres" id="5_xeeyg"]
 [ext_resource type="PackedScene" uid="uid://bssw0yhkh8n64" path="res://scenes/plant/plant.tscn" id="6_l2bk5"]
-[ext_resource type="Resource" uid="uid://cowcm5o3mwc4d" path="res://resources/infos/plants/mais.tres" id="7_68613"]
-[ext_resource type="Resource" uid="uid://j3khiuqeyi1e" path="res://resources/infos/plants/sucrelune.tres" id="8_sj6da"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
-fish_infos = Array[Resource("res://resources/infos/fish_infos.gd")]([ExtResource("3_oiyhp"), ExtResource("3_twokq"), ExtResource("4_hg2qq"), ExtResource("5_xeeyg")])
-plant_infos = Array[Resource("res://resources/infos/plant_infos.gd")]([ExtResource("3_pxkae"), ExtResource("7_68613"), ExtResource("8_sj6da")])
+decks = Array[Resource("res://resources/infos/deck.gd")]([ExtResource("2_eas1m")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -54,9 +47,12 @@ unique_name_in_owner = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+offset_left = -117.0
+offset_top = 18.0
+offset_right = -30.0
+offset_bottom = 87.0
 grow_horizontal = 0
-text = "15"
+theme_override_font_sizes/font_size = 50
+text = "15$"
 
 [editable path="Aquarium"]

@@ -9,24 +9,3 @@ script = ExtResource("1_vhut6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-
-[node name="SpawnFish1Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Spawn Fish 1"
-
-[node name="SpawnFish2Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Spawn Fish 2"
-
-[node name="SpawnPlant1Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Spawn Plant 1
-"
-
-[node name="SpawnPlant2Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Spawn Plant 2"
-
-[node name="SpawnFoodButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Spawn Food"

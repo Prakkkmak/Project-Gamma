@@ -6,27 +6,14 @@ extends EntityInfos
 @export var max_health: int = 50
 
 #region Conditions
-## Minimal temperature in °C included in range -100-100 
-@export var min_temperature: int = 22
-## Maximum temperature in °C excluded in range -100-100 
-@export var max_temperature: int = 26
-
-## Minimal pH included in range 0-14
-@export var min_acidity: int = 6
-## Maximum ph excluded in range 0-14
-@export var max_acidity: int = 8 
-
-## Lower sanity level, under this level the entity can't survive
-@export var min_quality: int = 50
-
-## max sanity level, under this level the entity can't survive
-@export var max_quality: int = 120
-
-## Min oxygen
-@export var min_oxygen_saturation: int = 90
-
-## Max oxygen
-@export var max_oxygen_saturation: int = 110
+@export var min_temperature: float = 80
+@export var max_temperature: float = 120
+@export var min_acidity: float = 80
+@export var max_acidity: float = 120
+@export var min_quality: float = 80
+@export var max_quality: float = 120
+@export var min_oxygen_saturation: int = 80
+@export var max_oxygen_saturation: int = 120
 #endregion
 
 

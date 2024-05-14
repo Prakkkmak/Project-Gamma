@@ -1,6 +1,10 @@
 class_name EntityInfos
 extends Resource
 
+
+enum Rarity { INVALID, D, C, B, A, S }
+
+
 ## Display name of the entity
 @export var display_name: String = "-"
 
@@ -8,7 +12,7 @@ extends Resource
 @export var description: String = "-"
 
 ## rarity
-@export var rarity: int = 0
+@export var rarity: Rarity = Rarity.D
 
 ## Price of the entity
 @export var cost: int = 0

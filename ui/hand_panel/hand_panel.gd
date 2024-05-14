@@ -7,6 +7,7 @@ signal card_used(entity_info: EntityInfos, position: Vector2)
 signal card_discarded(entity_info: EntityInfos)
 
 @export var card_scene: PackedScene
+@export var max_hand_size: int = 8
 
 @onready var cards_container: HBoxContainer = %CardsContainer
 @onready var use_area: ColorRect = %UseArea
@@ -19,6 +20,8 @@ var hand_cards: Array[Card] = []
 
 
 func add_card(entity_info: EntityInfos) -> void:
+	if entity_info == null:
+		return
 	var card: Card = card_scene.instantiate()
 	card.drag_started.connect(_on_card_drag_started.bind(card))
 	card.drag_stopped.connect(_on_card_drag_stopped.bind(card))
@@ -36,6 +39,11 @@ func add_cards(entity_infos: Array[EntityInfos]) -> void:
 func delete_card(index: int) -> void:
 	hand_cards[index].queue_free()
 	hand_cards.remove_at(index)
+
+
+func get_remaining_size() -> int:
+	return max_hand_size - hand_cards.size()
+
 
 func _get_drop_zone(drop_position: Vector2) -> DropZone:
 	if use_area.get_global_rect().has_point(drop_position):
