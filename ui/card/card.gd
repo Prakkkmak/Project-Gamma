@@ -116,6 +116,9 @@ func _on_gui_input(event: InputEvent) -> void:
 			z_index = 1
 		if event.is_action_released("click"):
 			drag_enabled = false
+			#Check here if area for deletion and check if the drop is in good position
+			print(get_global_mouse_position())
+			used.emit(get_global_mouse_position())
 			global_position = base_position
 			dragged.emit(drag_enabled)
 			z_index = 0

@@ -1,7 +1,7 @@
 class_name HandPanel 
 extends PanelContainer
 
-signal card_used(entity_info: EntityInfos)
+signal card_used(entity_info: EntityInfos, position: Vector2)
 signal card_discarded(entity_info: EntityInfos)
 
 @export var card_scene: PackedScene
@@ -37,13 +37,12 @@ func _on_card_discarded(card: Card) -> void:
 	card_discarded.emit(card.entity_infos)
 
 
-func _on_card_used(card: Card) -> void:
-	card_used.emit(card.entity_infos)
+func _on_card_used(used_position: Vector2, card: Card) -> void:
+	card_used.emit(card.entity_infos, used_position)
 	delete_card(hand_cards.find(card))
 
 
 func _on_card_dragged(is_dragged: bool) -> void:
-	print("Dragged")
 	for card: Card in hand_cards:
 		print("set to " + str(is_dragged))
 		card.disable_mouse_features = is_dragged

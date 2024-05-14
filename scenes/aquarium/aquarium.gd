@@ -47,8 +47,9 @@ func add_fish(fish_infos: FishInfos, position: Vector2 = Vector2.ZERO) -> void:
 	print("Add " + fish_infos.display_name)
 	var fish: Fish = fish_scene.instantiate()
 	fish.infos = fish_infos
-	fish.position = position
 	entities_node.add_child(fish)
+	fish.global_position = position
+	print("Fish spawned at " + str(position))
 	_track_entity(fish)
 
 
