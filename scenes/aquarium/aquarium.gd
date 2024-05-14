@@ -30,9 +30,6 @@ signal income_perseved(income: float)
 @onready var ground_slots: Node2D = %Slots/Ground
 
 
-
-
-
 var entities: Array[Node] = []
 
 
@@ -96,6 +93,7 @@ func _update_constants(delta: float) -> void:
 	_update_quality_label()
 	_update_acidity_label()
 	_update_oxygen_label()
+
 
 func _update_temperature_label() -> void:
 	temperature_label.text = "Temperature: " + str(ceil(temperature)) + " °C"

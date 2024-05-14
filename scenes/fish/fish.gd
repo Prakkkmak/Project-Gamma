@@ -21,9 +21,10 @@ extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $ScalePivot/Sprite2D
 
+var aquarium: Aquarium
+
 var current_health: float = 10
 var current_food: float = 5
-
 
 var current_target: Vector2 = Vector2.ZERO
 var target_food: FoodComponent
@@ -33,7 +34,6 @@ var acceleration: float = 1
 
 
 func _ready() -> void:
-	
 	if infos:
 		current_health = infos.max_health
 		max_speed = infos.max_speed
@@ -54,11 +54,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	current_food -= delta
 	if current_food < 0:
-		current_health -= delta
-	if current_health < 0:
-		_die()
+		take_damage(delta)
 	food_label.text = "Food: " + str(floor(current_food))
 	health_label.text = "Health: " + str(floor(current_health))
+	if aquarium:
+		if aquarium.oxygen < infos.min_oxygen || aquarium.oxygen > infos.max_oxygen:
+			take_damage(delta)
+
+func take_damage(amount: float) -> void:
+	animation_player.play("hurt")
+	current_health -= amount
+	if current_health < 0:
+		_die()
+
 
 func _physics_process(delta: float) -> void:
 	pass

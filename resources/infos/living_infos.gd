@@ -12,8 +12,8 @@ extends EntityInfos
 @export var max_acidity: float = 120
 @export var min_quality: float = 80
 @export var max_quality: float = 120
-@export var min_oxygen_saturation: int = 80
-@export var max_oxygen_saturation: int = 120
+@export var min_oxygen: int = 80
+@export var max_oxygen: int = 120
 #endregion
 
 

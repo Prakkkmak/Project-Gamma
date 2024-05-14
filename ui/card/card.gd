@@ -80,7 +80,7 @@ func _fill_entity_infos(entity_infos: EntityInfos) -> void:
 
 func _fill_living_infos(living_infos: LivingInfos) -> void:
 	temperature_condition_value_label.text = str(living_infos.min_temperature) + "-" + str(living_infos.max_temperature)
-	oxygen_condition_value_label.text = str(living_infos.min_oxygen_saturation) + "-" + str(living_infos.max_oxygen_saturation)
+	oxygen_condition_value_label.text = str(living_infos.min_oxygen) + "-" + str(living_infos.max_oxygen)
 	quality_condition_value_label.text = str(living_infos.min_quality) + "-" + str(living_infos.max_quality)
 	acidity_condition_value_label.text = str(living_infos.min_acidity) + "-" + str(living_infos.max_acidity)
 

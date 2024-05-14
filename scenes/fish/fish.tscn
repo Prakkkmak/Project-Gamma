@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4yjxy1qh5583"]
+[gd_scene load_steps=16 format=3 uid="uid://b4yjxy1qh5583"]
 
 [ext_resource type="Script" path="res://scenes/fish/fish.gd" id="1_4jih3"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="2_msqfi"]
@@ -23,6 +23,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScalePivot/Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ag72m"]
@@ -58,10 +70,27 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(0.6, 1.3), Vector2(1.2, 0.9), Vector2(1, 0.9)]
 }
 
+[sub_resource type="Animation" id="Animation_ph1a4"]
+resource_name = "hurt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScalePivot/Sprite2D:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(0.138696, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.831373, 0.14902, 0.0941176, 0.752941), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2v4r"]
 _data = {
 "RESET": SubResource("Animation_t0tti"),
 "eat": SubResource("Animation_ag72m"),
+"hurt": SubResource("Animation_ph1a4"),
 "swim": SubResource("Animation_kx1gc")
 }
 
