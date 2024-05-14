@@ -15,6 +15,7 @@ max_temperature = 26
 min_acidity = 6
 max_acidity = 8
 min_quality = 50
+max_quality = 120
 min_oxygen_saturation = 90
 max_oxygen_saturation = 110
 grow_time = 20

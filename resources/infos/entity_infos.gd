@@ -24,3 +24,6 @@ extends Resource
 
 ## Some stuff makes the temperature rise or cool
 @export var acidity_variation: float = 0.0
+
+## Texture
+@export var texture: Texture

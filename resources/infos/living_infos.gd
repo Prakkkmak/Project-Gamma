@@ -19,6 +19,9 @@ extends EntityInfos
 ## Lower sanity level, under this level the entity can't survive
 @export var min_quality: int = 50
 
+## max sanity level, under this level the entity can't survive
+@export var max_quality: int = 120
+
 ## Min oxygen
 @export var min_oxygen_saturation: int = 90
 
@@ -41,6 +44,3 @@ extends EntityInfos
 @export var end_scale: float = 1.0
 #endregion
 
-
-## Texture
-@export var texture: Texture
