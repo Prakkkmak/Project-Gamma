@@ -10,12 +10,6 @@ signal card_discarded(entity_info: EntityInfos)
 
 var hand_cards: Array[Card] = []
 
-func _ready() -> void:
-	add_card(preload("res://resources/infos/fishs/guppy.tres"))
-	add_card(preload("res://resources/infos/fishs/second.tres"))
-	add_card(preload("res://resources/infos/fishs/seraphin.tres"))
-	add_card(preload("res://resources/infos/plants/mais.tres"))
-
 
 func add_card(entity_info: EntityInfos) -> void:
 	var card: Card = card_scene.instantiate()

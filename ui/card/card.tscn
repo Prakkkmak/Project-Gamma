@@ -24,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
@@ -39,6 +40,7 @@ theme_override_constants/separation = 0
 [node name="TextureAreaControl" type="Control" parent="MarginContainer/CardInfosContainer/TopCardContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+mouse_filter = 1
 
 [node name="EntityTexture" type="TextureRect" parent="MarginContainer/CardInfosContainer/TopCardContainer/TextureAreaControl"]
 unique_name_in_owner = true
@@ -61,6 +63,7 @@ texture = ExtResource("3_j1x6g")
 [node name="NameLabelAreaControl" type="Control" parent="MarginContainer/CardInfosContainer/TopCardContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+mouse_filter = 1
 
 [node name="NameLabel" type="Label" parent="MarginContainer/CardInfosContainer/TopCardContainer/NameLabelAreaControl"]
 unique_name_in_owner = true

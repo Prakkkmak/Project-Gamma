@@ -27,12 +27,20 @@ fish_food_scene = ExtResource("3_djjks")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HandPanel" parent="CanvasLayer" instance=ExtResource("2_v3xj4")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_right = 0.5
-offset_top = 0.0
+unique_name_in_owner = true
 size_flags_horizontal = 4
 
 [node name="DebugPanel" parent="CanvasLayer" instance=ExtResource("3_cxsxr")]
+
+[node name="DrawCardButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 50.0
+grow_vertical = 0
+size_flags_horizontal = 0
+text = "Draw"
 
 [editable path="Aquarium"]
