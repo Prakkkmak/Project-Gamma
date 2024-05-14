@@ -29,7 +29,7 @@ signal drag_stopped(drop_position: Vector2)
 
 
 var base_position: Vector2 = Vector2.ZERO
-var selection_position_offset: float = 10.0
+var selection_position_offset: float = 100.0
 var drag_position: Vector2 = Vector2.ZERO
 var drag_enabled: bool = false
 var selectable: bool = true

@@ -10,12 +10,17 @@ extends Node
 @onready var hand_panel: HandPanel = %HandPanel
 @onready var draw_card_button: Button = %DrawCardButton
 
+@onready var money_label: Label = %MoneyLabel
+
+var money: float = 20
+
 func _ready() -> void:
 	debug_panel.spawn_fish_requested.connect(_on_spawn_fish_requested)
 	debug_panel.spawn_plant_requested.connect(_on_spawn_plant_requested)
 	debug_panel.spawn_food_requested.connect(_on_spawn_food_requested)
 	hand_panel.card_used.connect(_on_card_used)
 	draw_card_button.pressed.connect(_on_draw_card_button_pressed)
+	aquarium.income_perseved.connect(_on_income_perseved)
 
 
 func _on_spawn_fish_requested(variant: int) -> void:
@@ -43,7 +48,14 @@ func _on_card_used(entity_infos: EntityInfos, use_position: Vector2) -> void:
 		aquarium.add_plant(plant_infos, use_position)
 
 func _on_draw_card_button_pressed() -> void:
+	money -= 10
 	var all_cards: Array[EntityInfos] = []
 	all_cards.append_array(fish_infos)
 	all_cards.append_array(plant_infos)
 	hand_panel.add_card(all_cards.pick_random() as EntityInfos)
+	hand_panel.add_card(all_cards.pick_random() as EntityInfos)
+	hand_panel.add_card(all_cards.pick_random() as EntityInfos)
+
+func _on_income_perseved(value: float) -> void:
+	money += value
+	money_label.text = str(ceil(money))

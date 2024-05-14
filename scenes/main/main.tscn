@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cyyip1ltnw412" path="res://scenes/fish_food/fish_food.tscn" id="3_djjks"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_oiyhp"]
 [ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="3_pxkae"]
-[ext_resource type="Resource" uid="uid://c5v21dn3asjyq" path="res://resources/infos/fishs/whalle.tres" id="3_twokq"]
+[ext_resource type="Resource" uid="uid://c5v21dn3asjyq" path="res://resources/infos/fishs/whalex.tres" id="3_twokq"]
 [ext_resource type="Resource" uid="uid://da3acdfcvk0w0" path="res://resources/infos/fishs/seraphin.tres" id="4_hg2qq"]
 [ext_resource type="Resource" uid="uid://c1ijeeu6deqp6" path="res://resources/infos/fishs/bob.tres" id="5_xeeyg"]
 [ext_resource type="PackedScene" uid="uid://bssw0yhkh8n64" path="res://scenes/plant/plant.tscn" id="6_l2bk5"]
@@ -32,18 +32,31 @@ fish_food_scene = ExtResource("3_djjks")
 
 [node name="HandPanel" parent="CanvasLayer" instance=ExtResource("2_v3xj4")]
 unique_name_in_owner = true
+offset_top = -570.0
 
 [node name="DebugPanel" parent="CanvasLayer" instance=ExtResource("3_cxsxr")]
+visible = false
 
 [node name="DrawCardButton" type="Button" parent="CanvasLayer"]
 unique_name_in_owner = true
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -31.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 141.0
 offset_right = 50.0
-grow_vertical = 0
+offset_bottom = 172.0
+grow_vertical = 2
 size_flags_horizontal = 0
-text = "Draw"
+text = "Draw (cost: 10)"
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "15"
 
 [editable path="Aquarium"]

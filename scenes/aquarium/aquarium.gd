@@ -1,6 +1,9 @@
 class_name Aquarium
 extends Node2D
 
+signal income_perseved(income: float)
+
+
 ## Second per aquarium tick
 @export var seconds_per_tick: float = 10.0
 ## Quality in percent is 0 to 100
@@ -77,6 +80,7 @@ func _track_entity(entity: Node) -> void:
 
 
 func _update_constants(delta: float) -> void:
+	var income: float = 0.0
 	for entity: Node in entities:
 		var entity_infos: EntityInfos = entity.get("infos") as EntityInfos
 		if !entity_infos:
@@ -85,6 +89,8 @@ func _update_constants(delta: float) -> void:
 		quality += entity_infos.quality_variation * delta / seconds_per_tick
 		acidity += entity_infos.acidity_variation * delta / seconds_per_tick
 		oxygen += entity_infos.oxygen_variation * delta / seconds_per_tick
+		income += entity_infos.income_variation * delta / seconds_per_tick
+	income_perseved.emit(income)
 	quality = clamp(quality, 0, 100)
 	_update_temperature_label()
 	_update_quality_label()

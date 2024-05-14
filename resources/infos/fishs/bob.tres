@@ -31,4 +31,5 @@ oxygen_variation = -1.0
 temperature_variation = 1.0
 quality_variation = -1.0
 acidity_variation = 0.0
+income_variation = 1.0
 texture = ExtResource("2_7h3s8")
