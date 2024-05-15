@@ -40,6 +40,7 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="CardsPanel" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 

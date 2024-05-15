@@ -29,7 +29,6 @@ func generate() -> void:
 	total_weight = 0
 	for rarity: EntityInfos.Rarity  in rarity_elements.keys():
 		var elements_in_rarity: Array[EntityInfos] = get_elements_in_rarity(rarity)
-		print("put rarity " + str(rarity))
 		rarity_elements[rarity] = elements_in_rarity
 		if !elements_in_rarity.is_empty():
 			rarities_not_empty.append(rarity)

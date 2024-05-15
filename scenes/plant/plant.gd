@@ -11,6 +11,7 @@ extends Node2D
 var infos: PlantInfos
 var food_components: Array[FoodComponent] = []
 
+var aquarium: Aquarium
 
 func _ready() -> void:
 	assert(food_component_scene && infos)
@@ -19,8 +20,6 @@ func _ready() -> void:
 	sprite.texture = infos.texture
 	scale *= infos.end_scale
 	var texture_size: float = sprite.texture.get_height() * infos.end_scale / 2
-	print(texture_size)
-	print(sprite.offset)
 	sprite.offset = Vector2(sprite.offset.x, -texture_size)
 	for position: Vector2 in infos.food_positions:
 		var food_component: FoodComponent = food_component_scene.instantiate()

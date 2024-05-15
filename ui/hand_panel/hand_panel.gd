@@ -62,7 +62,6 @@ func _on_card_drag_stopped(drop_position: Vector2, card: Card) -> void:
 	for hand_card: Card in hand_cards:
 		hand_card.selectable = true
 	var drop_zone: DropZone = _get_drop_zone(drop_position)
-	print(drop_zone)
 	if drop_zone == DropZone.USE:
 		card_used.emit(card.entity_infos, drop_position)
 		delete_card(hand_cards.find(card))

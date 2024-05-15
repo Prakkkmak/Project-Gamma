@@ -21,6 +21,11 @@ position = Vector2(0, -260)
 
 [node name="Aquarium" parent="." instance=ExtResource("1_kdlov")]
 unique_name_in_owner = true
+seconds_per_tick = 10.0
+quality = 100.0
+acidity = 100.0
+temperature = 100.0
+oxygen = 100.0
 fish_scene = ExtResource("2_mgdgo")
 plant_scene = ExtResource("6_l2bk5")
 fish_food_scene = ExtResource("3_djjks")

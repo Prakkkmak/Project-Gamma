@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 func add_fish(fish_infos: FishInfos, position: Vector2 = Vector2.ZERO) -> void:
 	var fish: Fish = fish_scene.instantiate()
 	fish.infos = fish_infos
+	fish.aquarium = self
 	entities_node.add_child(fish)
 	fish.global_position = position
 	_track_entity(fish)
@@ -56,6 +57,7 @@ func add_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> vo
 	var plant: Plant = plant_scene.instantiate()
 	plant.infos = plant_infos
 	var slot_nodes: Array[Node] = ground_slots.get_children()
+	plant.aquarium = self
 	for node: Node in slot_nodes:
 		if !(node is Node2D):
 			continue

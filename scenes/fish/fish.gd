@@ -92,7 +92,6 @@ func _swim(delta: float) -> void:
 
 func _find_new_target_position() -> void:
 	var new_position: Vector2 = Vector2(randi_range(-600,600), randi_range(-650,0))
-	print("Target position: " + str(new_position))
 	navigation_agent.target_position = new_position
 
 
@@ -104,14 +103,10 @@ func _find_target_food() -> FoodComponent:
 			push_error("Food not food component")
 		var food_component: FoodComponent = node as FoodComponent
 		if infos.food_regimes.find(food_component.food_type) == -1 || !food_component.is_eddible():
-			print("! Food is not the good type")
 			continue
-		print("Food is the good type because is eddible " + str(food_component.is_eddible()))
 		if !target_food_to_return || (global_position.distance_to(food_component.global_position) < global_position.distance_to(target_food_to_return.global_position)):
-			print("Target acquiered")
 			target_food_to_return = food_component
 	return target_food_to_return
-
 
 #region States Callbacks
 
@@ -177,7 +172,6 @@ func _on_eating_state_processing(delta: float) -> void:
 
 
 func _on_food_depleted() -> void:
-	print("Food depleted, so stop focus")
 	target_food.stop_eating()
 	target_food.depleted.disconnect(_on_food_depleted)
 	target_food = null
