@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bkqjaw203i4jx" path="res://assets/art/example.svg" id="3_xcru3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_58u1i"]
-vertices = PackedVector2Array(522, 195, -541, 184, -541, -292, 529, -292)
+vertices = PackedVector2Array(659, 241, -658, 239, -660, -352, 660, -357)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-551, -302, 540, -303, 532, 206, -552, 194)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-671, -362, 671, -368, 669, 252, -668, 249)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_skeyd"]
@@ -16,8 +16,15 @@ size = Vector2(2295, 155)
 
 [node name="Aquarium" type="Node2D"]
 script = ExtResource("1_gjp00")
+seconds_per_tick = null
+quality = null
+acidity = null
+temperature = null
+oxygen = null
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -250)
 navigation_polygon = SubResource("NavigationPolygon_58u1i")
 
 [node name="BackgroundColorRect" type="ColorRect" parent="."]
@@ -27,71 +34,72 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -766.0
-offset_top = -412.0
-offset_right = 767.0
-offset_bottom = 387.0
+offset_left = -790.0
+offset_top = -632.0
+offset_right = 743.0
+offset_bottom = 167.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 color = Color(0.281371, 0.528877, 0.593713, 0.0862745)
-
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(0, 290)
-collision_layer = 512
-collision_mask = 0
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
-position = Vector2(0, -10)
-scale = Vector2(20, 1.15625)
-texture = ExtResource("3_xcru3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(1, -10.5)
-shape = SubResource("RectangleShape2D_vln3g")
 
 [node name="EntitiesNode" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Slots" type="Node2D" parent="EntitiesNode"]
 unique_name_in_owner = true
+position = Vector2(0, 11)
 
 [node name="Ground" type="Node2D" parent="EntitiesNode/Slots"]
 
 [node name="Slot1" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(-478, 199)
+position = Vector2(-478, 0)
 
 [node name="Slot2" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(-162, 199)
+position = Vector2(-162, 0)
 
 [node name="Slot3" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(365, 201)
+position = Vector2(365, 0)
 
 [node name="Slot4" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(-368, 194)
+position = Vector2(-368, 0)
 
 [node name="Slot5" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(-52, 194)
+position = Vector2(-52, 0)
 
 [node name="Slot6" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(475, 196)
+position = Vector2(475, 0)
 
 [node name="Slot7" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(-264, 194)
+position = Vector2(-264, 0)
 
 [node name="Slot8" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(52, 194)
+position = Vector2(52, 0)
 
 [node name="Slot9" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(202, 193)
+position = Vector2(202, 0)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(1, 1)
+collision_layer = 512
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(0, 77)
+scale = Vector2(20, 1.15625)
+texture = ExtResource("3_xcru3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(1, 79)
+shape = SubResource("RectangleShape2D_vln3g")
 
 [node name="AquariumInfosContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0.376471)
 self_modulate = Color(1, 1, 1, 0.180392)
-offset_left = -91.0
-offset_top = -356.0
-offset_right = 103.0
-offset_bottom = -252.0
+offset_left = -108.0
+offset_top = -610.0
+offset_right = 86.0
+offset_bottom = -506.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AquariumInfosContainer"]
 layout_mode = 2

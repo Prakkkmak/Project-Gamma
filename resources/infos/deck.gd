@@ -5,11 +5,11 @@ extends Resource
 
 
 const rarity_weight: Dictionary = {
-	EntityInfos.Rarity.D: 100,
-	EntityInfos.Rarity.C: 25,
+	EntityInfos.Rarity.D: 90,
+	EntityInfos.Rarity.C: 30,
 	EntityInfos.Rarity.B: 15,
 	EntityInfos.Rarity.A: 7,
-	EntityInfos.Rarity.S: 2,
+	EntityInfos.Rarity.S: 1,
 }
 
 var rarity_elements: Dictionary = {

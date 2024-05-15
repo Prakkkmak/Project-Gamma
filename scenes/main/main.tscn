@@ -17,6 +17,7 @@ decks = Array[Resource("res://resources/infos/deck.gd")]([ExtResource("2_eas1m")
 starting_cards = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("3_vjkj7"), ExtResource("3_vjkj7"), ExtResource("4_en0s5")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -260)
 
 [node name="Aquarium" parent="." instance=ExtResource("1_kdlov")]
 unique_name_in_owner = true
@@ -57,5 +58,3 @@ offset_bottom = 87.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 50
 text = "15$"
-
-[editable path="Aquarium"]

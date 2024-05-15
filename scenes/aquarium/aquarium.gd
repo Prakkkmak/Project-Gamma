@@ -24,6 +24,7 @@ signal income_perseved(income: float)
 @onready var quality_label: Label = %QualityLabel
 @onready var acidity_label: Label = %AcidityLabel
 @onready var oxygen_label: Label = %OxygenLabel
+@onready var navigation_region: NavigationRegion2D = %NavigationRegion2D
 
 
 @onready var entities_node: Node2D = %EntitiesNode

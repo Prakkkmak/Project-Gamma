@@ -91,7 +91,7 @@ func _swim(delta: float) -> void:
 
 
 func _find_new_target_position() -> void:
-	var new_position: Vector2 = Vector2(randi_range(-500,500), randi_range(-200,200))
+	var new_position: Vector2 = Vector2(randi_range(-600,600), randi_range(-650,0))
 	print("Target position: " + str(new_position))
 	navigation_agent.target_position = new_position
 
