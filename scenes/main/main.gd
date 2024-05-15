@@ -1,7 +1,9 @@
 class_name Main
 extends Node
 
+@export var simulation_speed: float = 1.0
 @export var decks: Array[Deck] = []
+@export var starting_cards: Array[EntityInfos] = []
 
 @onready var aquarium: Aquarium = %Aquarium
 @onready var debug_panel: DebugPanel = $CanvasLayer/DebugPanel
@@ -15,11 +17,14 @@ extends Node
 var money: float = 20
 
 func _ready() -> void:
+	Engine.time_scale = simulation_speed
 	hand_panel.card_used.connect(_on_card_used)
 	draw_card_button.pressed.connect(_on_draw_card_button_pressed)
 	aquarium.income_perseved.connect(_on_income_perseved)
 	for deck: Deck in decks:
 		deck.generate()
+	for starting_card: EntityInfos in starting_cards:
+		hand_panel.add_card(starting_card)
 
 func _process(delta: float) -> void:
 	_update_draw_button()

@@ -23,8 +23,8 @@ extends CharacterBody2D
 
 var aquarium: Aquarium
 
-var current_health: float = 10
-var current_food: float = 5
+var current_health: float = 0.0
+var current_food: float = 0.0
 
 var current_target: Vector2 = Vector2.ZERO
 var target_food: FoodComponent
@@ -36,6 +36,7 @@ var acceleration: float = 1
 func _ready() -> void:
 	if infos:
 		current_health = infos.max_health
+		current_food = infos.max_food
 		max_speed = infos.max_speed
 		acceleration = infos.acceleration
 		name_label.text = infos.display_name
@@ -148,7 +149,6 @@ func _on_swiming_to_food_state_entered() -> void:
 
 func _on_swiming_to_food_state_physics_processing(delta: float) -> void:
 	if target_food:
-		print("Target food  aftr if" + str(target_food))
 		navigation_agent.target_position = target_food.global_position
 	if navigation_agent.is_navigation_finished():
 		state_chart.send_event("food_reached")

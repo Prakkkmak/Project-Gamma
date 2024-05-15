@@ -6,10 +6,10 @@ extends Resource
 
 const rarity_weight: Dictionary = {
 	EntityInfos.Rarity.D: 100,
-	EntityInfos.Rarity.C: 50,
-	EntityInfos.Rarity.B: 25,
-	EntityInfos.Rarity.A: 15,
-	EntityInfos.Rarity.S: 5,
+	EntityInfos.Rarity.C: 25,
+	EntityInfos.Rarity.B: 15,
+	EntityInfos.Rarity.A: 7,
+	EntityInfos.Rarity.S: 2,
 }
 
 var rarity_elements: Dictionary = {
@@ -40,7 +40,6 @@ func pick_random_weighted() -> EntityInfos:
 	var rarity: EntityInfos.Rarity = pick_rarity()
 	if rarity == EntityInfos.Rarity.INVALID:
 		return null
-	print("get rarity " + str(rarity))
 	var elements: Array[EntityInfos] = rarity_elements[rarity]
 	return elements.pick_random()
 

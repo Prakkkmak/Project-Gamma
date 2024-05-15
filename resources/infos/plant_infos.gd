@@ -2,7 +2,7 @@ class_name PlantInfos
 extends LivingInfos
 
 
-@export_range(0,10) var food_slots_amount: int = 1
+@export var food_positions: Array[Vector2]
 
 @export var grow_speed: float = 1.0
 
