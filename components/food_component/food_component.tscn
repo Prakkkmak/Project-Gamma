@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://coeetj41k63yn"]
+[gd_scene load_steps=6 format=3 uid="uid://coeetj41k63yn"]
 
 [ext_resource type="Script" path="res://components/food_component/food_component.gd" id="1_cefob"]
 [ext_resource type="Material" uid="uid://dcl0ho3x5y35b" path="res://resources/vfx/particles/food_particle.tres" id="2_r0r1o"]
@@ -6,6 +6,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lfsth"]
 radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4le7a"]
+atlas = ExtResource("3_fb8wg")
+region = Rect2(48, 128, 16, 16)
 
 [node name="FoodComponent" type="Area2D" groups=["food"]]
 collision_layer = 8
@@ -22,6 +26,5 @@ process_material = ExtResource("2_r0r1o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("3_fb8wg")
-region_enabled = true
+texture = SubResource("AtlasTexture_4le7a")
 region_rect = Rect2(48, 128, 16, 16)

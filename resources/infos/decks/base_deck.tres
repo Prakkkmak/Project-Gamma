@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=7 format=3 uid="uid://bjif1w1tyqkgs"]
+[gd_resource type="Resource" script_class="Deck" load_steps=10 format=3 uid="uid://bjif1w1tyqkgs"]
 
 [ext_resource type="Script" path="res://resources/infos/deck.gd" id="1_8i1ox"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="1_jdv6m"]
@@ -6,7 +6,10 @@
 [ext_resource type="Resource" uid="uid://da3acdfcvk0w0" path="res://resources/infos/fishs/seraphin.tres" id="3_u130e"]
 [ext_resource type="Resource" uid="uid://c5v21dn3asjyq" path="res://resources/infos/fishs/whalex.tres" id="4_r68i3"]
 [ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="5_hpve5"]
+[ext_resource type="Resource" uid="uid://dnp6rfjsbuhq0" path="res://resources/infos/foods/food_vegetable_high.tres" id="6_dbomb"]
+[ext_resource type="Resource" uid="uid://ct1kgax0rieft" path="res://resources/infos/foods/food_vegetable_normal.tres" id="7_bayol"]
+[ext_resource type="Resource" uid="uid://bfeedp6lqr23b" path="res://resources/infos/foods/food_vegetable_low.tres" id="8_o1ust"]
 
 [resource]
 script = ExtResource("1_8i1ox")
-elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_jdv6m"), ExtResource("2_wa2pe"), ExtResource("3_u130e"), ExtResource("4_r68i3"), ExtResource("5_hpve5")])
+elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_jdv6m"), ExtResource("2_wa2pe"), ExtResource("3_u130e"), ExtResource("4_r68i3"), ExtResource("5_hpve5"), ExtResource("6_dbomb"), ExtResource("7_bayol"), ExtResource("8_o1ust")])

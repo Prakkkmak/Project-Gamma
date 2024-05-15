@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=11 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -9,14 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://cyyip1ltnw412" path="res://scenes/fish_food/fish_food.tscn" id="3_djjks"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_vjkj7"]
 [ext_resource type="Resource" uid="uid://bfeedp6lqr23b" path="res://resources/infos/foods/food_vegetable_low.tres" id="4_8lisx"]
-[ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="4_en0s5"]
 [ext_resource type="PackedScene" uid="uid://bssw0yhkh8n64" path="res://scenes/plant/plant.tscn" id="6_l2bk5"]
-[ext_resource type="PackedScene" uid="uid://b651kviaunjn" path="res://ui/constant_display/constant_display.tscn" id="12_4erkl"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
 decks = Array[Resource("res://resources/infos/deck.gd")]([ExtResource("2_eas1m")])
-starting_cards = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("3_vjkj7"), ExtResource("4_8lisx"), ExtResource("4_8lisx"), ExtResource("4_en0s5")])
+starting_cards = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("3_vjkj7"), ExtResource("4_8lisx"), ExtResource("4_8lisx"), ExtResource("4_8lisx")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -260)
@@ -60,7 +58,3 @@ offset_bottom = 87.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 50
 text = "15$"
-
-[node name="OxygenConstantDisplay" parent="CanvasLayer" instance=ExtResource("12_4erkl")]
-unique_name_in_owner = true
-constant_name = &"Oxygen"

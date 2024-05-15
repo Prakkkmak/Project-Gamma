@@ -33,3 +33,6 @@ enum Rarity { INVALID, D, C, B, A, S }
 
 ## Texture
 @export var texture: Texture
+
+## End scale
+@export var scale: float = 1.0

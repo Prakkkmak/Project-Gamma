@@ -79,6 +79,7 @@ position = Vector2(1, 76)
 shape = SubResource("RectangleShape2D_vln3g")
 
 [node name="AquariumInfosContainer" type="PanelContainer" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.376471)
 self_modulate = Color(1, 1, 1, 0.180392)
 offset_left = -108.0

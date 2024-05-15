@@ -68,10 +68,12 @@ func add_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> vo
 		_track_entity(plant)
 		break
 
-func add_food(position: Vector2 = Vector2.ZERO) -> void:
+func add_food(food_infos: FoodInfos, position: Vector2 = Vector2.ZERO) -> void:
 	var fish_food: FishFood = fish_food_scene.instantiate()
-	fish_food.global_position = Vector2(position.x,-300)
+	fish_food.infos = food_infos
+	fish_food.global_position = Vector2(position)
 	entities_node.add_child(fish_food)
+	_track_entity(fish_food)
 
 
 func _track_entity(entity: Node) -> void:

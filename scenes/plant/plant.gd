@@ -8,6 +8,8 @@ extends Node2D
 @onready var food_components_node: Node2D = %FoodComponentsNode
 @onready var sprite: Sprite2D = %Sprite
 
+var current_health: float = 0.0
+
 var infos: PlantInfos
 var food_components: Array[FoodComponent] = []
 
@@ -18,9 +20,10 @@ func _ready() -> void:
 	if !food_component_scene || !infos:
 		return
 	sprite.texture = infos.texture
-	scale *= infos.end_scale
-	var texture_size: float = sprite.texture.get_height() * infos.end_scale / 2
+	scale *= infos.scale
+	var texture_size: float = sprite.texture.get_height() * infos.scale / 2
 	sprite.offset = Vector2(sprite.offset.x, -texture_size)
+	current_health = infos.max_health
 	for position: Vector2 in infos.food_positions:
 		var food_component: FoodComponent = food_component_scene.instantiate()
 		food_component.max_food = infos.total_food / infos.food_positions.size()
@@ -34,3 +37,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for food_component: FoodComponent in food_components:
 		food_component.add_food(delta * infos.grow_speed)
+	if aquarium:
+		if aquarium.oxygen < infos.min_oxygen || aquarium.oxygen > infos.max_oxygen:
+			take_damage(delta)
+
+func take_damage(amount: float) -> void:
+	current_health -= amount
+	if current_health < 0:
+		_die()
+
+func _die() -> void:
+	queue_free()

@@ -7,6 +7,7 @@ extends Node
 
 @onready var aquarium: Aquarium = %Aquarium
 @onready var debug_panel: DebugPanel = $CanvasLayer/DebugPanel
+@onready var oxygen_constant_display: ConstantDisplay = %OxygenConstantDisplay
 
 @onready var hand_panel: HandPanel = %HandPanel
 @onready var draw_card_button: Button = %DrawCardButton
@@ -28,14 +29,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_update_draw_button()
+	oxygen_constant_display.update_constant(aquarium.oxygen)
 
 func _update_draw_button() -> void:
-	draw_card_button.disabled = hand_panel.get_remaining_size() < 3
-
-
-func _on_spawn_food_requested(variant: int) -> void:
-	var pos: Vector2 = Vector2(randi_range(-400,400),-200)
-	aquarium.add_food(pos)
+	draw_card_button.disabled = hand_panel.get_remaining_size() < 3 || money < 10
 
 
 func _on_card_used(entity_infos: EntityInfos, use_position: Vector2) -> void:
@@ -46,6 +43,9 @@ func _on_card_used(entity_infos: EntityInfos, use_position: Vector2) -> void:
 	if entity_infos is PlantInfos:
 		var plant_infos: PlantInfos = entity_infos as PlantInfos
 		aquarium.add_plant(plant_infos, use_position)
+	if entity_infos is FoodInfos:
+		var food_infos: FoodInfos = entity_infos as FoodInfos
+		aquarium.add_food(food_infos, use_position)
 
 func _on_draw_card_button_pressed() -> void:
 	money -= 10

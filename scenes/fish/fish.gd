@@ -40,7 +40,7 @@ func _ready() -> void:
 		max_speed = infos.max_speed
 		acceleration = infos.acceleration
 		name_label.text = infos.display_name
-		scale = scale * infos.end_scale
+		scale = scale * infos.scale
 		sprite.texture = infos.texture
 	swiming.state_entered.connect(_on_swiming_state_entered)
 	swiming.state_physics_processing.connect(_on_swiming_state_physics_processing)
