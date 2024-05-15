@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjbe3uptptyyj"]
+[gd_scene load_steps=7 format=3 uid="uid://bjbe3uptptyyj"]
 
 [ext_resource type="Script" path="res://scenes/aquarium/aquarium.gd" id="1_gjp00"]
+[ext_resource type="Texture2D" uid="uid://bjkeqcsh8qfqm" path="res://assets/art/background/bgAquaPixel.png" id="2_hyyy6"]
 [ext_resource type="Texture2D" uid="uid://bkqjaw203i4jx" path="res://assets/art/example.svg" id="3_xcru3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_58u1i"]
@@ -27,21 +28,20 @@ unique_name_in_owner = true
 position = Vector2(-1, -250)
 navigation_polygon = SubResource("NavigationPolygon_58u1i")
 
-[node name="BackgroundColorRect" type="ColorRect" parent="."]
+[node name="BackgroundColorRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_skeyd")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -790.0
-offset_top = -632.0
-offset_right = 743.0
-offset_bottom = 167.0
+offset_left = -636.0
+offset_top = -361.0
+offset_right = 644.0
+offset_bottom = 359.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-color = Color(0.281371, 0.528877, 0.593713, 0.0862745)
+texture = ExtResource("2_hyyy6")
 
 [node name="EntitiesNode" type="Node2D" parent="."]
 unique_name_in_owner = true
