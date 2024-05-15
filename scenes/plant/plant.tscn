@@ -1,34 +1,93 @@
-[gd_scene load_steps=4 format=3 uid="uid://bssw0yhkh8n64"]
+[gd_scene load_steps=7 format=3 uid="uid://bssw0yhkh8n64"]
 
 [ext_resource type="Script" path="res://scenes/plant/plant.gd" id="1_27i6o"]
-[ext_resource type="Texture2D" uid="uid://bkqjaw203i4jx" path="res://assets/art/example.svg" id="1_8621t"]
 [ext_resource type="PackedScene" uid="uid://coeetj41k63yn" path="res://components/food_component/food_component.tscn" id="2_hscoc"]
+[ext_resource type="Texture2D" uid="uid://bs2x54nqgthf0" path="res://assets/art/entities/Aqua_Tilesheet.png" id="2_yhavg"]
+
+[sub_resource type="Animation" id="Animation_hr5lq"]
+resource_name = "idle"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3, 5.5, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0174533, -0.0174533, 0.0261799, -0.0261799]
+}
+
+[sub_resource type="Animation" id="Animation_47ovm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c0ok4"]
+_data = {
+"RESET": SubResource("Animation_47ovm"),
+"idle": SubResource("Animation_hr5lq")
+}
 
 [node name="Plant" type="Node2D"]
-modulate = Color(0.545098, 1, 0.152941, 1)
+scale = Vector2(2, 2)
 script = ExtResource("1_27i6o")
+food_component_scene = ExtResource("2_hscoc")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -64)
-scale = Vector2(0.120001, 1)
-texture = ExtResource("1_8621t")
+texture = ExtResource("2_yhavg")
+offset = Vector2(0, -48)
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 96)
 
-[node name="LeaveSprite" type="Sprite2D" parent="Sprite"]
-position = Vector2(-141.666, -37)
-rotation = 0.0196189
-scale = Vector2(1.59557, 0.070766)
-texture = ExtResource("1_8621t")
+[node name="FoodSlots" type="Node2D" parent="."]
+unique_name_in_owner = true
 
-[node name="LeaveSprite2" type="Sprite2D" parent="Sprite"]
-position = Vector2(108.333, -15)
-rotation = -0.0157155
-scale = Vector2(1.38725, 0.0459858)
-texture = ExtResource("1_8621t")
+[node name="Slot1" type="Marker2D" parent="FoodSlots"]
+position = Vector2(8, -76)
 
-[node name="FoodComponent" parent="." node_paths=PackedStringArray("food_sprite") instance=ExtResource("2_hscoc")]
-position = Vector2(-22, -103)
-food_sprite = NodePath("../Sprite/LeaveSprite")
+[node name="Slot2" type="Marker2D" parent="FoodSlots"]
+position = Vector2(-5, -72)
 
-[node name="FoodComponent2" parent="." node_paths=PackedStringArray("food_sprite") instance=ExtResource("2_hscoc")]
-position = Vector2(18, -80)
-food_sprite = NodePath("../Sprite/LeaveSprite2")
+[node name="Slot3" type="Marker2D" parent="FoodSlots"]
+position = Vector2(7, -56)
+
+[node name="Slot4" type="Marker2D" parent="FoodSlots"]
+position = Vector2(-4, -53)
+
+[node name="Slot5" type="Marker2D" parent="FoodSlots"]
+position = Vector2(8, -38)
+
+[node name="Slot6" type="Marker2D" parent="FoodSlots"]
+position = Vector2(-4, -37)
+
+[node name="Slot7" type="Marker2D" parent="FoodSlots"]
+position = Vector2(-6, -20)
+
+[node name="Slot8" type="Marker2D" parent="FoodSlots"]
+position = Vector2(3, -17)
+
+[node name="Slot9" type="Marker2D" parent="FoodSlots"]
+position = Vector2(7, -10)
+
+[node name="Slot10" type="Marker2D" parent="FoodSlots"]
+position = Vector2(5, -31)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c0ok4")
+}
+autoplay = "idle"
