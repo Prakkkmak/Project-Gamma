@@ -10,7 +10,7 @@ extends Node
 @onready var oxygen_constant_display: ConstantDisplay = %OxygenConstantDisplay
 
 @onready var hand_panel: HandPanel = %HandPanel
-@onready var draw_card_button: Button = %DrawCardButton
+@onready var draw_card_button: TextureButton = %DrawCardButton
 
 @onready var money_label: Label = %MoneyLabel
 
@@ -56,4 +56,4 @@ func _on_draw_card_button_pressed() -> void:
 
 func _on_income_perseved(value: float) -> void:
 	money += value
-	money_label.text = str(ceil(money)) + "$"
+	money_label.text = str(ceil(money))

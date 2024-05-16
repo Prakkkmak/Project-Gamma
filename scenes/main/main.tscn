@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=16 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -12,6 +12,9 @@
 [ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="4_en0s5"]
 [ext_resource type="PackedScene" uid="uid://bssw0yhkh8n64" path="res://scenes/plant/plant.tscn" id="6_l2bk5"]
 [ext_resource type="PackedScene" uid="uid://b651kviaunjn" path="res://ui/constant_display/constant_display.tscn" id="12_4erkl"]
+[ext_resource type="Texture2D" uid="uid://bivx4bvj4vo0a" path="res://assets/art/ui/aquaButton.png" id="12_551gs"]
+[ext_resource type="Texture2D" uid="uid://c2htrle72ovoy" path="res://assets/art/ui/gold.png" id="13_fjbmr"]
+[ext_resource type="Texture2D" uid="uid://c7sir0ukgvh4u" path="res://assets/art/ui/aquaButtonPressed.png" id="13_nhx06"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
@@ -36,17 +39,19 @@ offset_top = -570.0
 [node name="DebugPanel" parent="CanvasLayer" instance=ExtResource("3_cxsxr")]
 visible = false
 
-[node name="DrawCardButton" type="Button" parent="CanvasLayer"]
+[node name="DrawCardButton" type="TextureButton" parent="CanvasLayer"]
 unique_name_in_owner = true
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = 141.0
-offset_right = 50.0
-offset_bottom = 172.0
+offset_right = 128.0
+offset_bottom = 205.0
 grow_vertical = 2
 size_flags_horizontal = 0
-text = "Draw (cost: 10)"
+texture_normal = ExtResource("12_551gs")
+texture_pressed = ExtResource("13_nhx06")
+texture_hover = ExtResource("12_551gs")
 
 [node name="MoneyLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -59,7 +64,14 @@ offset_right = -30.0
 offset_bottom = 87.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 50
-text = "15$"
+text = "15"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 1227.0
+offset_top = 34.0
+offset_right = 1267.0
+offset_bottom = 74.0
+texture = ExtResource("13_fjbmr")
 
 [node name="OxygenConstantDisplay" parent="CanvasLayer" instance=ExtResource("12_4erkl")]
 unique_name_in_owner = true
