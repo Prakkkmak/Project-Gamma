@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdt57b7ylyvme"]
+
+[ext_resource type="Script" path="res://ui/aquarium_panel/aquarium_panel.gd" id="1_ljwbi"]
+[ext_resource type="PackedScene" uid="uid://dhrik4pv7rpvy" path="res://ui/aquarium_panel/aquarium_values_container/aquarium_values_container.tscn" id="2_4hfi1"]
+[ext_resource type="PackedScene" uid="uid://b0b4pvrucoqja" path="res://ui/aquarium_panel/entities_rows_container/entities_rows_container.tscn" id="3_bi0rr"]
+[ext_resource type="PackedScene" uid="uid://0i1yalsu10vw" path="res://ui/aquarium_panel/money_value_container/money_value_container.tscn" id="4_jg74u"]
+
+[node name="AquariumPanel" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_ljwbi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="AquariumValuesContainer" parent="VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_4hfi1")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Expand" type="Control" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EntitiesRowsContainer" parent="VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("3_bi0rr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Expand2" type="Control" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoneyValueContainer" parent="VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("4_jg74u")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HoverFishContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 0

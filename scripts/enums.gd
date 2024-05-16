@@ -1,3 +1,3 @@
 class_name Enums
 
-enum FoodType {MEAT, VEGETABLE, TRASH}
+enum FoodType { MEAT, VEGETABLE, TRASH }

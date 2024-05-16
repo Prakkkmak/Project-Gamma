@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhrik4pv7rpvy"]
+
+[ext_resource type="Script" path="res://ui/aquarium_panel/aquarium_values_container/aquarium_values_container.gd" id="1_8c3on"]
+[ext_resource type="PackedScene" uid="uid://smn78wo83uln" path="res://ui/aquarium_panel/aquarium_values_container/aquarium_value_display_container/aquarium_value_display.tscn" id="2_2607u"]
+
+[node name="AquariumValuesContainer" type="HBoxContainer"]
+script = ExtResource("1_8c3on")
+
+[node name="OxygenAquariumValueDisplay" parent="." instance=ExtResource("2_2607u")]
+unique_name_in_owner = true
+layout_mode = 2
+display_name = "Ox"
