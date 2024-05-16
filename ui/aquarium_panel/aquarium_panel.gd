@@ -2,7 +2,7 @@ class_name AquariumPanel
 extends PanelContainer
 
 @onready var aquarium_values_container: AquariumValuesContainer = %AquariumValuesContainer
-@onready var entities_rows_container: VBoxContainer = %EntitiesRowsContainer
+@onready var entities_happiness_container: EntitiesHappinessContainer = %EntitiesHappinessContainer
 @onready var money_value_container: MoneyValueContainer = %MoneyValueContainer
 
 func _ready() -> void:
@@ -21,3 +21,15 @@ func set_money(value: float) -> void:
 
 func set_money_variation(value: float) -> void:
 	money_value_container.set_variation(value)
+
+
+func track_entity(entity_info: EntityInfos) -> void:
+	entities_happiness_container.track_entity(entity_info)
+
+
+func update_happiness(entity_info: EntityInfos, happiness: HappinessStats) -> void:
+	entities_happiness_container.update_happiness(entity_info, happiness)
+
+
+func update_entity_count(entity_info: EntityInfos, count: int) -> void:
+	entities_happiness_container.update_entity_count(entity_info, count)

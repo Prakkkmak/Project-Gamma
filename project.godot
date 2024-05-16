@@ -18,12 +18,10 @@ config/icon="res://assets/art/entities/fishs/godot_fish.svg"
 [debug]
 
 gdscript/warnings/untyped_declaration=2
-gdscript/warnings/inferred_declaration=2
 gdscript/warnings/unsafe_property_access=2
 gdscript/warnings/unsafe_method_access=2
-gdscript/warnings/unsafe_cast=2
+gdscript/warnings/unsafe_cast=1
 gdscript/warnings/unsafe_call_argument=2
-gdscript/warnings/return_value_discarded=1
 
 [display]
 
@@ -40,7 +38,8 @@ enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 folder_colors={
 "res://assets/": "yellow",
 "res://resources/": "orange",
-"res://scripts/": "blue"
+"res://scripts/": "blue",
+"res://ui/": "pink"
 }
 
 [input]

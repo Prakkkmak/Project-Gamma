@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=14 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -13,8 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bssw0yhkh8n64" path="res://scenes/plant/plant.tscn" id="6_l2bk5"]
 [ext_resource type="PackedScene" uid="uid://cdt57b7ylyvme" path="res://ui/aquarium_panel/aquarium_panel.tscn" id="10_pqo2w"]
 [ext_resource type="PackedScene" uid="uid://b651kviaunjn" path="res://ui/constant_display/constant_display.tscn" id="12_4erkl"]
-[ext_resource type="Texture2D" uid="uid://bivx4bvj4vo0a" path="res://assets/art/ui/aquaButton.png" id="12_551gs"]
-[ext_resource type="Texture2D" uid="uid://c7sir0ukgvh4u" path="res://assets/art/ui/aquaButtonPressed.png" id="13_nhx06"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
@@ -26,11 +24,6 @@ position = Vector2(0, -260)
 
 [node name="Aquarium" parent="." instance=ExtResource("1_kdlov")]
 unique_name_in_owner = true
-seconds_per_tick = null
-quality = null
-acidity = null
-temperature = null
-oxygen = null
 fish_scene = ExtResource("2_mgdgo")
 plant_scene = ExtResource("6_l2bk5")
 fish_food_scene = ExtResource("3_djjks")
@@ -48,36 +41,31 @@ offset_top = -570.0
 [node name="DebugPanel" parent="CanvasLayer" instance=ExtResource("3_cxsxr")]
 visible = false
 
-[node name="DrawCardButton" type="TextureButton" parent="CanvasLayer"]
+[node name="DrawCardButton" type="Button" parent="CanvasLayer"]
 unique_name_in_owner = true
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = 141.0
-offset_right = 128.0
-offset_bottom = 205.0
+offset_right = 50.0
+offset_bottom = 172.0
 grow_vertical = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("12_551gs")
-texture_pressed = ExtResource("13_nhx06")
-texture_hover = ExtResource("12_551gs")
+text = "Draw (cost: 10)"
 
 [node name="MoneyLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -144.0
-offset_top = 16.0
-offset_right = -57.0
-offset_bottom = 85.0
+offset_left = -117.0
+offset_top = 18.0
+offset_right = -30.0
+offset_bottom = 87.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 50
-text = "1"
-horizontal_alignment = 2
+text = "15$"
 
 [node name="OxygenConstantDisplay" parent="CanvasLayer" instance=ExtResource("12_4erkl")]
 unique_name_in_owner = true
-visible = false
 constant_name = &"Oxygen"

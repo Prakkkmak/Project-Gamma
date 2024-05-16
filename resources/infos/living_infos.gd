@@ -28,3 +28,33 @@ extends EntityInfos
 @export var start_scale: float = 0.2
 #endregion
 
+func get_target_temperature() -> float:
+	return ( max_temperature + min_temperature ) / 2
+
+
+func get_target_acidity() -> float:
+	return ( max_acidity + min_acidity ) / 2
+
+
+func get_target_quality() -> float:
+	return ( max_quality + min_quality ) / 2
+
+
+func get_target_oxygen() -> float:
+	return ( max_oxygen + min_oxygen ) / 2
+
+
+func get_maximum_gap_temperature() -> float:
+	return ( max_temperature - min_temperature ) / 2
+
+
+func get_maximum_gap_acidity() -> float:
+	return ( max_acidity - min_acidity ) / 2
+
+
+func get_maximum_gap_quality() -> float:
+	return ( max_quality - min_quality ) / 2
+
+
+func get_maximum_gap_oxygen() -> float:
+	return ( max_oxygen - min_oxygen ) / 2

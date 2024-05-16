@@ -1,18 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0b4pvrucoqja"]
+[gd_scene load_steps=2 format=3 uid="uid://b0b4pvrucoqja"]
 
 [ext_resource type="Script" path="res://ui/aquarium_panel/entities_rows_container/entities_rows_container.gd" id="1_050et"]
-[ext_resource type="PackedScene" uid="uid://x8j1mctxha38" path="res://ui/aquarium_panel/entities_rows_container/entity_stats_container/entity_stats_container.tscn" id="2_nv45l"]
 
-[node name="EntitiesRowsContainer" type="VBoxContainer"]
+[node name="EntitiesHappinessContainer" type="VBoxContainer"]
 script = ExtResource("1_050et")
 
-[node name="FishRowContainer" type="HBoxContainer" parent="."]
+[node name="FishsHappiness" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="EntityStatsContainer" parent="FishRowContainer" instance=ExtResource("2_nv45l")]
-layout_mode = 2
-
-[node name="PlantRowContainer" type="HBoxContainer" parent="."]
+[node name="PlantsHappiness" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2

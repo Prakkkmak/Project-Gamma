@@ -25,7 +25,7 @@ func set_display_name(displa_name: String) -> void:
 
 
 func set_value(value: float) -> void:
-	value_label.text = str(value) + " %"
+	value_label.text = str(floor(value)) + " %"
 	_update_critical_color(value)
 
 

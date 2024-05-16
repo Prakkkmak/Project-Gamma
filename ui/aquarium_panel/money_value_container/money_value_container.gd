@@ -6,7 +6,8 @@ extends VBoxContainer
 
 
 func set_money(value: float) -> void:
-	money_label.text = str(value) + "$"
+	money_label.text = str(floor(value)) + "$"
+
 
 func set_variation(value: float) -> void:
-	money_variation_label.text = "+" + str(value)
+	money_variation_label.text = "+" + str(floor(value))
