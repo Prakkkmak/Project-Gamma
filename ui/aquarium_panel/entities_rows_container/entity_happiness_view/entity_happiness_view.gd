@@ -12,7 +12,7 @@ var locked: bool = true
 var current_happiness: HappinessStats
 
 func _ready() -> void:
-	texture_rect.texture = infos.texture
+	texture_rect.texture = infos.get_texture_display()
 	lock()
 
 

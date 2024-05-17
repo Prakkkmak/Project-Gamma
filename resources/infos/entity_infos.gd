@@ -34,5 +34,15 @@ enum Rarity { INVALID, D, C, B, A, S }
 ## Texture
 @export var texture: Texture
 
+## Texture
+@export var texture_display: Texture
+
 ## End scale
 @export var scale: float = 1.0
+
+
+func get_texture_display() -> Texture:
+	if texture_display:
+		return texture_display
+	else:
+		return texture

@@ -59,7 +59,7 @@ func _fill_infos() -> void:
 
 func _fill_entity_infos(entity_infos: EntityInfos) -> void:
 	name_label.text = entity_infos.display_name
-	entity_texture.texture = entity_infos.texture
+	entity_texture.texture = entity_infos.get_texture_display()
 	if entity_infos.temperature_variation:
 		temperature_condition_variation_label.text = str(entity_infos.temperature_variation)
 	else:
