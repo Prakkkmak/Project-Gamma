@@ -25,7 +25,7 @@ signal drag_stopped(drop_position: Vector2)
 @onready var oxygen_condition_variation_label: Label = %OxygenConditionVariationLabel
 @onready var quality_condition_variation_label: Label = %QualityConditionVariationLabel
 @onready var acidity_condition_variation_label: Label = %AcidityConditionVariationLabel
-
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 var base_position: Vector2 = Vector2.ZERO

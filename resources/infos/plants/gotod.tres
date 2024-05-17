@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlantInfos" load_steps=4 format=3 uid="uid://c0rr05lawi7j5"]
+[gd_resource type="Resource" script_class="PlantInfos" load_steps=5 format=3 uid="uid://c0rr05lawi7j5"]
 
 [ext_resource type="Script" path="res://resources/infos/plant_infos.gd" id="1_58uef"]
 [ext_resource type="Texture2D" uid="uid://bs2x54nqgthf0" path="res://assets/art/entities/Aqua_Tilesheet.png" id="2_it0u7"]
@@ -6,6 +6,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_5oike"]
 atlas = ExtResource("2_it0u7")
 region = Rect2(48, 0, 16, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upy4q"]
+atlas = ExtResource("2_it0u7")
+region = Rect2(48, 0, 16, 32)
 
 [resource]
 script = ExtResource("1_58uef")
@@ -34,4 +38,5 @@ quality_variation = 2.0
 acidity_variation = 0.0
 income_variation = 0.0
 texture = SubResource("AtlasTexture_5oike")
+texture_display = SubResource("AtlasTexture_upy4q")
 scale = 1.0

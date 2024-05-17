@@ -8,6 +8,7 @@ extends Node
 @onready var aquarium: Aquarium = %Aquarium
 @onready var debug_panel: DebugPanel = $CanvasLayer/DebugPanel
 @onready var oxygen_constant_display: ConstantDisplay = %OxygenConstantDisplay
+@onready var card_selection_panel: CardSelectionPanel = %CardSelectionPanel
 
 @onready var hand_panel: HandPanel = %HandPanel
 @onready var draw_card_button: TextureButton = %DrawCardButton
@@ -25,6 +26,7 @@ func _ready() -> void:
 	aquarium.income_perseved.connect(_on_income_perseved)
 	aquarium.happiness_updated.connect(_on_happiness_updated)
 	aquarium.count_updated.connect(_on_count_updated)
+	card_selection_panel.entities_selected.connect(_on_entities_selected)
 	for deck: Deck in decks:
 		deck.generate()
 		for info: EntityInfos in deck.elements:
@@ -38,7 +40,7 @@ func _process(delta: float) -> void:
 	_update_aquarium_pannel()
 
 func _update_draw_button() -> void:
-	draw_card_button.disabled = hand_panel.get_remaining_size() < 3 || money < 10
+	draw_card_button.disabled = hand_panel.get_remaining_size() < 2 || money < 10
 
 
 func _update_aquarium_pannel() -> void:
@@ -63,10 +65,9 @@ func _on_draw_card_button_pressed() -> void:
 	money -= 10
 	aquarium_panel.set_money(money)
 	var deck_selected: Deck = decks[0]
-	hand_panel.add_card(deck_selected.pick_random_weighted() as EntityInfos)
-	hand_panel.add_card(deck_selected.pick_random_weighted() as EntityInfos)
-	hand_panel.add_card(deck_selected.pick_random_weighted() as EntityInfos)
-
+	var entities: Array[EntityInfos] = deck_selected.pick_multiple_random_weighted(5)
+	card_selection_panel.show()
+	card_selection_panel.display_selection(entities, 2)
 
 func _on_income_perseved(value: float) -> void:
 	money += value
@@ -79,3 +80,9 @@ func _on_happiness_updated(entity_infos: EntityInfos, hapiness: HappinessStats) 
 
 func _on_count_updated(entity_infos: EntityInfos, count: int) -> void:
 	aquarium_panel.update_entity_count(entity_infos, count)
+
+
+func _on_entities_selected(entities_infos: Array[EntityInfos]) -> void:
+	for entity_infos: EntityInfos in entities_infos:
+		hand_panel.add_card(entity_infos)
+	card_selection_panel.hide()

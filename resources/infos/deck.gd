@@ -43,6 +43,13 @@ func pick_random_weighted() -> EntityInfos:
 	return elements.pick_random()
 
 
+func pick_multiple_random_weighted(amount: int) -> Array[EntityInfos]:
+	var entities: Array[EntityInfos] = []
+	for i in amount:
+		entities.append(pick_random_weighted())
+	return entities
+
+
 func pick_rarity(ignore_empty_rarities: bool = true) -> EntityInfos.Rarity:
 	var chosen_weight: int = randi_range(1, total_weight)
 	var iteration_sum: int = 0

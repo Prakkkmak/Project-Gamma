@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://dnp6rfjsbuhq0" path="res://resources/infos/foods/food_vegetable_high.tres" id="6_dbomb"]
 [ext_resource type="Resource" uid="uid://ct1kgax0rieft" path="res://resources/infos/foods/food_vegetable_normal.tres" id="7_bayol"]
 [ext_resource type="Resource" uid="uid://bfeedp6lqr23b" path="res://resources/infos/foods/food_vegetable_low.tres" id="8_o1ust"]
-[ext_resource type="Resource" uid="uid://c70dcjp7jnrkb" path="res://resources/infos/fishs/spun.tres" id="9_mvhx7"]
+[ext_resource type="Resource" path="res://resources/infos/fishs/spun.tres" id="9_mvhx7"]
 [ext_resource type="Resource" uid="uid://j3khiuqeyi1e" path="res://resources/infos/plants/sucrelune.tres" id="10_a58mj"]
 [ext_resource type="Resource" uid="uid://sh6dtcv2cy4f" path="res://resources/infos/coral/coral.tres" id="11_3pgp0"]
 
