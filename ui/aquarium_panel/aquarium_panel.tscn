@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdt57b7ylyvme"]
+[gd_scene load_steps=7 format=3 uid="uid://cdt57b7ylyvme"]
 
 [ext_resource type="Script" path="res://ui/aquarium_panel/aquarium_panel.gd" id="1_ljwbi"]
 [ext_resource type="PackedScene" uid="uid://dhrik4pv7rpvy" path="res://ui/aquarium_panel/aquarium_values_container/aquarium_values_container.tscn" id="2_4hfi1"]
 [ext_resource type="PackedScene" uid="uid://b0b4pvrucoqja" path="res://ui/aquarium_panel/entities_rows_container/entities_rows_container.tscn" id="3_bi0rr"]
 [ext_resource type="PackedScene" uid="uid://0i1yalsu10vw" path="res://ui/aquarium_panel/money_value_container/money_value_container.tscn" id="4_jg74u"]
-[ext_resource type="PackedScene" uid="uid://x8j1mctxha38" path="res://ui/aquarium_panel/entities_rows_container/entity_happiness_view/entity_happiness_view.tscn" id="4_uiayn"]
 [ext_resource type="PackedScene" uid="uid://cll8xv4elcyht" path="res://ui/aquarium_panel/happiness_hover/happiness_hover.tscn" id="6_jh7li"]
 [ext_resource type="PackedScene" uid="uid://bjp3i1kvjutyw" path="res://ui/aquarium_panel/happiness_hover/feature_happiness_display/feature_happiness_display.tscn" id="7_52n1t"]
 
@@ -24,6 +23,7 @@ columns = 5
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+alignment = 1
 
 [node name="Expand" type="Control" parent="GridContainer"]
 layout_mode = 2
@@ -33,7 +33,6 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-entity_happiness_view_scene = ExtResource("4_uiayn")
 
 [node name="Expand2" type="Control" parent="GridContainer"]
 layout_mode = 2
@@ -52,7 +51,6 @@ layout_mode = 2
 
 [node name="HappinessHover" parent="GridContainer" instance=ExtResource("6_jh7li")]
 visible = false
-modulate = Color(1, 1, 1, 0.72549)
 layout_mode = 2
 feature_happiness_display_scene = ExtResource("7_52n1t")
 

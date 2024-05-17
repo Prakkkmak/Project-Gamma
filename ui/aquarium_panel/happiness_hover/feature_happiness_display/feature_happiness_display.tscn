@@ -10,6 +10,7 @@ layout_mode = 2
 
 [node name="FeatureName" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Oxygen
 "
@@ -17,7 +18,7 @@ text = "Oxygen
 [node name="FeatureValues" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "(80-120)"
+text = "-"
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true

@@ -3,14 +3,22 @@
 [ext_resource type="Script" path="res://ui/aquarium_panel/money_value_container/money_value_container.gd" id="1_apkue"]
 
 [node name="MoneyValueContainer" type="VBoxContainer"]
+offset_right = 37.0
+offset_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
 script = ExtResource("1_apkue")
 
 [node name="MoneyLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 text = "200$"
+horizontal_alignment = 1
 
 [node name="MoneyVariationLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-text = "+4$"
+text = "
+"
+horizontal_alignment = 1
