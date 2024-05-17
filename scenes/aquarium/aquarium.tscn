@@ -25,51 +25,6 @@ navigation_polygon = SubResource("NavigationPolygon_58u1i")
 position = Vector2(0, -285)
 texture = ExtResource("2_hyyy6")
 
-[node name="EntitiesNode" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="Slots" type="Node2D" parent="EntitiesNode"]
-unique_name_in_owner = true
-position = Vector2(0, 11)
-
-[node name="Ground" type="Node2D" parent="EntitiesNode/Slots"]
-
-[node name="Slot1" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-z_index = 1
-position = Vector2(-478, 0)
-
-[node name="Slot2" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-z_index = 1
-position = Vector2(-162, 0)
-
-[node name="Slot3" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-z_index = 1
-position = Vector2(365, 0)
-
-[node name="Slot4" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-z_index = 1
-position = Vector2(-368, 0)
-
-[node name="Slot5" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-z_index = 1
-position = Vector2(-52, 0)
-
-[node name="Slot6" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-z_index = 1
-position = Vector2(475, 0)
-
-[node name="Slot7" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-z_index = 1
-position = Vector2(-264, 0)
-
-[node name="Slot8" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-z_index = 1
-position = Vector2(52, 0)
-
-[node name="Slot9" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-z_index = 1
-position = Vector2(202, 0)
-
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(1, 1)
 collision_layer = 512
@@ -83,5 +38,41 @@ offset_bottom = 116.0
 texture = ExtResource("3_pqp24")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(1, 106)
+position = Vector2(2, 94)
 shape = SubResource("RectangleShape2D_vln3g")
+
+[node name="EntitiesNode" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Slots" type="Node2D" parent="EntitiesNode"]
+unique_name_in_owner = true
+position = Vector2(0, 11)
+
+[node name="Ground" type="Node2D" parent="EntitiesNode/Slots"]
+
+[node name="Slot1" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-478, 0)
+
+[node name="Slot2" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-162, 0)
+
+[node name="Slot3" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(365, 0)
+
+[node name="Slot4" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-368, 0)
+
+[node name="Slot5" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-52, 0)
+
+[node name="Slot6" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(475, 0)
+
+[node name="Slot7" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-264, 0)
+
+[node name="Slot8" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(52, 0)
+
+[node name="Slot9" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(202, 0)

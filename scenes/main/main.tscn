@@ -81,3 +81,4 @@ constant_name = &"Oxygen"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_jjp52")
 autoplay = true
+bus = &"Music"
