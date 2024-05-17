@@ -86,7 +86,7 @@ func get_happiness(entity_infos: EntityInfos) -> HappinessStats:
 		happiness_stats.add_feature(HappinessStats.HappinessFeatureType.FOOD, food_ratio)
 	
 	#Calculate oxygen satisfaction
-	var current_oxygen_ratio: float = abs(living_infos.get_target_oxygen() - oxygen) / living_infos.get_maximum_gap_oxygen()
+	var current_oxygen_ratio: float = abs(living_infos.target_oxygen - oxygen) / living_infos.get_maximum_gap_oxygen()
 	happiness_stats.add_feature(HappinessStats.HappinessFeatureType.OXYGEN, 1.0 - current_oxygen_ratio)
 	
 	return happiness_stats

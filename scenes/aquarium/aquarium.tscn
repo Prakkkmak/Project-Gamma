@@ -50,14 +50,32 @@ position = Vector2(0, 11)
 
 [node name="Ground" type="Node2D" parent="EntitiesNode/Slots"]
 
+[node name="Slot13" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-458, -6)
+
+[node name="Slot14" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-134, -15)
+
+[node name="Slot15" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(482, -22)
+
+[node name="Slot16" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-346, -15)
+
+[node name="Slot17" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-7, -12)
+
+[node name="Slot18" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(120, -15)
+
 [node name="Slot1" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(-478, 0)
+position = Vector2(-511, -29)
 
 [node name="Slot2" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
 position = Vector2(-162, 0)
 
 [node name="Slot3" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(365, 0)
+position = Vector2(382, -4)
 
 [node name="Slot4" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
 position = Vector2(-368, 0)
@@ -66,7 +84,7 @@ position = Vector2(-368, 0)
 position = Vector2(-52, 0)
 
 [node name="Slot6" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
-position = Vector2(475, 0)
+position = Vector2(577, -3)
 
 [node name="Slot7" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
 position = Vector2(-264, 0)
@@ -76,3 +94,12 @@ position = Vector2(52, 0)
 
 [node name="Slot9" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
 position = Vector2(202, 0)
+
+[node name="Slot10" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-560, -15)
+
+[node name="Slot11" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-244, -15)
+
+[node name="Slot12" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(300, -28)

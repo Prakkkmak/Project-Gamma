@@ -3,6 +3,10 @@ extends Resource
 
 @export var elements: Array[EntityInfos] = []
 
+@export var price: float = 10
+@export var price_multi: float = 1.5
+@export var pick_choices: int = 1
+@export var max_choices: int = 1
 
 const rarity_weight: Dictionary = {
 	EntityInfos.Rarity.D: 90,
@@ -23,7 +27,6 @@ var rarity_elements: Dictionary = {
 var rarities_not_empty: Array[EntityInfos.Rarity] = []
 var total_weight: int = 0
 
-
 func generate() -> void:
 	rarities_not_empty = []
 	total_weight = 0
@@ -34,6 +37,14 @@ func generate() -> void:
 			rarities_not_empty.append(rarity)
 	_calculate_total_weight()
 
+
+func increase_price() -> void:
+	price *= price_multi
+
+
+func draw() -> Array[EntityInfos]:
+	increase_price()
+	return pick_multiple_random_weighted(pick_choices)
 
 func pick_random_weighted() -> EntityInfos:
 	var rarity: EntityInfos.Rarity = pick_rarity()

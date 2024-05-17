@@ -5,20 +5,24 @@
 
 [resource]
 script = ExtResource("1_ityvh")
-max_food = 50
+max_food = 30
 food_regimes = Array[int]([1])
-food_threshold = 20
+food_threshold = 15
 max_speed = 200.0
 acceleration = 3.0
 max_health = 5
 min_temperature = 80.0
+target_temperature = 100.0
 max_temperature = 120.0
 min_acidity = 80.0
+target_acidity = 100.0
 max_acidity = 120.0
 min_quality = 80.0
+target_quality = 100.0
 max_quality = 120.0
 min_oxygen = 80
-max_oxygen = 120
+target_oxygen = 100.0
+max_oxygen = 180
 grow_time = 20
 life_span = 600
 start_scale = 0.2
@@ -26,7 +30,7 @@ display_name = "Guppy"
 description = "-"
 rarity = 1
 cost = 0
-oxygen_variation = -0.5
+oxygen_variation = -0.2
 temperature_variation = 1.0
 quality_variation = -1.0
 acidity_variation = 0.0

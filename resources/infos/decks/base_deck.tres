@@ -9,10 +9,14 @@
 [ext_resource type="Resource" uid="uid://dnp6rfjsbuhq0" path="res://resources/infos/foods/food_vegetable_high.tres" id="6_dbomb"]
 [ext_resource type="Resource" uid="uid://ct1kgax0rieft" path="res://resources/infos/foods/food_vegetable_normal.tres" id="7_bayol"]
 [ext_resource type="Resource" uid="uid://bfeedp6lqr23b" path="res://resources/infos/foods/food_vegetable_low.tres" id="8_o1ust"]
-[ext_resource type="Resource" path="res://resources/infos/fishs/spun.tres" id="9_mvhx7"]
+[ext_resource type="Resource" uid="uid://dns5p2u2gr11r" path="res://resources/infos/fishs/spun.tres" id="9_mvhx7"]
 [ext_resource type="Resource" uid="uid://j3khiuqeyi1e" path="res://resources/infos/plants/sucrelune.tres" id="10_a58mj"]
-[ext_resource type="Resource" uid="uid://sh6dtcv2cy4f" path="res://resources/infos/coral/coral.tres" id="11_3pgp0"]
+[ext_resource type="Resource" uid="uid://sh6dtcv2cy4f" path="res://resources/infos/plants/coral.tres" id="11_3pgp0"]
 
 [resource]
 script = ExtResource("1_8i1ox")
 elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_jdv6m"), ExtResource("2_wa2pe"), ExtResource("3_u130e"), ExtResource("4_r68i3"), ExtResource("5_hpve5"), ExtResource("6_dbomb"), ExtResource("7_bayol"), ExtResource("8_o1ust"), ExtResource("9_mvhx7"), ExtResource("10_a58mj"), ExtResource("11_3pgp0")])
+price = 10.0
+price_multi = 1.5
+pick_choices = 5
+pick_max_taken = 2

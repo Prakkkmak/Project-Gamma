@@ -62,12 +62,12 @@ func _on_card_used(entity_infos: EntityInfos, use_position: Vector2) -> void:
 
 
 func _on_draw_card_button_pressed() -> void:
-	money -= 10
-	aquarium_panel.set_money(money)
 	var deck_selected: Deck = decks[0]
-	var entities: Array[EntityInfos] = deck_selected.pick_multiple_random_weighted(5)
+	money -= deck_selected.price
+	aquarium_panel.set_money(money)
+	var entities: Array[EntityInfos] = deck_selected.draw()
 	card_selection_panel.show()
-	card_selection_panel.display_selection(entities, 2)
+	card_selection_panel.display_selection(entities, deck_selected.max_choices)
 
 func _on_income_perseved(value: float) -> void:
 	money += value

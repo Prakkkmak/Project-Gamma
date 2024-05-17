@@ -7,12 +7,16 @@ extends EntityInfos
 
 #region Conditions
 @export var min_temperature: float = 80
+@export var target_temperature: float = 100
 @export var max_temperature: float = 120
 @export var min_acidity: float = 80
+@export var target_acidity: float = 100
 @export var max_acidity: float = 120
 @export var min_quality: float = 80
+@export var target_quality: float = 100
 @export var max_quality: float = 120
 @export var min_oxygen: int = 80
+@export var target_oxygen: float = 100
 @export var max_oxygen: int = 120
 #endregion
 
@@ -27,21 +31,6 @@ extends EntityInfos
 ## Start scale
 @export var start_scale: float = 0.2
 #endregion
-
-func get_target_temperature() -> float:
-	return ( max_temperature + min_temperature ) / 2
-
-
-func get_target_acidity() -> float:
-	return ( max_acidity + min_acidity ) / 2
-
-
-func get_target_quality() -> float:
-	return ( max_quality + min_quality ) / 2
-
-
-func get_target_oxygen() -> float:
-	return ( max_oxygen + min_oxygen ) / 2
 
 
 func get_maximum_gap_temperature() -> float:
