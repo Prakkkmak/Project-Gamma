@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="FishInfos" load_steps=3 format=3 uid="uid://bb2t6k7708afk"]
+[gd_resource type="Resource" script_class="FishInfos" load_steps=3 format=3 uid="uid://c70dcjp7jnrkb"]
 
-[ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_ityvh"]
-[ext_resource type="Texture2D" uid="uid://op5i6hatreyd" path="res://assets/art/entities/fishs/Fish-3.png" id="2_uj138"]
+[ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_5pg2d"]
+[ext_resource type="Texture2D" uid="uid://cyimji8rr5q6o" path="res://assets/art/entities/fishs/Fish-4.png" id="2_cgebx"]
 
 [resource]
-script = ExtResource("1_ityvh")
+script = ExtResource("1_5pg2d")
 max_food = 50
 food_regimes = Array[int]([1])
 food_threshold = 20
@@ -22,7 +22,7 @@ max_oxygen = 120
 grow_time = 20
 life_span = 600
 start_scale = 0.2
-display_name = "Guppy"
+display_name = "Spun"
 description = "-"
 rarity = 1
 cost = 0
@@ -31,5 +31,5 @@ temperature_variation = 1.0
 quality_variation = -1.0
 acidity_variation = 0.0
 income_variation = 0.4
-texture = ExtResource("2_uj138")
+texture = ExtResource("2_cgebx")
 scale = 1.0

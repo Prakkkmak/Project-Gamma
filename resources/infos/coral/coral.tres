@@ -1,17 +1,17 @@
-[gd_resource type="Resource" script_class="PlantInfos" load_steps=4 format=3 uid="uid://c0rr05lawi7j5"]
+[gd_resource type="Resource" script_class="PlantInfos" load_steps=4 format=3 uid="uid://sh6dtcv2cy4f"]
 
-[ext_resource type="Script" path="res://resources/infos/plant_infos.gd" id="1_58uef"]
-[ext_resource type="Texture2D" uid="uid://bs2x54nqgthf0" path="res://assets/art/entities/Aqua_Tilesheet.png" id="2_it0u7"]
+[ext_resource type="Script" path="res://resources/infos/plant_infos.gd" id="1_scr3k"]
+[ext_resource type="Texture2D" uid="uid://dxqjgbepgh2mv" path="res://assets/art/entities/Aqua_Tilesheet_2.png" id="2_esq4f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5oike"]
-atlas = ExtResource("2_it0u7")
-region = Rect2(48, 0, 16, 96)
+atlas = ExtResource("2_esq4f")
+region = Rect2(4, 49, 27, 31)
 
 [resource]
-script = ExtResource("1_58uef")
+script = ExtResource("1_scr3k")
 food_positions = Array[Vector2]([Vector2(-8, -30), Vector2(4, -80)])
-grow_speed = 1.0
-total_food = 50.0
+grow_speed = 3.0
+total_food = 100.0
 max_health = 50
 min_temperature = 80.0
 max_temperature = 120.0
@@ -28,7 +28,7 @@ display_name = "Gotod"
 description = "Base Plant"
 rarity = 2
 cost = 0
-oxygen_variation = 3.0
+oxygen_variation = -1.0
 temperature_variation = -1.0
 quality_variation = 2.0
 acidity_variation = 0.0

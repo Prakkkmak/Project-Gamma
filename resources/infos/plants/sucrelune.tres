@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="PlantInfos" load_steps=2 format=3 uid="uid://j3khiuqeyi1e"]
+[gd_resource type="Resource" script_class="PlantInfos" load_steps=3 format=3 uid="uid://j3khiuqeyi1e"]
 
 [ext_resource type="Script" path="res://resources/infos/plant_infos.gd" id="1_lf3wv"]
+[ext_resource type="Texture2D" uid="uid://c7tbkriosb3s8" path="res://assets/art/entities/plant2.png" id="2_2ue7p"]
 
 [resource]
 script = ExtResource("1_lf3wv")
+food_positions = Array[Vector2]([Vector2(6, -15), Vector2(-1, -30)])
+grow_speed = 2.0
+total_food = 10.0
 max_health = 20
 min_temperature = 22
 max_temperature = 26
@@ -11,18 +15,19 @@ min_acidity = 6
 max_acidity = 8
 min_quality = 50
 max_quality = 120.0
-min_oxygen_saturation = 90
-max_oxygen_saturation = 110
+min_oxygen = 80
+max_oxygen = 120
 grow_time = 10
 life_span = 600
 start_scale = 0.2
-end_scale = 1.0
 display_name = "Sucrelune"
-description = "Plante qui accélere les poissons mais descend leur nouriture plus vite"
-rarity = 1
+description = "-"
+rarity = 2
 cost = 0
-oxygen_variation = 3.0
+oxygen_variation = 1.0
 temperature_variation = -1.0
 quality_variation = 2.0
 acidity_variation = 0.0
-income_variation = 0.0
+income_variation = 1.0
+texture = ExtResource("2_2ue7p")
+scale = 1.0
