@@ -1,50 +1,64 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdt57b7ylyvme"]
+[gd_scene load_steps=8 format=3 uid="uid://cdt57b7ylyvme"]
 
 [ext_resource type="Script" path="res://ui/aquarium_panel/aquarium_panel.gd" id="1_ljwbi"]
 [ext_resource type="PackedScene" uid="uid://dhrik4pv7rpvy" path="res://ui/aquarium_panel/aquarium_values_container/aquarium_values_container.tscn" id="2_4hfi1"]
 [ext_resource type="PackedScene" uid="uid://b0b4pvrucoqja" path="res://ui/aquarium_panel/entities_rows_container/entities_rows_container.tscn" id="3_bi0rr"]
 [ext_resource type="PackedScene" uid="uid://0i1yalsu10vw" path="res://ui/aquarium_panel/money_value_container/money_value_container.tscn" id="4_jg74u"]
 [ext_resource type="PackedScene" uid="uid://x8j1mctxha38" path="res://ui/aquarium_panel/entities_rows_container/entity_happiness_view/entity_happiness_view.tscn" id="4_uiayn"]
+[ext_resource type="PackedScene" uid="uid://cll8xv4elcyht" path="res://ui/aquarium_panel/happiness_hover/happiness_hover.tscn" id="6_jh7li"]
+[ext_resource type="PackedScene" uid="uid://bjp3i1kvjutyw" path="res://ui/aquarium_panel/happiness_hover/feature_happiness_display/feature_happiness_display.tscn" id="7_52n1t"]
 
 [node name="AquariumPanel" type="PanelContainer"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+mouse_filter = 1
 script = ExtResource("1_ljwbi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2
+columns = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
-layout_mode = 2
-
-[node name="AquariumValuesContainer" parent="VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("2_4hfi1")]
+[node name="AquariumValuesContainer" parent="GridContainer" instance=ExtResource("2_4hfi1")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="Expand" type="Control" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="Expand" type="Control" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="EntitiesHappinessContainer" parent="VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("3_bi0rr")]
+[node name="EntitiesHappinessContainer" parent="GridContainer" instance=ExtResource("3_bi0rr")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 entity_happiness_view_scene = ExtResource("4_uiayn")
 
-[node name="Expand2" type="Control" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="Expand2" type="Control" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MoneyValueContainer" parent="VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("4_jg74u")]
+[node name="MoneyValueContainer" parent="GridContainer" instance=ExtResource("4_jg74u")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="HoverFishContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="Void" type="Control" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Void2" type="Control" parent="GridContainer"]
+layout_mode = 2
+
+[node name="HappinessHover" parent="GridContainer" instance=ExtResource("6_jh7li")]
 visible = false
-custom_minimum_size = Vector2(200, 300)
+modulate = Color(1, 1, 1, 0.72549)
+layout_mode = 2
+feature_happiness_display_scene = ExtResource("7_52n1t")
+
+[node name="Void3" type="Control" parent="GridContainer"]
+layout_mode = 2
+
+[node name="MoneyHover" type="PanelContainer" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 0

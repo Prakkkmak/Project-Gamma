@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjp3i1kvjutyw"]
+
+[ext_resource type="Script" path="res://ui/aquarium_panel/happiness_hover/feature_happiness_display/feature_happiness_display.gd" id="1_yklt0"]
+
+[node name="FeatureHappinessDisplay" type="HBoxContainer"]
+script = ExtResource("1_yklt0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="FeatureName" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Oxygen
+"
+
+[node name="FeatureValues" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "(80-120)"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+allow_greater = true
+allow_lesser = true

@@ -12,6 +12,7 @@ bg_color = Color(1, 1, 1, 1)
 
 [node name="EntityHappinessView" type="PanelContainer"]
 size_flags_vertical = 4
+mouse_default_cursor_shape = 16
 theme_override_styles/panel = SubResource("StyleBoxFlat_8ic4p")
 script = ExtResource("1_k7h5m")
 infos = ExtResource("2_eat5y")

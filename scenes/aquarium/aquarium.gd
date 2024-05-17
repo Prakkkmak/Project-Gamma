@@ -104,7 +104,7 @@ func _track_entity(infos: EntityInfos, entity: Node) -> void:
 		entities[infos] = []
 	(entities[infos] as Array[Node]).append(entity)
 	count_updated.emit(infos, (entities[infos] as Array).size())
-	entity.tree_exited.connect(_on_untrack_entity.bind(entity))
+	entity.tree_exited.connect(_on_untrack_entity.bind(infos, entity))
 
 
 func _update_constants(delta: float) -> void:
@@ -125,5 +125,6 @@ func _update_constants(delta: float) -> void:
 	income_perseved.emit(income)
 
 
-func _on_untrack_entity(entity: Node) -> void:
-	entities.erase(entity)
+func _on_untrack_entity(infos: EntityInfos, entity: Node) -> void:
+	(entities[infos] as Array).erase(entity)
+	count_updated.emit(infos, (entities[infos] as Array).size())

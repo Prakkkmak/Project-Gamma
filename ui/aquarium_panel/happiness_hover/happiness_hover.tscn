@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cll8xv4elcyht"]
+
+[ext_resource type="Script" path="res://ui/aquarium_panel/happiness_hover/happiness_hover.gd" id="1_xlk28"]
+[ext_resource type="PackedScene" uid="uid://bjp3i1kvjutyw" path="res://ui/aquarium_panel/happiness_hover/feature_happiness_display/feature_happiness_display.tscn" id="2_4nbqx"]
+
+[node name="HappinessHover" type="PanelContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_xlk28")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="EntityDisplayNameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Glob"
+
+[node name="FeaturesContainer" type="VBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FeatureHappinessDisplay" parent="VBoxContainer/FeaturesContainer" instance=ExtResource("2_4nbqx")]
+layout_mode = 2
