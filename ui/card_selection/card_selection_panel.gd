@@ -59,7 +59,7 @@ func _on_mouse_entered(card: Card) -> void:
 
 
 func _on_mouse_exited(card: Card) -> void:
-	if current_cards_selected.find(card) == -1 && cards_remaining() > 0:
+	if current_cards_selected.find(card) == -1 && cards_remaining() > 0  && card.animation_player.current_animation == "hover":
 		card.animation_player.stop()
 
 
