@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=17 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b651kviaunjn" path="res://ui/constant_display/constant_display.tscn" id="12_4erkl"]
 [ext_resource type="Texture2D" uid="uid://bivx4bvj4vo0a" path="res://assets/art/ui/aquaButton.png" id="12_551gs"]
 [ext_resource type="Texture2D" uid="uid://c7sir0ukgvh4u" path="res://assets/art/ui/aquaButtonPressed.png" id="13_nhx06"]
+[ext_resource type="AudioStream" uid="uid://kib3t356qx0t" path="res://assets/music/TylerSong3_Normal.wav" id="16_jjp52"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
@@ -76,3 +77,7 @@ horizontal_alignment = 2
 unique_name_in_owner = true
 visible = false
 constant_name = &"Oxygen"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_jjp52")
+autoplay = true
