@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://bm842h44ddm1c"]
 
 [ext_resource type="Script" path="res://ui/card/card.gd" id="1_4q8l6"]
+[ext_resource type="Texture2D" uid="uid://d2sj3yfbhynhu" path="res://assets/art/ui/cardTest.png" id="1_mcvlf"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_i5cha"]
 [ext_resource type="Texture2D" uid="uid://bnjy3yyowl3v8" path="res://assets/art/ui/fish_placeholder.png" id="3_j1x6g"]
-[ext_resource type="Texture2D" uid="uid://de3mkhkqty031" path="res://assets/art/ui/card3.png" id="3_u2dhb"]
 
 [sub_resource type="Animation" id="Animation_3jh2w"]
 length = 0.001
@@ -154,10 +154,10 @@ _data = {
 }
 
 [node name="Card" type="TextureRect"]
-offset_right = 128.0
+offset_right = 192.0
 offset_bottom = 192.0
 pivot_offset = Vector2(64, 96)
-texture = ExtResource("3_u2dhb")
+texture = ExtResource("1_mcvlf")
 script = ExtResource("1_4q8l6")
 entity_infos = ExtResource("3_i5cha")
 
