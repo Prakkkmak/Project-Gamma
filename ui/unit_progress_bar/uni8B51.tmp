@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1ud5vathbrl1"]
+
+[ext_resource type="Script" path="res://ui/unit_progress_bar/unit_progress_bar.gd" id="1_o7bym"]
+[ext_resource type="Texture2D" uid="uid://bldmfdwfxt8w3" path="res://assets/art/entities/props/Food_Star.png" id="2_pak4v"]
+[ext_resource type="Texture2D" uid="uid://c5mraufmvgw5q" path="res://assets/art/ui/Food_Star_black.png" id="3_0ffqa"]
+
+[node name="UnitProgressBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_o7bym")
+progress = ExtResource("2_pak4v")
+under = ExtResource("3_0ffqa")
+value = 12.0
+offset = 100.0
