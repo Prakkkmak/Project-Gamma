@@ -20,6 +20,7 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
+simulation_speed = null
 decks = Array[Resource("res://resources/infos/deck.gd")]([ExtResource("2_eas1m")])
 starting_cards = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("3_vjkj7"), ExtResource("4_8lisx"), ExtResource("4_8lisx"), ExtResource("4_en0s5")])
 

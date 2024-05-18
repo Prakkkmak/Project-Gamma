@@ -17,17 +17,9 @@ enum Rarity { INVALID, D, C, B, A, S }
 ## Price of the entity
 @export var cost: int = 0
 
-## Oxygen variation: positive value mean increase the oxygen while negative value mean remove
-@export var oxygen_variation: float = 0.0
 
-## Some stuff makes the temperature rise or cool
-@export var temperature_variation: float = 0.0
+@export var stats_variations: Array[StatVariation] = []
 
-## Some stuff makes the quality rise or cool
-@export var quality_variation: float = 0.0
-
-## Some stuff makes the temperature rise or cool
-@export var acidity_variation: float = 0.0
 
 @export var income_variation: float = 0.0
 
@@ -39,6 +31,13 @@ enum Rarity { INVALID, D, C, B, A, S }
 
 ## End scale
 @export var scale: float = 1.0
+
+
+func get_stat_variation(stat: Stat) -> StatVariation:
+	for stat_variation in stats_variations:
+		if stat_variation.stat == stat:
+			return stat_variation
+	return null
 
 
 func get_texture_display() -> Texture:

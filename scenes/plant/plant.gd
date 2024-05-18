@@ -37,9 +37,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for food_component: FoodComponent in food_components:
 		food_component.add_food(delta * infos.grow_speed)
-	if aquarium:
-		if aquarium.oxygen < infos.min_oxygen || aquarium.oxygen > infos.max_oxygen:
-			take_damage(delta)
+	for stat_requirement: StatRequirement in infos.stats_requirements:
+		var condition_delta: float = abs(stat_requirement.get_outside_requirement_delta())
+		if condition_delta > 0:
+			take_damage(condition_delta)
 
 func take_damage(amount: float) -> void:
 	current_health -= amount

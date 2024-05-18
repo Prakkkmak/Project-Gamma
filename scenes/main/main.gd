@@ -46,6 +46,7 @@ func _update_draw_button() -> void:
 func _update_aquarium_pannel() -> void:
 	#HACK Remove this in profit of signals
 	aquarium_panel.set_oxygen(aquarium.oxygen)
+	aquarium_panel.set_quality(aquarium.quality)
 
 
 func _on_card_used(entity_infos: EntityInfos, use_position: Vector2) -> void:

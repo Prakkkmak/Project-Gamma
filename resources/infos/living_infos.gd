@@ -6,18 +6,7 @@ extends EntityInfos
 @export var max_health: int = 50
 
 #region Conditions
-@export var min_temperature: float = 80
-@export var target_temperature: float = 100
-@export var max_temperature: float = 120
-@export var min_acidity: float = 80
-@export var target_acidity: float = 100
-@export var max_acidity: float = 120
-@export var min_quality: float = 80
-@export var target_quality: float = 100
-@export var max_quality: float = 120
-@export var min_oxygen: int = 80
-@export var target_oxygen: float = 100
-@export var max_oxygen: int = 120
+@export var stats_requirements: Array[StatRequirement] = []
 #endregion
 
 
@@ -32,18 +21,8 @@ extends EntityInfos
 @export var start_scale: float = 0.2
 #endregion
 
-
-func get_maximum_gap_temperature() -> float:
-	return ( max_temperature - min_temperature ) / 2
-
-
-func get_maximum_gap_acidity() -> float:
-	return ( max_acidity - min_acidity ) / 2
-
-
-func get_maximum_gap_quality() -> float:
-	return ( max_quality - min_quality ) / 2
-
-
-func get_maximum_gap_oxygen() -> float:
-	return ( max_oxygen - min_oxygen ) / 2
+func get_stat_requirements(stat: Stat) -> StatRequirement:
+	for stat_requirement in stats_requirements:
+		if stat_requirement.stat == stat:
+			return stat_requirement
+	return null

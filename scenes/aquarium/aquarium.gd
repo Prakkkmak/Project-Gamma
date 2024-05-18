@@ -6,16 +6,14 @@ signal happiness_updated(entity_infos: EntityInfos, hapiness: HappinessStats)
 signal oxygen_updated(new_value: float)
 signal count_updated(entity_infos: EntityInfos, count: int)
 
+signal stat_updated(stat: Stat, old_value: float, new_value: float)
+
 ## Second per aquarium tick
 @export var seconds_per_tick: float = 10.0
-## Quality in percent is 0 to 100
-@export_range(0,100) var quality: float = 100.0
-## Acidity in pH 0 to 14 with 7 neutral
-@export_range(0,100) var acidity: float = 100.0
-## Temperatire 10 to 40 with 21 as neutral
-@export_range(0,100) var temperature: float = 100.0
-## Saturation of oxygen, 100 is perfect
-@export_range(0,100) var oxygen: float = 100.0
+
+
+@export var stats: Array[Stat] = []
+
 
 @export var fish_scene: PackedScene
 @export var plant_scene: PackedScene
@@ -27,13 +25,20 @@ signal count_updated(entity_infos: EntityInfos, count: int)
 
 @onready var entities_node: Node2D = %EntitiesNode
 @onready var ground_slots: Node2D = %Slots/Ground
+@onready var quality_overlay: Polygon2D = %QualityOverlay
 
 # Dic of EntityInfos: Array[Node2D]
 var entities: Dictionary = {}
 
+var quality_filter_color: Color = Color.TRANSPARENT
+
+func _ready() -> void:
+	quality_filter_color = quality_overlay.color
+
 
 func _process(delta: float) -> void:
 	_update_constants(delta)
+	
 
 func add_fish(fish_infos: FishInfos, position: Vector2 = Vector2.ZERO) -> void:
 	var fish: Fish = fish_scene.instantiate()
@@ -83,12 +88,13 @@ func get_happiness(entity_infos: EntityInfos) -> HappinessStats:
 			sum_food += fish.current_food
 		var average_food: float = sum_food / current_entities.size()
 		var food_ratio: float = average_food / (living_infos as FishInfos).food_threshold
-		happiness_stats.add_feature(HappinessStats.HappinessFeatureType.FOOD, food_ratio)
+		happiness_stats.add_feature("food", food_ratio)
 	
-	#Calculate oxygen satisfaction
-	var current_oxygen_ratio: float = abs(living_infos.target_oxygen - oxygen) / living_infos.get_maximum_gap_oxygen()
-	happiness_stats.add_feature(HappinessStats.HappinessFeatureType.OXYGEN, 1.0 - current_oxygen_ratio)
-	
+	#Calculate stats satisfactions
+	#TODO
+	for stat_requirement: StatRequirement in living_infos.stats_requirements:
+		var current_stat_ratio: float = abs(stat_requirement.target - stat_requirement.stat.current_value) / stat_requirement.get_gap()
+		happiness_stats.add_feature(stat_requirement.stat.id, 1.0 - current_stat_ratio)
 	return happiness_stats
 
 
@@ -113,16 +119,20 @@ func _update_constants(delta: float) -> void:
 		var entity_infos: EntityInfos = entity.get("infos") as EntityInfos
 		if !entity_infos:
 			return
-		temperature += entity_infos.temperature_variation * delta / seconds_per_tick
-		quality += entity_infos.quality_variation * delta / seconds_per_tick
-		acidity += entity_infos.acidity_variation * delta / seconds_per_tick
-		oxygen += entity_infos.oxygen_variation * delta / seconds_per_tick
+		for stat: Stat in stats:
+			var old_value: float = stat.current_value
+			var stat_variation: StatVariation = entity_infos.get_stat_variation(stat)
+			if stat_variation:
+				stat.apply_variation(stat_variation.get_variation() * delta / seconds_per_tick)
+			if stat.id == "quality":
+				quality_overlay.color = lerp(quality_filter_color, Color.TRANSPARENT, stat.current_value / 100)
+			stat_updated.emit(stat, old_value, stat.current_value)
 		income += entity_infos.income_variation * delta / seconds_per_tick
+		income_perseved.emit(income)
 	for entity_infos: EntityInfos in entities.keys():
 		var happiness: HappinessStats = get_happiness(entity_infos)
 		happiness_updated.emit(entity_infos, happiness)
-	oxygen_updated.emit(oxygen)
-	income_perseved.emit(income)
+
 
 
 func _on_untrack_entity(infos: EntityInfos, entity: Node) -> void:

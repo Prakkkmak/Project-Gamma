@@ -17,6 +17,8 @@ func _ready() -> void:
 func set_oxygen(value: float) -> void:
 	aquarium_values_container.set_oxygen(value)
 
+func set_quality(value: float) -> void:
+	aquarium_values_container.set_quality(value)
 
 func set_money(value: float) -> void:
 	money_value_container.set_money(value)
