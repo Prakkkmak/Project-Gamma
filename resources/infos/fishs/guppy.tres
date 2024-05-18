@@ -1,7 +1,16 @@
-[gd_resource type="Resource" script_class="FishInfos" load_steps=3 format=3 uid="uid://bb2t6k7708afk"]
+[gd_resource type="Resource" script_class="FishInfos" load_steps=6 format=3 uid="uid://bb2t6k7708afk"]
 
 [ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_ityvh"]
+[ext_resource type="Script" path="res://resources/statistics/stat_variation.gd" id="2_bukdy"]
 [ext_resource type="Texture2D" uid="uid://op5i6hatreyd" path="res://assets/art/entities/fishs/Fish-3.png" id="2_uj138"]
+[ext_resource type="Resource" uid="uid://vlpltsfq760p" path="res://resources/statistics/stats/oxygen.tres" id="3_lscvv"]
+
+[sub_resource type="Resource" id="Resource_erku3"]
+script = ExtResource("2_bukdy")
+stat = ExtResource("3_lscvv")
+variation = -10.0
+maximum = 200.0
+minimum = 0.0
 
 [resource]
 script = ExtResource("1_ityvh")
@@ -11,18 +20,7 @@ food_threshold = 15
 max_speed = 200.0
 acceleration = 3.0
 max_health = 5
-min_temperature = 80.0
-target_temperature = 100.0
-max_temperature = 120.0
-min_acidity = 80.0
-target_acidity = 100.0
-max_acidity = 120.0
-min_quality = 80.0
-target_quality = 100.0
-max_quality = 120.0
-min_oxygen = 80
-target_oxygen = 100.0
-max_oxygen = 180
+stats_requirements = Array[Resource("res://resources/statistics/stat_requirement.gd")]([])
 grow_time = 20
 life_span = 600
 start_scale = 0.2
@@ -30,10 +28,7 @@ display_name = "Guppy"
 description = "-"
 rarity = 1
 cost = 0
-oxygen_variation = -0.2
-temperature_variation = 1.0
-quality_variation = -1.0
-acidity_variation = 0.0
+stats_variations = Array[ExtResource("2_bukdy")]([SubResource("Resource_erku3")])
 income_variation = 0.4
 texture = ExtResource("2_uj138")
 scale = 1.0

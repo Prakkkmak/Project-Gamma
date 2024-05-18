@@ -19,6 +19,10 @@ extends Resource
 
 @export var equilibre_factor: float = 1.0
 
+@export var stable_delta: float = 10.0
+
+@export var critical_delta: float = 40.0
+
 var current_value: float = neutral_value
 
 func apply_variation(variation: float) -> void:

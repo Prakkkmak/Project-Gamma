@@ -5,9 +5,9 @@ extends Resource
 
 @export var variation:float = 1.0
 
-@export var maximum: float = 120.0
+@export var maximum: float = 200.0
 
-@export var minimum: float = 80.0
+@export var minimum: float = 0.0
 
 
 func get_variation() -> float:
