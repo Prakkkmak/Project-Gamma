@@ -1,6 +1,8 @@
 class_name Main
 extends Node
 
+@export var stats: Array[Stat] = []
+
 @export var simulation_speed: float = 1.0
 @export var decks: Array[Deck] = []
 @export var starting_cards: Array[EntityInfos] = []
@@ -20,6 +22,9 @@ extends Node
 var money: float = 20
 
 func _ready() -> void:
+	aquarium.stats = stats
+	for stat in stats:
+		aquarium_panel.track_new_stat(stat)
 	Engine.time_scale = simulation_speed
 	hand_panel.card_used.connect(_on_card_used)
 	draw_card_button.pressed.connect(_on_draw_card_button_pressed)
@@ -36,16 +41,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_update_draw_button()
-	oxygen_constant_display.update_constant(aquarium.oxygen)
-	_update_aquarium_pannel()
+
 
 func _update_draw_button() -> void:
 	draw_card_button.disabled = hand_panel.get_remaining_size() < 2 || money < 10
-
-
-func _update_aquarium_pannel() -> void:
-	#HACK Remove this in profit of signals
-	aquarium_panel.set_oxygen(aquarium.oxygen)
 
 
 func _on_card_used(entity_infos: EntityInfos, use_position: Vector2) -> void:

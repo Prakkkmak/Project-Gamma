@@ -7,16 +7,16 @@ extends PanelContainer
 @onready var happiness_hover: HappinessHover = $GridContainer/HappinessHover
 
 func _ready() -> void:
-	set_oxygen(12)
-	set_money(40)
-	set_money_variation(+4)
 	entities_happiness_container.entity_happiness_view_mouse_entered.connect(_on_entity_happiness_view_mouse_entered)
 	entities_happiness_container.entity_happiness_view_mouse_exited.connect(_on_entity_happiness_view_mouse_exited)
 
 
-func set_oxygen(value: float) -> void:
-	aquarium_values_container.set_oxygen(value)
 
+func _process(delta: float) -> void:
+	aquarium_values_container.update_aquarium_value_displays()
+
+func track_new_stat(stat: Stat) -> void:
+	aquarium_values_container.track_new_stat(stat)
 
 func set_money(value: float) -> void:
 	money_value_container.set_money(value)

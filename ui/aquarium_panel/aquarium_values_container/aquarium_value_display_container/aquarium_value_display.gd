@@ -1,24 +1,29 @@
 class_name AquariumValueDisplay
 extends VBoxContainer
 
-@export_category("Starting Values")
-@export var display_name: String = ""
-@export var starting_value: float = 100.0
+@export_category("Stat")
+@export var stat: Stat
 
-@export_category("Thresholds")
-@export var stable_value: float = 100.0
+
+@export_category("Thresholds colors")
 @export var stable_color: Color = Color.WHITE
-@export var stable_delta: float = 10.0
-@export var critical_delta: float = 20.0
 @export var critical_color: Color = Color.RED
+
 
 
 @onready var display_name_label: Label = %DisplayNameLabel
 @onready var value_label: Label = %ValueLabel
 
+
+
 func _ready() -> void:
-	set_display_name(display_name)
-	set_value(starting_value)
+	set_display_name(stat.display_name)
+	set_value(stat.current_value)
+
+
+func update_display() -> void:
+	set_value(stat.current_value)
+
 
 func set_display_name(displa_name: String) -> void:
 	display_name_label.text = displa_name
@@ -30,6 +35,6 @@ func set_value(value: float) -> void:
 
 
 func _update_critical_color(value: float) -> void:
-	var delta: float = abs(value - stable_value)
-	var delta_ratio: float = clamp((delta - stable_delta) / (critical_delta - stable_delta), 0.0, 1.0)
+	var delta: float = abs(value - stat.neutral_value)
+	var delta_ratio: float = clamp((delta - stat.stable_delta) / (stat.critical_delta - stat.stable_delta), 0.0, 1.0)
 	value_label.modulate = lerp(stable_color, critical_color, delta_ratio)

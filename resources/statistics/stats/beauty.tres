@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stat" load_steps=2 format=3 uid="uid://bs0do6lrydqvj"]
+
+[ext_resource type="Script" path="res://resources/statistics/stat.gd" id="1_xflvf"]
+
+[resource]
+script = ExtResource("1_xflvf")
+display_name = "Quality"
+symbol_name = "QL"
+description = "A basic stat"
+min_value = 0.0
+max_value = 1000.0
+neutral_value = 100.0
+variation_ratio = 1.0
+equilibre_factor = 1.0

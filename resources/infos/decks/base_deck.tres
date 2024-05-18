@@ -19,4 +19,4 @@ elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource
 price = 10.0
 price_multi = 1.5
 pick_choices = 5
-pick_max_taken = 2
+max_choices = 1

@@ -58,9 +58,10 @@ func _process(delta: float) -> void:
 		take_damage(delta)
 	food_label.text = "Food: " + str(floor(current_food))
 	health_label.text = "Health: " + str(floor(current_health))
-	if aquarium:
-		if aquarium.oxygen < infos.min_oxygen || aquarium.oxygen > infos.max_oxygen:
-			take_damage(delta)
+	for stat_requirement: StatRequirement in infos.stats_requirements:
+		var condition_delta: float = abs(stat_requirement.get_outside_requirement_delta())
+		if condition_delta > 0:
+			take_damage(condition_delta)
 
 func take_damage(amount: float) -> void:
 	animation_player.play("hurt")
