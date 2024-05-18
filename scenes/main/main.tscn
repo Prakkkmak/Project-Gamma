@@ -13,8 +13,8 @@
 [ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="4_en0s5"]
 [ext_resource type="PackedScene" uid="uid://bssw0yhkh8n64" path="res://scenes/plant/plant.tscn" id="6_l2bk5"]
 [ext_resource type="PackedScene" uid="uid://cdt57b7ylyvme" path="res://ui/aquarium_panel/aquarium_panel.tscn" id="10_pqo2w"]
-[ext_resource type="Texture2D" uid="uid://bvagh72bko0dw" path="res://assets/art/ui/button.png" id="14_nb4o4"]
-[ext_resource type="Texture2D" uid="uid://cvu21daopfpsf" path="res://assets/art/ui/button_pressed.png" id="15_hf1du"]
+[ext_resource type="Texture2D" uid="uid://c2tb310c6plav" path="res://assets/art/ui/shop_button.png" id="14_6iph4"]
+[ext_resource type="Texture2D" uid="uid://brwddgqeutyhv" path="res://assets/art/ui/shop_button_pressed.png" id="15_vxf1j"]
 [ext_resource type="PackedScene" uid="uid://bdio5n87rp04y" path="res://ui/card_selection/card_selection_panel.tscn" id="16_i110r"]
 [ext_resource type="AudioStream" uid="uid://kib3t356qx0t" path="res://assets/music/TylerSong3_Normal.wav" id="16_jjp52"]
 
@@ -56,9 +56,9 @@ offset_right = 128.0
 offset_bottom = 205.0
 grow_vertical = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("14_nb4o4")
-texture_pressed = ExtResource("15_hf1du")
-texture_hover = ExtResource("14_nb4o4")
+texture_normal = ExtResource("14_6iph4")
+texture_pressed = ExtResource("15_vxf1j")
+texture_hover = ExtResource("14_6iph4")
 
 [node name="CardSelectionPanel" parent="CanvasLayer" instance=ExtResource("16_i110r")]
 unique_name_in_owner = true
