@@ -27,7 +27,7 @@ region = Rect2(0, 48, 32, 32)
 [resource]
 script = ExtResource("1_g40rx")
 food_positions = Array[Vector2]([Vector2(6, -15), Vector2(-2, -30)])
-total_food = 150.0
+total_food = 200.0
 grow_speed = 3.0
 max_health = 50
 stats_requirements = Array[ExtResource("2_0es3a")]([SubResource("Resource_1e0l1")])

@@ -32,8 +32,8 @@ minimum = 0.0
 [resource]
 script = ExtResource("1_lf3wv")
 food_positions = Array[Vector2]([Vector2(6, -15), Vector2(-1, -30)])
-total_food = 100.0
-grow_speed = 1.0
+total_food = 150.0
+grow_speed = 2.0
 max_health = 20
 stats_requirements = Array[ExtResource("2_2l46r")]([SubResource("Resource_cogso")])
 display_name = "Sucrelune"

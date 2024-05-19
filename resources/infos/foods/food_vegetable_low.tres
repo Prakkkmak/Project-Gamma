@@ -9,9 +9,9 @@ region = Rect2(48, 144, 16, 16)
 
 [resource]
 script = ExtResource("1_xttr3")
-food_amount = 10.0
+food_amount = 30.0
 regime = 1
-display_name = "Piece of Food"
+display_name = "Little food"
 description = ""
 rarity = 3
 stats_variations = Array[Resource("res://resources/statistics/stat_variation.gd")]([])
