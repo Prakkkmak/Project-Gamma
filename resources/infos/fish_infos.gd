@@ -15,3 +15,7 @@ extends LivingInfos
 
 ## Acceleration
 @export var acceleration: float = 1.0
+
+@export var is_eddible: bool = false
+
+@export var fixed_rotation: bool = false

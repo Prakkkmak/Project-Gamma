@@ -49,6 +49,7 @@ unique_name_in_owner = true
 position = Vector2(0, 11)
 
 [node name="Ground" type="Node2D" parent="EntitiesNode/Slots"]
+y_sort_enabled = true
 
 [node name="Slot13" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
 position = Vector2(-458, -6)

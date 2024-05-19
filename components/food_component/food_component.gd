@@ -5,6 +5,7 @@ extends Node2D
 signal depleted
 signal eddible_changed(is_eddible: bool)
 signal eated(old_amount: float, new_amount: float)
+signal eated_finished
 
 
 
@@ -37,6 +38,7 @@ func start_eating() -> void:
 func stop_eating() -> void:
 	_currently_eating -= 1
 	if _currently_eating < 1:
+		eated_finished.emit()
 		gpu_particles_2d.emitting = false
 
 

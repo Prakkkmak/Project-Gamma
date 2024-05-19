@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4yjxy1qh5583"]
+[gd_scene load_steps=18 format=3 uid="uid://b4yjxy1qh5583"]
 
 [ext_resource type="Script" path="res://scenes/fish/fish.gd" id="1_4jih3"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="2_msqfi"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_qylb3"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_3kq5b"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="9_niima"]
+[ext_resource type="PackedScene" uid="uid://coeetj41k63yn" path="res://components/food_component/food_component.tscn" id="10_rkpnj"]
 
 [sub_resource type="Animation" id="Animation_t0tti"]
 length = 0.001
@@ -31,6 +32,30 @@ tracks/1/path = NodePath("ScalePivot/Sprite2D:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -86,9 +111,52 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(0.6, 1.3), Vector2(1.2, 0.9), Vector2(1, 0.9)]
 }
 
+[sub_resource type="Animation" id="Animation_ctrl2"]
+resource_name = "die"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.381703, 0.381703, 0.381703, 1), Color(0.380392, 0.380392, 0.380392, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2v4r"]
 _data = {
 "RESET": SubResource("Animation_t0tti"),
+"die": SubResource("Animation_ctrl2"),
 "eat": SubResource("Animation_ag72m"),
 "hurt": SubResource("Animation_ph1a4"),
 "swim": SubResource("Animation_kx1gc")
@@ -110,6 +178,7 @@ libraries = {
 }
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [node name="ScalePivot" type="Node2D" parent="."]
 
@@ -131,6 +200,11 @@ script = ExtResource("4_f52o4")
 [node name="Movement" type="Node" parent="StateChart/Root"]
 script = ExtResource("4_ag4xe")
 initial_state = NodePath("Swiming")
+
+[node name="ToDie" type="Node" parent="StateChart/Root/Movement"]
+script = ExtResource("6_3kq5b")
+to = NodePath("../Die")
+event = &"die"
 
 [node name="ToIdle" type="Node" parent="StateChart/Root/Movement"]
 script = ExtResource("6_3kq5b")
@@ -179,6 +253,9 @@ event = &"food_reached"
 
 [node name="Eating" type="Node" parent="StateChart/Root/Movement/Feeding"]
 unique_name_in_owner = true
+script = ExtResource("5_qylb3")
+
+[node name="Die" type="Node" parent="StateChart/Root/Movement"]
 script = ExtResource("5_qylb3")
 
 [node name="Life" type="Node" parent="StateChart/Root"]
@@ -242,3 +319,6 @@ layout_mode = 2
 [node name="FoodLabel" type="Label" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="FoodComponent" parent="." instance=ExtResource("10_rkpnj")]
+food_type = 0
