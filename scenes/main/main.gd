@@ -28,11 +28,14 @@ func _ready() -> void:
 		aquarium_panel.track_new_stat(stat)
 	Engine.time_scale = simulation_speed
 	hand_panel.card_used.connect(_on_card_used)
+	hand_panel.card_dragged.connect(_on_card_dragged)
+	hand_panel.card_stop_dragged.connect(_on_card_stop_dragged)
 	shop_button.pressed.connect(_on_shop_button_pressed)
 	aquarium.income_perseved.connect(_on_income_perseved)
 	aquarium.happiness_updated.connect(_on_happiness_updated)
 	aquarium.count_updated.connect(_on_count_updated)
 	card_selection_panel.entities_selected.connect(_on_entities_selected)
+	
 	shop.set_decks(decks)
 	shop.closed.connect(_on_shop_closed)
 	shop.booster_purshased.connect(_on_booster_purshased)
@@ -53,11 +56,14 @@ func open_booster(deck: Deck) -> void:
 	card_selection_panel.display_selection(entities, deck.max_choices)
 
 
-func _on_card_drag(entity_infos: EntityInfos, use_position: Vector2) -> void:
-	use_position = aquarium.get_global_mouse_position()
+func _on_card_dragged(entity_infos: EntityInfos) -> void:
+	var drag_position: Vector2 = aquarium.get_global_mouse_position()
 	if entity_infos is PlantInfos:
 		var plant_infos: PlantInfos = entity_infos as PlantInfos
-		aquarium.preview_plant(plant_infos, use_position)
+		aquarium.preview_plant(plant_infos, drag_position)
+
+func _on_card_stop_dragged() -> void:
+	aquarium.unpreview()
 
 func _on_card_used(entity_infos: EntityInfos, use_position: Vector2) -> void:
 	use_position = aquarium.get_global_mouse_position()

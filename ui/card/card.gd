@@ -5,6 +5,7 @@ extends TextureRect
 signal selected
 signal unselected
 signal drag_started
+signal drag
 signal drag_stopped(drop_position: Vector2)
 
 
@@ -39,6 +40,10 @@ func _ready() -> void:
 	if entity_infos is LivingInfos:
 		description_rich_text_label.text = entity_infos.description
 
+func _process(delta: float) -> void:
+	if drag_enabled:
+		global_position = get_global_mouse_position() + drag_position
+		drag.emit()
 
 func reset_position() -> void:
 	global_position = base_position
@@ -60,12 +65,6 @@ func is_usable() -> bool:
 func _fill_infos() -> void:
 	name_label.text = entity_infos.display_name
 	entity_texture.texture = entity_infos.get_texture_display()
-
-
-
-func _process(delta: float) -> void:
-	if drag_enabled:
-		global_position = get_global_mouse_position() + drag_position
 
 
 func _on_mouse_entered() -> void:

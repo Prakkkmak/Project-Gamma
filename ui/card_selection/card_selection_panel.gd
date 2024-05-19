@@ -4,7 +4,6 @@ extends PanelContainer
 
 signal entities_selected(entities_infos: Array[EntityInfos])
 
-
 @export var default_selection: Array[EntityInfos] = []
 @export var card_scene: PackedScene
 

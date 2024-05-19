@@ -5,6 +5,9 @@ enum DropZone {NORMAL, USE, DISCARD}
 
 signal card_used(entity_info: EntityInfos, position: Vector2)
 signal card_discarded(entity_info: EntityInfos)
+signal card_start_dragged(entity_infos: EntityInfos)
+signal card_dragged(entity_infos: EntityInfos)
+signal card_stop_dragged()
 
 @export var card_scene: PackedScene
 @export var max_hand_size: int = 8
@@ -24,6 +27,7 @@ func add_card(entity_info: EntityInfos) -> void:
 		return
 	var card: Card = card_scene.instantiate()
 	card.drag_started.connect(_on_card_drag_started.bind(card))
+	card.drag.connect(_on_drag.bind(card))
 	card.drag_stopped.connect(_on_card_drag_stopped.bind(card))
 	card.entity_infos = entity_info
 	cards_container.add_child(card)
@@ -58,6 +62,9 @@ func _on_card_drag_started(card: Card) -> void:
 		hand_card.selectable = false
 
 
+func _on_drag(card: Card) -> void:
+	card_dragged.emit(card.entity_infos)
+
 func _on_card_drag_stopped(drop_position: Vector2, card: Card) -> void:
 	for hand_card: Card in hand_cards:
 		hand_card.selectable = true
@@ -70,3 +77,4 @@ func _on_card_drag_stopped(drop_position: Vector2, card: Card) -> void:
 		card_discarded.emit(card.entity_infos)
 	else:
 		card.reset_position()
+	card_stop_dragged.emit()

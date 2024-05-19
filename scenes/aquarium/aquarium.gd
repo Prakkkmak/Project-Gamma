@@ -32,6 +32,9 @@ var entities: Dictionary = {}
 
 var quality_filter_color: Color = Color.TRANSPARENT
 
+var slot_previewed: Node2D
+
+
 func _ready() -> void:
 	quality_filter_color = quality_overlay.color
 
@@ -49,8 +52,6 @@ func add_fish(fish_infos: FishInfos, position: Vector2 = Vector2.ZERO) -> void:
 	_track_entity(fish_infos, fish)
 
 
-var plant_previewed: Plant
-
 
 func get_close_empty_slot(position: Vector2) -> Node2D:
 	var slot_nodes: Array[Node] = ground_slots.get_children()
@@ -64,25 +65,31 @@ func get_close_empty_slot(position: Vector2) -> Node2D:
 	return closer_slot
 
 func preview_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> void:
-	var plant: Plant = plant_scene.instantiate()
-	plant.infos = plant_infos
-	var slot_nodes: Array[Node] = ground_slots.get_children()
+	var closed_node: Node2D = get_close_empty_slot(position)
+	if slot_previewed != closed_node:
+		if slot_previewed && slot_previewed.get_child(0):
+			slot_previewed.get_child(0).queue_free()
+		var plant: Plant = plant_scene.instantiate()
+		plant.infos = plant_infos
+		closed_node.add_child(plant)
+		slot_previewed = closed_node
+		plant.modulate = plant.modulate.lerp(Color.TRANSPARENT, 0.5)
 
+func unpreview() -> void:
+	if slot_previewed && slot_previewed.get_child(0):
+			slot_previewed.get_child(0).queue_free()
 
 func add_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> void:
 	var plant: Plant = plant_scene.instantiate()
 	plant.infos = plant_infos
-	var slot_nodes: Array[Node] = ground_slots.get_children()
 	plant.aquarium = self
-	for node: Node in slot_nodes:
-		if !(node is Node2D):
-			continue
-		var slot: Node2D = node
-		if slot.get_child_count() > 0:
-			continue
-		slot.add_child(plant)
+	if slot_previewed:
+		if !slot_previewed || slot_previewed.get_child_count() == 0:
+			return
+		slot_previewed.get_child(0).queue_free()
+		slot_previewed.add_child(plant)
+		slot_previewed = null
 		_track_entity(plant_infos, plant)
-		break
 
 func add_food(food_infos: FoodInfos, position: Vector2 = Vector2.ZERO) -> void:
 	var fish_food: FishFood = fish_food_scene.instantiate()
