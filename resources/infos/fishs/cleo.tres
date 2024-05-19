@@ -45,7 +45,7 @@ max_speed = 125.0
 acceleration = 3.0
 max_health = 5
 stats_requirements = Array[ExtResource("2_axd1p")]([SubResource("Resource_p434g"), SubResource("Resource_01jn7")])
-display_name = "Guppy"
+display_name = "Cleo"
 description = "[color=#588b7e]+ Increase Beauty a lot[/color]
 [color=#d15d77]- Consumes oxygen[/color]
 [color=#d15d77]- Consumes food a lot[/color]"
