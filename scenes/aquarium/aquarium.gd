@@ -59,9 +59,8 @@ func get_close_empty_slot(position: Vector2) -> Node2D:
 	var closer_slot: Node2D = slot_nodes[0] as Node2D
 	for slot_node in slot_nodes:
 		if slot_node is Node2D:
-			#if (slot as Node2D).dista
-			pass
-			
+			if (slot_node as Node2D).global_position.distance_to(position) < closer_slot.global_position.distance_to(position):
+				closer_slot = slot_node as Node2D
 	return closer_slot
 
 func preview_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> void:
