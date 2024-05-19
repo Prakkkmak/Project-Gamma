@@ -10,7 +10,7 @@ signal closed
 @export var starting_decks: Array[Deck] = []
 @export var boosters: Array[Booster] = []
 
-@onready var close_button: Button = %CloseButton
+@onready var close_button: TextureButton = %CloseButton
 @onready var boosters_grid: GridContainer = %Boosters
 
 

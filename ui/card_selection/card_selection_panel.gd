@@ -9,7 +9,7 @@ signal entities_selected(entities_infos: Array[EntityInfos])
 
 @onready var cards_display: HBoxContainer = %CardsDisplay
 @onready var pick_instruction_label: Label = $CenterContainer/VBoxContainer/PickInstructionLabel
-@onready var validate_button: Button = $CenterContainer/VBoxContainer/ValidateButton
+@onready var validate_button: TextureButton = $CenterContainer/VBoxContainer/ValidateButton
 
 
 var cards: Array[Card] = []
