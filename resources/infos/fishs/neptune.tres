@@ -14,7 +14,7 @@ script = ExtResource("2_lkiow")
 stat = ExtResource("4_3yl6u")
 maximum = 200.0
 target = 120.0
-minimum = 90.0
+minimum = 85.0
 
 [sub_resource type="Resource" id="Resource_fbsju"]
 script = ExtResource("2_lkiow")
