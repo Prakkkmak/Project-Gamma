@@ -16,6 +16,8 @@ var tracked_entities: Dictionary
 func track_entity(entity_info: EntityInfos) -> void:
 	if !(entity_info is FishInfos) && !(entity_info is PlantInfos):
 		return
+	if tracked_entities.has(entity_info):
+		return
 	var entity_happiness_view: EntityHappinessView = entity_happiness_view_scene.instantiate()
 	entity_happiness_view.infos = entity_info
 	tracked_entities[entity_info] = entity_happiness_view

@@ -41,7 +41,7 @@ start_scale = 0.2
 display_name = "Gotod"
 description = "[color=#588b7e]+ Provides oxygen[/color]
 [color=#588b7e]+ Provides food[/color]"
-rarity = 2
+rarity = 1
 cost = 0
 stats_variations = Array[ExtResource("4_mjt47")]([SubResource("Resource_ws864"), SubResource("Resource_a6qw0")])
 income_variation = 0.0

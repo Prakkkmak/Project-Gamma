@@ -16,18 +16,21 @@ func _ready() -> void:
 	booster_texture_button.pressed.connect(_on_booster_texture_button_pressed)
 	disable()
 
+func unlock() -> void:
+	enable()
 
 func enable() -> void:
 	booster_texture_button.modulate = Color.WHITE
+	booster_texture_button.disabled = false
 	price_label.show()
 
 
-func unlock() -> void:
-	enable()
+
 
 
 func disable() -> void:
 	booster_texture_button.modulate = Color.BLACK
+	booster_texture_button.disabled = true
 	price_label.hide()
 
 

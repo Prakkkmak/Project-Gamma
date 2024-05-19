@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FishInfos" load_steps=12 format=3 uid="uid://cwuxmaaxewrtd"]
+[gd_resource type="Resource" script_class="FishInfos" load_steps=12 format=3 uid="uid://djou2i3ugyi7j"]
 
 [ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_o5jg6"]
 [ext_resource type="Script" path="res://resources/statistics/stat_requirement.gd" id="2_axd1p"]

@@ -53,7 +53,7 @@ func add_fish(fish_infos: FishInfos, position: Vector2 = Vector2.ZERO) -> void:
 
 
 
-func get_close_empty_slot(position: Vector2) -> Node2D:
+func get_close_slot(position: Vector2) -> Node2D:
 	var slot_nodes: Array[Node] = ground_slots.get_children()
 	if slot_nodes.size() == 0:
 		return null
@@ -65,15 +65,18 @@ func get_close_empty_slot(position: Vector2) -> Node2D:
 	return closer_slot
 
 func preview_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> void:
-	var closed_node: Node2D = get_close_empty_slot(position)
-	if slot_previewed != closed_node:
-		if slot_previewed && slot_previewed.get_child(0):
-			slot_previewed.get_child(0).queue_free()
-		var plant: Plant = plant_scene.instantiate()
-		plant.infos = plant_infos
-		closed_node.add_child(plant)
-		slot_previewed = closed_node
-		plant.modulate = plant.modulate.lerp(Color.TRANSPARENT, 0.5)
+	var closed_node: Node2D = get_close_slot(position)
+	if slot_previewed == closed_node:
+		return
+	if closed_node.get_children().size() > 0:
+		return
+	if slot_previewed && slot_previewed.get_child(0):
+		slot_previewed.get_child(0).queue_free()
+	var plant: Plant = plant_scene.instantiate()
+	plant.infos = plant_infos
+	closed_node.add_child(plant)
+	slot_previewed = closed_node
+	plant.modulate = plant.modulate.lerp(Color.TRANSPARENT, 0.5)
 
 func unpreview() -> void:
 	if slot_previewed && slot_previewed.get_child(0):

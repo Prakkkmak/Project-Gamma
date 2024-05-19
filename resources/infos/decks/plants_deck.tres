@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=7 format=3 uid="uid://uefi4pamx1ob"]
+[gd_resource type="Resource" script_class="Deck" load_steps=7 format=3 uid="uid://cvdq10yeayxf4"]
 
 [ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="1_gesiy"]
-[ext_resource type="Resource" uid="uid://coqnfo1yictva" path="res://resources/infos/plants/crimson.tres" id="3_2o4fc"]
+[ext_resource type="Resource" uid="uid://dck65nqigd3gp" path="res://resources/infos/plants/crimson.tres" id="3_2o4fc"]
 [ext_resource type="Resource" uid="uid://sh6dtcv2cy4f" path="res://resources/infos/plants/coral.tres" id="3_df67l"]
 [ext_resource type="Script" path="res://resources/infos/deck.gd" id="4_pmbnv"]
 [ext_resource type="Resource" uid="uid://j3khiuqeyi1e" path="res://resources/infos/plants/sucrelune.tres" id="4_sn34e"]
@@ -10,7 +10,7 @@
 [resource]
 script = ExtResource("4_pmbnv")
 elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_gesiy"), ExtResource("3_df67l"), ExtResource("3_2o4fc"), ExtResource("4_sn34e")])
-price = 10.0
+price = 40.0
 price_multi = 1.5
 pick_choices = 5
 max_choices = 1

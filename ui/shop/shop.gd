@@ -31,6 +31,14 @@ func set_decks(new_decks: Array[Deck]) -> void:
 		booster.selected.connect(_on_booster_selected.bind(deck))
 
 
+func lock_by_money(money: float) -> void:
+	for booster in boosters:
+		if booster.deck.price > money:
+			booster.disable()
+		else:
+			booster.enable()
+
+
 func unlock_booster(deck: Deck) -> void:
 	for booster: Booster in boosters:
 		if booster.deck == deck:

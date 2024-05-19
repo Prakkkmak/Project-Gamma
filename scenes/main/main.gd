@@ -7,6 +7,8 @@ extends Node
 @export var decks: Array[Deck] = []
 @export var starting_cards: Array[EntityInfos] = []
 
+@export var money: float = 20
+
 @onready var aquarium: Aquarium = %Aquarium
 @onready var debug_panel: DebugPanel = $CanvasLayer/DebugPanel
 @onready var oxygen_constant_display: ConstantDisplay = %OxygenConstantDisplay
@@ -20,7 +22,6 @@ extends Node
 @onready var money_label: Label = %MoneyLabel
 
 
-var money: float = 20
 
 func _ready() -> void:
 	aquarium.stats = stats
@@ -35,7 +36,7 @@ func _ready() -> void:
 	aquarium.happiness_updated.connect(_on_happiness_updated)
 	aquarium.count_updated.connect(_on_count_updated)
 	card_selection_panel.entities_selected.connect(_on_entities_selected)
-	
+	aquarium_panel.set_money(money)
 	shop.set_decks(decks)
 	shop.closed.connect(_on_shop_closed)
 	shop.booster_purshased.connect(_on_booster_purshased)
@@ -79,6 +80,7 @@ func _on_card_used(entity_infos: EntityInfos, use_position: Vector2) -> void:
 
 
 func _on_shop_button_pressed() -> void:
+	shop.lock_by_money(money)
 	shop.show()
 
 
