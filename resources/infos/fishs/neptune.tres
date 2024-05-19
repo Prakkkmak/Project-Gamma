@@ -50,7 +50,7 @@ max_speed = 50.0
 acceleration = 3.0
 max_health = 30
 stats_requirements = Array[ExtResource("2_lkiow")]([SubResource("Resource_v4bkc"), SubResource("Resource_fbsju")])
-display_name = "Whalex"
+display_name = "Neptune"
 description = "[color=#588b7e]+ Strongly increase Beauty[/color]
 [color=#588b7e]+ Provides a lot of gold[/color]
 [color=#d15d77]- Strongly consumes oxygen[/color]
