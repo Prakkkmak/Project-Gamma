@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=7 format=3 uid="uid://b6w8xi1p85g38"]
+
+[ext_resource type="Resource" uid="uid://dns5p2u2gr11r" path="res://resources/infos/fishs/spun.tres" id="2_yc3e1"]
+[ext_resource type="Resource" uid="uid://dooxvkl7rny07" path="res://resources/infos/fishs/sharky.tres" id="3_h8toh"]
+[ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_w831u"]
+[ext_resource type="Resource" uid="uid://bmu23gm4pveuq" path="res://resources/infos/fishs/bob.tres" id="4_3aixh"]
+[ext_resource type="Texture2D" uid="uid://caqt6bei3dv6j" path="res://assets/art/ui/booster_finn.png" id="6_eoiko"]
+[ext_resource type="Script" path="res://resources/infos/deck.gd" id="7_qol4m"]
+
+[resource]
+script = ExtResource("7_qol4m")
+elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("2_yc3e1"), ExtResource("3_w831u"), ExtResource("3_h8toh"), ExtResource("4_3aixh")])
+price = 250.0
+price_multi = 1.5
+pick_choices = 5
+max_choices = 2
+texture = ExtResource("6_eoiko")

@@ -178,7 +178,6 @@ libraries = {
 }
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="ScalePivot" type="Node2D" parent="."]
 

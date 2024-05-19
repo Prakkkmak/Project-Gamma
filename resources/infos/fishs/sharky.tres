@@ -41,7 +41,7 @@ description = "[color=#588b7e]+ Strongly increase Beauty[/color]
 [color=#588b7e]+ Provides a lot of gold[/color]
 [color=#d15d77]- Consumes oxygen[/color]
 [color=#d15d77]- Eat small fishes[/color]"
-rarity = 5
+rarity = 4
 stats_variations = Array[ExtResource("5_la48p")]([SubResource("Resource_aqiwj"), SubResource("Resource_4mijw")])
 income_variation = 30.0
 texture = ExtResource("5_cfjro")
