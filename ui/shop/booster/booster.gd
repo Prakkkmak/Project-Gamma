@@ -9,10 +9,12 @@ signal selected
 
 @onready var price_label: Label = %PriceLabel
 
+@onready var gold_icon: TextureRect = %GoldIcon
+
 
 func _ready() -> void:
 	booster_texture_button.texture_normal = deck.texture
-	price_label.text =  str(deck.price) + "$"
+	price_label.text =  str(deck.price)
 	booster_texture_button.pressed.connect(_on_booster_texture_button_pressed)
 	disable()
 
@@ -23,6 +25,8 @@ func enable() -> void:
 	booster_texture_button.modulate = Color.WHITE
 	booster_texture_button.disabled = false
 	price_label.show()
+	gold_icon.show()
+	
 
 
 
@@ -30,6 +34,7 @@ func disable() -> void:
 	booster_texture_button.modulate = lerp(Color.WHITE, Color.BLACK, 0.8)
 	booster_texture_button.disabled = true
 	price_label.hide()
+	gold_icon.hide()
 
 
 func _on_booster_texture_button_pressed() -> void:

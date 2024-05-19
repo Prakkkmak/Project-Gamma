@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0i1yalsu10vw"]
+[gd_scene load_steps=3 format=3 uid="uid://0i1yalsu10vw"]
 
 [ext_resource type="Script" path="res://ui/aquarium_panel/money_value_container/money_value_container.gd" id="1_apkue"]
+[ext_resource type="Texture2D" uid="uid://c2htrle72ovoy" path="res://assets/art/ui/gold.png" id="2_4grvb"]
 
 [node name="MoneyValueContainer" type="VBoxContainer"]
 offset_right = 37.0
@@ -10,11 +11,18 @@ size_flags_vertical = 0
 alignment = 1
 script = ExtResource("1_apkue")
 
-[node name="MoneyLabel" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "200$"
-horizontal_alignment = 1
+text = "200"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_4grvb")
 
 [node name="MoneyVariationLabel" type="Label" parent="."]
 unique_name_in_owner = true
