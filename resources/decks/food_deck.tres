@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=6 format=3 uid="uid://bt4jkyxw3plj6"]
+
+[ext_resource type="Resource" uid="uid://dnp6rfjsbuhq0" path="res://resources/infos/foods/food_vegetable_high.tres" id="1_hvk52"]
+[ext_resource type="Resource" uid="uid://bfeedp6lqr23b" path="res://resources/infos/foods/food_vegetable_low.tres" id="2_a8qfm"]
+[ext_resource type="Resource" uid="uid://ct1kgax0rieft" path="res://resources/infos/foods/food_vegetable_normal.tres" id="3_vgojo"]
+[ext_resource type="Script" path="res://resources/infos/deck.gd" id="5_0qmhm"]
+[ext_resource type="Texture2D" uid="uid://bmt4iju4wqfyw" path="res://assets/art/ui/booster_food.png" id="5_3oj68"]
+
+[resource]
+script = ExtResource("5_0qmhm")
+elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_hvk52"), ExtResource("2_a8qfm"), ExtResource("3_vgojo")])
+price = 40.0
+price_multi = 1.5
+pick_choices = 5
+max_choices = 1
+texture = ExtResource("5_3oj68")
