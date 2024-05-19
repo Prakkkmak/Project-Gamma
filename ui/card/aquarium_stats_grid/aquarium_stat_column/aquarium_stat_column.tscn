@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://c77wfime0phpb"]
+
+[ext_resource type="Script" path="res://ui/card/aquarium_stats_grid/aquarium_stat_column/aquarium_stat_column.gd" id="1_7eo3w"]
+[ext_resource type="PackedScene" uid="uid://c1ud5vathbrl1" path="res://ui/unit_progress_bar/unit_progress_bar.tscn" id="1_yclv3"]
+
+[node name="AquariumStatColumn" type="VBoxContainer"]
+theme_override_constants/separation = 0
+script = ExtResource("1_7eo3w")
+
+[node name="DisplaySymbol" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "O2"
+horizontal_alignment = 1
+
+[node name="RequirementNoneLabel" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "X"
+horizontal_alignment = 1
+
+[node name="RequirementUnitProgressBar" parent="." instance=ExtResource("1_yclv3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 80.0
+unit_amount = 3
+offset = 10.0
+
+[node name="VariationLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "+"
+horizontal_alignment = 1

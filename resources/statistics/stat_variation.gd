@@ -11,7 +11,9 @@ extends Resource
 
 
 func get_variation() -> float:
-	if stat.current_value >= maximum || stat.current_value <= minimum:
-		return 0.0
+	if stat.current_value + variation > maximum:
+		return maximum - stat.current_value
+	elif  stat.current_value + variation < minimum:
+		return minimum - stat.current_value
 	else:
 		return variation

@@ -1,10 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://bm842h44ddm1c"]
+[gd_scene load_steps=19 format=3 uid="uid://bm842h44ddm1c"]
 
 [ext_resource type="Script" path="res://ui/card/card.gd" id="1_4q8l6"]
 [ext_resource type="Texture2D" uid="uid://hy37u68jxudx" path="res://assets/art/ui/cardNew.png" id="1_r0fw3"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_i5cha"]
 [ext_resource type="Texture2D" uid="uid://bnjy3yyowl3v8" path="res://assets/art/ui/fish_placeholder.png" id="3_j1x6g"]
 [ext_resource type="PackedScene" uid="uid://c1ud5vathbrl1" path="res://ui/unit_progress_bar/unit_progress_bar.tscn" id="5_c70uk"]
+[ext_resource type="PackedScene" uid="uid://c8bpcsi1es5gc" path="res://ui/card/aquarium_stats_grid/aquarium_stats_grid.tscn" id="6_gyocj"]
+[ext_resource type="Resource" uid="uid://vlpltsfq760p" path="res://resources/statistics/stats/oxygen.tres" id="7_cyfh1"]
+[ext_resource type="Resource" uid="uid://c5k7rk8jpkbh5" path="res://resources/statistics/stats/quality.tres" id="8_trpaf"]
+[ext_resource type="Resource" uid="uid://bs0do6lrydqvj" path="res://resources/statistics/stats/beauty.tres" id="9_qqay3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4hkt"]
 atlas = ExtResource("1_r0fw3")
@@ -204,17 +208,27 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_j1x6g")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CardInfosContainer/TopCardContainer"]
-custom_minimum_size = Vector2(0, 20)
+[node name="Expand" type="Control" parent="MarginContainer/CardInfosContainer/TopCardContainer"]
+visible = false
 layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
 
-[node name="UnitProgressBar" parent="MarginContainer/CardInfosContainer/TopCardContainer/HBoxContainer" instance=ExtResource("5_c70uk")]
-custom_minimum_size = Vector2(16, 0)
+[node name="FoodBar" parent="MarginContainer/CardInfosContainer/TopCardContainer" instance=ExtResource("5_c70uk")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 16)
 layout_mode = 2
+mouse_filter = 1
 value = 2.0
 max = 3.0
 unit_amount = 3
-offset = 12.0
+offset = 10.0
+
+[node name="AquariumStatsGrid" parent="MarginContainer/CardInfosContainer" instance=ExtResource("6_gyocj")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tracked_stats = Array[Resource("res://resources/statistics/stat.gd")]([ExtResource("7_cyfh1"), ExtResource("8_trpaf"), ExtResource("9_qqay3")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

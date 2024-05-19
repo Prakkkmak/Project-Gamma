@@ -6,7 +6,7 @@ signal happiness_updated(entity_infos: EntityInfos, hapiness: HappinessStats)
 signal oxygen_updated(new_value: float)
 signal count_updated(entity_infos: EntityInfos, count: int)
 
-signal stat_updated(stat: Stat, old_value: float, new_value: float)
+signal stat_updated(stat: Stat, new_value: float)
 
 ## Second per aquarium tick
 @export var seconds_per_tick: float = 10.0
@@ -89,9 +89,6 @@ func get_happiness(entity_infos: EntityInfos) -> HappinessStats:
 		var average_food: float = sum_food / current_entities.size()
 		var food_ratio: float = average_food / (living_infos as FishInfos).food_threshold
 		happiness_stats.add_feature("food", food_ratio)
-	
-	#Calculate stats satisfactions
-	#TODO
 	for stat_requirement: StatRequirement in living_infos.stats_requirements:
 		var current_stat_ratio: float = abs(stat_requirement.target - stat_requirement.stat.current_value) / stat_requirement.get_gap()
 		happiness_stats.add_feature(stat_requirement.stat.id, 1.0 - current_stat_ratio)
@@ -120,15 +117,16 @@ func _update_constants(delta: float) -> void:
 		if !entity_infos:
 			return
 		for stat: Stat in stats:
-			var old_value: float = stat.current_value
 			var stat_variation: StatVariation = entity_infos.get_stat_variation(stat)
 			if stat_variation:
 				stat.apply_variation(stat_variation.get_variation() * delta / seconds_per_tick)
 			if stat.id == "quality":
 				quality_overlay.color = lerp(quality_filter_color, Color.TRANSPARENT, stat.current_value / 100)
-			stat_updated.emit(stat, old_value, stat.current_value)
 		income += entity_infos.income_variation * delta / seconds_per_tick
 		income_perseved.emit(income)
+	for stat: Stat in stats:
+		GameEvents.update_stat(stat, stat.current_value, self)
+		stat_updated.emit(stat, stat.current_value)
 	for entity_infos: EntityInfos in entities.keys():
 		var happiness: HappinessStats = get_happiness(entity_infos)
 		happiness_updated.emit(entity_infos, happiness)

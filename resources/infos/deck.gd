@@ -8,6 +8,8 @@ extends Resource
 @export var pick_choices: int = 1
 @export var max_choices: int = 1
 
+@export var texture: Texture
+
 const rarity_weight: Dictionary = {
 	EntityInfos.Rarity.D: 90,
 	EntityInfos.Rarity.C: 30,

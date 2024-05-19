@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_olqu4")
-display_name = "Oxygen Saturation"
+id = "stat"
+display_name = "Oxygen"
 symbol_name = "O2"
 description = "A basic stat"
 min_value = 0.0
@@ -12,3 +13,6 @@ max_value = 200.0
 neutral_value = 100.0
 variation_ratio = 1.0
 equilibre_factor = 1.0
+stable_delta = 10.0
+critical_delta = 40.0
+current_value = 0.0

@@ -23,7 +23,7 @@ extends Resource
 
 @export var critical_delta: float = 40.0
 
-var current_value: float = neutral_value
+@export var current_value: float = 100.0
 
 func apply_variation(variation: float) -> void:
 	# Si le facteur d'équilibre n'est pas 1.0, appliquer un ajustement basé sur la distance

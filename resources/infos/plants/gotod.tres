@@ -1,7 +1,24 @@
-[gd_resource type="Resource" script_class="PlantInfos" load_steps=5 format=3 uid="uid://c0rr05lawi7j5"]
+[gd_resource type="Resource" script_class="PlantInfos" load_steps=10 format=3 uid="uid://c0rr05lawi7j5"]
 
 [ext_resource type="Script" path="res://resources/infos/plant_infos.gd" id="1_58uef"]
 [ext_resource type="Texture2D" uid="uid://bs2x54nqgthf0" path="res://assets/art/entities/Aqua_Tilesheet.png" id="2_it0u7"]
+[ext_resource type="Resource" uid="uid://vlpltsfq760p" path="res://resources/statistics/stats/oxygen.tres" id="3_khltf"]
+[ext_resource type="Script" path="res://resources/statistics/stat_variation.gd" id="4_mjt47"]
+[ext_resource type="Resource" uid="uid://c5k7rk8jpkbh5" path="res://resources/statistics/stats/quality.tres" id="5_jg5o1"]
+
+[sub_resource type="Resource" id="Resource_ws864"]
+script = ExtResource("4_mjt47")
+stat = ExtResource("3_khltf")
+variation = 1.0
+maximum = 125.0
+minimum = 0.0
+
+[sub_resource type="Resource" id="Resource_dwkwx"]
+script = ExtResource("4_mjt47")
+stat = ExtResource("5_jg5o1")
+variation = 1.0
+maximum = 100.0
+minimum = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5oike"]
 atlas = ExtResource("2_it0u7")
@@ -25,7 +42,7 @@ display_name = "Gotod"
 description = "Base Plant"
 rarity = 2
 cost = 0
-stats_variations = Array[Resource("res://resources/statistics/stat_variation.gd")]([])
+stats_variations = Array[ExtResource("4_mjt47")]([SubResource("Resource_ws864"), SubResource("Resource_dwkwx")])
 income_variation = 0.0
 texture = SubResource("AtlasTexture_5oike")
 texture_display = SubResource("AtlasTexture_upy4q")

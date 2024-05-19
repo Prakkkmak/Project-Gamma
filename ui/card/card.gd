@@ -17,6 +17,7 @@ signal drag_stopped(drop_position: Vector2)
 @onready var name_label: Label = %NameLabel
 @onready var entity_texture: TextureRect = %EntityTexture
 
+@onready var aquarium_stats_grid: AquariumStatsGrid = %AquariumStatsGrid
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -27,6 +28,7 @@ var drag_position: Vector2 = Vector2.ZERO
 var drag_enabled: bool = false
 var selectable: bool = true
 
+var requirements: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,11 +36,29 @@ func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 	gui_input.connect(_on_gui_input)
+	GameEvents.stat_updated.connect(_on_stat_updated)
+	if entity_infos is LivingInfos:
+		aquarium_stats_grid.living_infos = entity_infos
+		aquarium_stats_grid.show()
+		aquarium_stats_grid.fill()
 
 
 func reset_position() -> void:
 	global_position = base_position
 
+
+func update_usable() -> void:
+	if !is_usable():
+		modulate = Color.DIM_GRAY
+	else:
+		modulate = Color.WHITE
+
+
+func is_usable() -> bool:
+	for requirement: bool in requirements.values():
+		if requirement != true:
+			return false
+	return true
 
 func _fill_infos() -> void:
 	name_label.text = entity_infos.display_name
@@ -80,3 +100,10 @@ func _on_gui_input(event: InputEvent) -> void:
 			z_index = 0
 			drag_stopped.emit(get_global_mouse_position())
 
+func _on_stat_updated(stat: Stat, value: float, aquarium: Aquarium) -> void:
+	if entity_infos is LivingInfos:
+		for stat_requirement: StatRequirement in (entity_infos as LivingInfos).stats_requirements:
+			if stat_requirement.stat == stat:
+				requirements[stat] = value >= stat_requirement.minimum && value <= stat_requirement.maximum
+				update_usable()
+				return

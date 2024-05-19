@@ -4,11 +4,15 @@
 
 [resource]
 script = ExtResource("1_xflvf")
-display_name = "Quality"
-symbol_name = "QL"
+id = "beauty"
+display_name = "Beauty"
+symbol_name = "B"
 description = "A basic stat"
 min_value = 0.0
 max_value = 1000.0
 neutral_value = 100.0
 variation_ratio = 1.0
 equilibre_factor = 1.0
+stable_delta = 10.0
+critical_delta = 40.0
+current_value = 0.0

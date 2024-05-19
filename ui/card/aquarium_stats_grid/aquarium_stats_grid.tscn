@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8bpcsi1es5gc"]
+
+[ext_resource type="Script" path="res://ui/card/aquarium_stats_grid/aquarium_stats_grid.gd" id="1_0j0y3"]
+[ext_resource type="PackedScene" uid="uid://c77wfime0phpb" path="res://ui/card/aquarium_stats_grid/aquarium_stat_column/aquarium_stat_column.tscn" id="2_cylra"]
+
+[node name="AquariumStatsGrid" type="HBoxContainer"]
+offset_right = 84.0
+offset_bottom = 70.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_0j0y3")
+aquarium_stat_column_scene = ExtResource("2_cylra")
+
+[node name="AquariumStatColumn" parent="." instance_placeholder="res://ui/card/aquarium_stats_grid/aquarium_stat_column/aquarium_stat_column.tscn"]
+layout_mode = 2
+
+[node name="AquariumStatColumn2" parent="." instance_placeholder="res://ui/card/aquarium_stats_grid/aquarium_stat_column/aquarium_stat_column.tscn"]
+layout_mode = 2
+
+[node name="AquariumStatColumn3" parent="." instance_placeholder="res://ui/card/aquarium_stats_grid/aquarium_stat_column/aquarium_stat_column.tscn"]
+layout_mode = 2
+
+[node name="AquariumStatColumn4" parent="." instance_placeholder="res://ui/card/aquarium_stats_grid/aquarium_stat_column/aquarium_stat_column.tscn"]
+layout_mode = 2

@@ -106,6 +106,7 @@ position = Vector2(300, -28)
 
 [node name="QualityOverlay" type="Polygon2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(2, -25)
 color = Color(0.596078, 0.564706, 0.352941, 0.647059)
 polygon = PackedVector2Array(-831, -679, 764, -670, 755, 235, -830, 241)

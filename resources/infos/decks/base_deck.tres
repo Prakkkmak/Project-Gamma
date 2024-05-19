@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=13 format=3 uid="uid://bjif1w1tyqkgs"]
+[gd_resource type="Resource" script_class="Deck" load_steps=14 format=3 uid="uid://bjif1w1tyqkgs"]
 
 [ext_resource type="Script" path="res://resources/infos/deck.gd" id="1_8i1ox"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="1_jdv6m"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://dns5p2u2gr11r" path="res://resources/infos/fishs/spun.tres" id="9_mvhx7"]
 [ext_resource type="Resource" uid="uid://j3khiuqeyi1e" path="res://resources/infos/plants/sucrelune.tres" id="10_a58mj"]
 [ext_resource type="Resource" uid="uid://sh6dtcv2cy4f" path="res://resources/infos/plants/coral.tres" id="11_3pgp0"]
+[ext_resource type="Texture2D" uid="uid://crksdkyn42x20" path="res://assets/art/ui/booster.png" id="13_a7nsn"]
 
 [resource]
 script = ExtResource("1_8i1ox")
@@ -20,3 +21,4 @@ price = 10.0
 price_multi = 1.5
 pick_choices = 5
 max_choices = 1
+texture = ExtResource("13_a7nsn")

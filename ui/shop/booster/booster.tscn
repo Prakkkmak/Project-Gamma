@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjn2xvprffus5"]
+
+[ext_resource type="Script" path="res://ui/shop/booster/booster.gd" id="1_jxpe5"]
+[ext_resource type="Texture2D" uid="uid://crksdkyn42x20" path="res://assets/art/ui/booster.png" id="1_qmic3"]
+
+[node name="Booster" type="VBoxContainer"]
+theme_override_constants/separation = 4
+script = ExtResource("1_jxpe5")
+
+[node name="BoosterTexture" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("1_qmic3")
+
+[node name="PriceLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "18$"
+horizontal_alignment = 1

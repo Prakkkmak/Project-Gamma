@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=5 format=3 uid="uid://5n0li5plpiy3"]
+
+[ext_resource type="Script" path="res://resources/infos/deck.gd" id="1_e45pr"]
+[ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="1_kl26s"]
+[ext_resource type="Resource" uid="uid://c1ijeeu6deqp6" path="res://resources/infos/fishs/bob.tres" id="2_31ar2"]
+[ext_resource type="Texture2D" uid="uid://cs4aglfdw7vql" path="res://assets/art/ui/booster_bob.png" id="4_d310u"]
+
+[resource]
+script = ExtResource("1_e45pr")
+elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_kl26s"), ExtResource("2_31ar2")])
+price = 10.0
+price_multi = 1.5
+pick_choices = 3
+max_choices = 1
+texture = ExtResource("4_d310u")
