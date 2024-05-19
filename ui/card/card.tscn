@@ -1,14 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bm842h44ddm1c"]
+[gd_scene load_steps=15 format=3 uid="uid://bm842h44ddm1c"]
 
 [ext_resource type="Script" path="res://ui/card/card.gd" id="1_4q8l6"]
 [ext_resource type="Texture2D" uid="uid://hy37u68jxudx" path="res://assets/art/ui/cardNew.png" id="1_r0fw3"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_i5cha"]
 [ext_resource type="Texture2D" uid="uid://bnjy3yyowl3v8" path="res://assets/art/ui/fish_placeholder.png" id="3_j1x6g"]
 [ext_resource type="PackedScene" uid="uid://c1ud5vathbrl1" path="res://ui/unit_progress_bar/unit_progress_bar.tscn" id="5_c70uk"]
-[ext_resource type="PackedScene" uid="uid://c8bpcsi1es5gc" path="res://ui/card/aquarium_stats_grid/aquarium_stats_grid.tscn" id="6_gyocj"]
-[ext_resource type="Resource" uid="uid://vlpltsfq760p" path="res://resources/statistics/stats/oxygen.tres" id="7_cyfh1"]
-[ext_resource type="Resource" uid="uid://c5k7rk8jpkbh5" path="res://resources/statistics/stats/quality.tres" id="8_trpaf"]
-[ext_resource type="Resource" uid="uid://bs0do6lrydqvj" path="res://resources/statistics/stats/beauty.tres" id="9_qqay3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4hkt"]
 atlas = ExtResource("1_r0fw3")
@@ -187,9 +183,10 @@ theme_override_constants/margin_bottom = 5
 
 [node name="CardInfosContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 2
 
 [node name="TopCardContainer" type="VBoxContainer" parent="MarginContainer/CardInfosContainer"]
-custom_minimum_size = Vector2(0, 119)
+custom_minimum_size = Vector2(0, 118)
 layout_mode = 2
 theme_override_constants/separation = 0
 
@@ -224,11 +221,15 @@ max = 3.0
 unit_amount = 3
 offset = 10.0
 
-[node name="AquariumStatsGrid" parent="MarginContainer/CardInfosContainer" instance=ExtResource("6_gyocj")]
+[node name="DescriptionRichTextLabel" type="RichTextLabel" parent="MarginContainer/CardInfosContainer"]
 unique_name_in_owner = true
-visible = false
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-tracked_stats = Array[Resource("res://resources/statistics/stat.gd")]([ExtResource("7_cyfh1"), ExtResource("8_trpaf"), ExtResource("9_qqay3")])
+mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 8
+text = "fef
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

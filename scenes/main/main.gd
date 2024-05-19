@@ -53,6 +53,12 @@ func open_booster(deck: Deck) -> void:
 	card_selection_panel.display_selection(entities, deck.max_choices)
 
 
+func _on_card_drag(entity_infos: EntityInfos, use_position: Vector2) -> void:
+	use_position = aquarium.get_global_mouse_position()
+	if entity_infos is PlantInfos:
+		var plant_infos: PlantInfos = entity_infos as PlantInfos
+		aquarium.preview_plant(plant_infos, use_position)
+
 func _on_card_used(entity_infos: EntityInfos, use_position: Vector2) -> void:
 	use_position = aquarium.get_global_mouse_position()
 	if entity_infos is FishInfos:

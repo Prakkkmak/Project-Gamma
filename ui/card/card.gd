@@ -17,10 +17,9 @@ signal drag_stopped(drop_position: Vector2)
 @onready var name_label: Label = %NameLabel
 @onready var entity_texture: TextureRect = %EntityTexture
 
-@onready var aquarium_stats_grid: AquariumStatsGrid = %AquariumStatsGrid
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var description_rich_text_label: RichTextLabel = %DescriptionRichTextLabel
 
 var base_position: Vector2 = Vector2.ZERO
 var selection_position_offset: float = 100.0
@@ -38,9 +37,7 @@ func _ready() -> void:
 	gui_input.connect(_on_gui_input)
 	GameEvents.stat_updated.connect(_on_stat_updated)
 	if entity_infos is LivingInfos:
-		aquarium_stats_grid.living_infos = entity_infos
-		aquarium_stats_grid.show()
-		aquarium_stats_grid.fill()
+		description_rich_text_label.text = entity_infos.description
 
 
 func reset_position() -> void:

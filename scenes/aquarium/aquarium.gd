@@ -49,6 +49,27 @@ func add_fish(fish_infos: FishInfos, position: Vector2 = Vector2.ZERO) -> void:
 	_track_entity(fish_infos, fish)
 
 
+var plant_previewed: Plant
+
+
+func get_close_empty_slot(position: Vector2) -> Node2D:
+	var slot_nodes: Array[Node] = ground_slots.get_children()
+	if slot_nodes.size() == 0:
+		return null
+	var closer_slot: Node2D = slot_nodes[0] as Node2D
+	for slot_node in slot_nodes:
+		if slot_node is Node2D:
+			#if (slot as Node2D).dista
+			pass
+			
+	return closer_slot
+
+func preview_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> void:
+	var plant: Plant = plant_scene.instantiate()
+	plant.infos = plant_infos
+	var slot_nodes: Array[Node] = ground_slots.get_children()
+
+
 func add_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> void:
 	var plant: Plant = plant_scene.instantiate()
 	plant.infos = plant_infos

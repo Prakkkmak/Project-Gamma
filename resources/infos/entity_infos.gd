@@ -9,7 +9,7 @@ enum Rarity { INVALID, D, C, B, A, S }
 @export var display_name: String = "-"
 
 ## Description of the entity
-@export var description: String = "-"
+@export_multiline var description: String
 
 ## rarity
 @export var rarity: Rarity = Rarity.D

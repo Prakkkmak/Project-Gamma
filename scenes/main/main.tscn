@@ -21,7 +21,9 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
 stats = Array[Resource("res://resources/statistics/stat.gd")]([ExtResource("2_264xs"), ExtResource("3_6rvwy"), ExtResource("4_u0liu")])
+simulation_speed = null
 decks = Array[Resource("res://resources/infos/deck.gd")]([ExtResource("18_ohny0")])
+starting_cards = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -260)

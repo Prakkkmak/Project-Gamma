@@ -12,19 +12,19 @@ script = ExtResource("2_6y5pg")
 stat = ExtResource("3_yne4g")
 maximum = 200.0
 target = 100.0
-minimum = 10.0
+minimum = 1.0
 
 [sub_resource type="Resource" id="Resource_t4rww"]
 script = ExtResource("4_cwqg3")
 stat = ExtResource("5_vr7lc")
-variation = 0.05
+variation = 0.1
 maximum = 100.0
 minimum = 0.0
 
 [sub_resource type="Resource" id="Resource_x3uqy"]
 script = ExtResource("4_cwqg3")
 stat = ExtResource("3_yne4g")
-variation = -0.01
+variation = -0.2
 maximum = 100.0
 minimum = 0.0
 
@@ -45,6 +45,6 @@ description = "-"
 rarity = 4
 cost = 0
 stats_variations = Array[ExtResource("4_cwqg3")]([SubResource("Resource_t4rww"), SubResource("Resource_x3uqy")])
-income_variation = 0.0
+income_variation = 0.2
 texture = ExtResource("2_7h3s8")
 scale = 1.0
