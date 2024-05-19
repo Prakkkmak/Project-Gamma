@@ -73,7 +73,9 @@ func _on_card_used(entity_infos: EntityInfos, use_position: Vector2) -> void:
 		aquarium.add_fish(fish_infos, use_position)
 	if entity_infos is PlantInfos:
 		var plant_infos: PlantInfos = entity_infos as PlantInfos
-		aquarium.add_plant(plant_infos, use_position)
+		var res: bool = aquarium.add_plant(plant_infos, use_position)
+		if !res:
+			hand_panel.add_card(entity_infos)
 	if entity_infos is FoodInfos:
 		var food_infos: FoodInfos = entity_infos as FoodInfos
 		aquarium.add_food(food_infos, use_position)

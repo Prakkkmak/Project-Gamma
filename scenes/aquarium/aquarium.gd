@@ -82,17 +82,17 @@ func unpreview() -> void:
 	if slot_previewed && slot_previewed.get_child(0):
 			slot_previewed.get_child(0).queue_free()
 
-func add_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> void:
+func add_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> bool:
 	var plant: Plant = plant_scene.instantiate()
 	plant.infos = plant_infos
 	plant.aquarium = self
-	if slot_previewed:
-		if !slot_previewed || slot_previewed.get_child_count() == 0:
-			return
-		slot_previewed.get_child(0).queue_free()
-		slot_previewed.add_child(plant)
-		slot_previewed = null
-		_track_entity(plant_infos, plant)
+	if !slot_previewed || slot_previewed.get_child_count() == 0:
+		return false
+	slot_previewed.get_child(0).queue_free()
+	slot_previewed.add_child(plant)
+	slot_previewed = null
+	_track_entity(plant_infos, plant)
+	return true
 
 func add_food(food_infos: FoodInfos, position: Vector2 = Vector2.ZERO) -> void:
 	var fish_food: FishFood = fish_food_scene.instantiate()
