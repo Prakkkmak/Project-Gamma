@@ -17,14 +17,14 @@ minimum = 1.0
 [sub_resource type="Resource" id="Resource_t4rww"]
 script = ExtResource("4_cwqg3")
 stat = ExtResource("5_vr7lc")
-variation = 0.3
+variation = 0.1
 maximum = 100.0
 minimum = 0.0
 
 [sub_resource type="Resource" id="Resource_x3uqy"]
 script = ExtResource("4_cwqg3")
 stat = ExtResource("3_yne4g")
-variation = -0.1
+variation = -0.2
 maximum = 100.0
 minimum = 0.0
 
@@ -46,6 +46,6 @@ description = "[color=#588b7e]+ Increase environmental quality[/color]
 rarity = 2
 cost = 0
 stats_variations = Array[ExtResource("4_cwqg3")]([SubResource("Resource_t4rww"), SubResource("Resource_x3uqy")])
-income_variation = 0.2
+income_variation = 0.1
 texture = ExtResource("2_7h3s8")
 scale = 1.0

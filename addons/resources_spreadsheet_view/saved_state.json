@@ -1,0 +1,22 @@
+{
+  "hidden_columns": {
+    "res://resources/infos/": {
+      "food_positions": true,
+      "grow_speed": true,
+      "grow_time": true,
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
+    "res://resources/infos/decks/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    }
+  },
+  "recent_paths": [
+    "res://resources/infos/decks/",
+    "res://resources/infos/"
+  ],
+  "table_functions": {
+
+  }
+}

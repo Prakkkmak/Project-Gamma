@@ -40,12 +40,7 @@ func generate() -> void:
 	_calculate_total_weight()
 
 
-func increase_price() -> void:
-	price *= price_multi
-
-
 func draw() -> Array[EntityInfos]:
-	increase_price()
 	return pick_multiple_random_weighted(pick_choices)
 
 func pick_random_weighted() -> EntityInfos:

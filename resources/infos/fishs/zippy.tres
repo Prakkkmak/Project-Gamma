@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FishInfos" load_steps=12 format=3 uid="uid://hyff31hne6wh"]
+[gd_resource type="Resource" script_class="FishInfos" load_steps=13 format=3 uid="uid://hyff31hne6wh"]
 
 [ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_vm4ug"]
 [ext_resource type="Script" path="res://resources/statistics/stat_variation.gd" id="2_65rjo"]
@@ -25,15 +25,22 @@ minimum = 40.0
 [sub_resource type="Resource" id="Resource_erku3"]
 script = ExtResource("2_65rjo")
 stat = ExtResource("3_dj3vv")
-variation = -0.5
+variation = 2.0
 maximum = 200.0
 minimum = 0.0
 
 [sub_resource type="Resource" id="Resource_v02b7"]
 script = ExtResource("2_65rjo")
 stat = ExtResource("4_fq1ls")
-variation = 3.0
+variation = 5.0
 maximum = 200.0
+minimum = 0.0
+
+[sub_resource type="Resource" id="Resource_ekgxs"]
+script = ExtResource("2_65rjo")
+stat = ExtResource("4_xqsrt")
+variation = 1.0
+maximum = 100.0
 minimum = 0.0
 
 [resource]
@@ -52,9 +59,9 @@ display_name = "Zippy"
 description = "[color=#588b7e]+ Provides beauty[/color]
 [color=#d15d77]- Consumes little oxygen[/color]
 "
-rarity = 4
+rarity = 5
 cost = 0
-stats_variations = Array[ExtResource("2_65rjo")]([SubResource("Resource_erku3"), SubResource("Resource_v02b7")])
-income_variation = 0.4
+stats_variations = Array[ExtResource("2_65rjo")]([SubResource("Resource_erku3"), SubResource("Resource_v02b7"), SubResource("Resource_ekgxs")])
+income_variation = 1.0
 texture = ExtResource("4_fkdup")
 scale = 1.0

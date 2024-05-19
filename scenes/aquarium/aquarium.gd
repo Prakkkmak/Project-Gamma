@@ -149,10 +149,10 @@ func _update_constants(delta: float) -> void:
 		for stat: Stat in stats:
 			var stat_variation: StatVariation = entity_infos.get_stat_variation(stat)
 			if stat_variation:
-				stat.apply_variation(stat_variation.get_variation() * delta / seconds_per_tick)
+				stat.apply_variation(stat_variation.get_variation() * delta)
 			if stat.id == "quality":
 				quality_overlay.color = lerp(quality_filter_color, Color.TRANSPARENT, stat.current_value / 100)
-		income += entity_infos.income_variation * delta / seconds_per_tick
+		income += entity_infos.income_variation * delta
 		income_perseved.emit(income)
 	for stat: Stat in stats:
 		GameEvents.update_stat(stat, stat.current_value, self)

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FishInfos" load_steps=14 format=3 uid="uid://b3nopq5h6no8f"]
+[gd_resource type="Resource" script_class="FishInfos" load_steps=14 format=3 uid="uid://d4ksg13ofi4rb"]
 
 [ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_8kk6n"]
 [ext_resource type="Texture2D" uid="uid://c2l3bxgta7tns" path="res://assets/art/entities/fishs/BobaWhale.png" id="2_1nynv"]

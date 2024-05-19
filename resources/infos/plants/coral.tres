@@ -18,14 +18,14 @@ minimum = 10.0
 [sub_resource type="Resource" id="Resource_bsmun"]
 script = ExtResource("4_c0u3p")
 stat = ExtResource("5_2v3c4")
-variation = 3.0
+variation = 1.0
 maximum = 100.0
 minimum = 0.0
 
 [sub_resource type="Resource" id="Resource_kv4p6"]
 script = ExtResource("4_c0u3p")
 stat = ExtResource("3_jolfd")
-variation = -1.0
+variation = -2.0
 maximum = 200.0
 minimum = 0.0
 

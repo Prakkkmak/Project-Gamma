@@ -45,6 +45,6 @@ description = "[color=#588b7e]+ Provides little oxygen[/color]
 rarity = 2
 cost = 0
 stats_variations = Array[ExtResource("4_gu570")]([SubResource("Resource_6h5wl"), SubResource("Resource_s67d5")])
-income_variation = 0.1
+income_variation = 0.0
 texture = ExtResource("2_2ue7p")
 scale = 1.0

@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_ws864"]
 script = ExtResource("4_mjt47")
 stat = ExtResource("3_khltf")
-variation = 3.0
+variation = 0.2
 maximum = 125.0
 minimum = 0.0
 
