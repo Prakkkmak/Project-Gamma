@@ -1,14 +1,38 @@
-[gd_resource type="Resource" script_class="FishInfos" load_steps=6 format=3 uid="uid://bb2t6k7708afk"]
+[gd_resource type="Resource" script_class="FishInfos" load_steps=12 format=3 uid="uid://bb2t6k7708afk"]
 
 [ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_ityvh"]
 [ext_resource type="Script" path="res://resources/statistics/stat_variation.gd" id="2_bukdy"]
+[ext_resource type="Script" path="res://resources/statistics/stat_requirement.gd" id="2_dbxci"]
 [ext_resource type="Texture2D" uid="uid://op5i6hatreyd" path="res://assets/art/entities/fishs/Fish-3.png" id="2_uj138"]
 [ext_resource type="Resource" uid="uid://vlpltsfq760p" path="res://resources/statistics/stats/oxygen.tres" id="3_lscvv"]
+[ext_resource type="Resource" uid="uid://c5k7rk8jpkbh5" path="res://resources/statistics/stats/quality.tres" id="4_gsggs"]
+[ext_resource type="Resource" uid="uid://bs0do6lrydqvj" path="res://resources/statistics/stats/beauty.tres" id="6_lcs1d"]
+
+[sub_resource type="Resource" id="Resource_4mp8c"]
+script = ExtResource("2_dbxci")
+stat = ExtResource("3_lscvv")
+maximum = 200.0
+target = 100.0
+minimum = 15.0
+
+[sub_resource type="Resource" id="Resource_nk1bx"]
+script = ExtResource("2_dbxci")
+stat = ExtResource("4_gsggs")
+maximum = 200.0
+target = 100.0
+minimum = 15.0
 
 [sub_resource type="Resource" id="Resource_erku3"]
 script = ExtResource("2_bukdy")
 stat = ExtResource("3_lscvv")
-variation = -10.0
+variation = -0.3
+maximum = 200.0
+minimum = 0.0
+
+[sub_resource type="Resource" id="Resource_dprkb"]
+script = ExtResource("2_bukdy")
+stat = ExtResource("6_lcs1d")
+variation = 1.0
 maximum = 200.0
 minimum = 0.0
 
@@ -20,15 +44,15 @@ food_threshold = 15
 max_speed = 200.0
 acceleration = 3.0
 max_health = 5
-stats_requirements = Array[Resource("res://resources/statistics/stat_requirement.gd")]([])
+stats_requirements = Array[ExtResource("2_dbxci")]([SubResource("Resource_4mp8c"), SubResource("Resource_nk1bx")])
 grow_time = 20
 life_span = 600
 start_scale = 0.2
 display_name = "Guppy"
-description = "-"
+description = "[color=#d15d77]- Consumes little oxygen[/color]"
 rarity = 1
 cost = 0
-stats_variations = Array[ExtResource("2_bukdy")]([SubResource("Resource_erku3")])
+stats_variations = Array[ExtResource("2_bukdy")]([SubResource("Resource_erku3"), SubResource("Resource_dprkb")])
 income_variation = 0.4
 texture = ExtResource("2_uj138")
 scale = 1.0

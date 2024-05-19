@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=22 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -9,7 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://cogmgrpb7vwke" path="res://debug/debug_panel.tscn" id="3_cxsxr"]
 [ext_resource type="PackedScene" uid="uid://cyyip1ltnw412" path="res://scenes/fish_food/fish_food.tscn" id="3_djjks"]
 [ext_resource type="Resource" uid="uid://bs0do6lrydqvj" path="res://resources/statistics/stats/beauty.tres" id="4_u0liu"]
+[ext_resource type="Resource" uid="uid://cr2syrai2wscp" path="res://resources/infos/decks/zippy_deck.tres" id="6_h06vp"]
 [ext_resource type="PackedScene" uid="uid://bssw0yhkh8n64" path="res://scenes/plant/plant.tscn" id="6_l2bk5"]
+[ext_resource type="Resource" uid="uid://bacqgw3ehove0" path="res://resources/infos/decks/whalex_deck.tres" id="7_risfd"]
+[ext_resource type="Resource" uid="uid://bgj7a2a44wfng" path="res://resources/infos/decks/Neptune_deck.tres" id="8_1h34p"]
+[ext_resource type="Resource" uid="uid://uefi4pamx1ob" path="res://resources/infos/decks/plants_deck.tres" id="9_nunr5"]
 [ext_resource type="PackedScene" uid="uid://cdt57b7ylyvme" path="res://ui/aquarium_panel/aquarium_panel.tscn" id="10_pqo2w"]
 [ext_resource type="Texture2D" uid="uid://c2tb310c6plav" path="res://assets/art/ui/shop_button.png" id="14_6iph4"]
 [ext_resource type="Texture2D" uid="uid://brwddgqeutyhv" path="res://assets/art/ui/shop_button_pressed.png" id="15_vxf1j"]
@@ -21,7 +25,9 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
 stats = Array[Resource("res://resources/statistics/stat.gd")]([ExtResource("2_264xs"), ExtResource("3_6rvwy"), ExtResource("4_u0liu")])
-decks = Array[Resource("res://resources/infos/deck.gd")]([ExtResource("18_ohny0")])
+simulation_speed = null
+decks = Array[Resource("res://resources/infos/deck.gd")]([ExtResource("18_ohny0"), ExtResource("6_h06vp"), ExtResource("7_risfd"), ExtResource("8_1h34p"), ExtResource("9_nunr5")])
+starting_cards = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -260)

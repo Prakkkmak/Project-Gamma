@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="FishInfos" load_steps=14 format=3 uid="uid://b3nopq5h6no8f"]
+
+[ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_8kk6n"]
+[ext_resource type="Texture2D" uid="uid://c2l3bxgta7tns" path="res://assets/art/entities/fishs/BobaWhale.png" id="2_1nynv"]
+[ext_resource type="Script" path="res://resources/statistics/stat_variation.gd" id="2_a4s3a"]
+[ext_resource type="Script" path="res://resources/statistics/stat_requirement.gd" id="2_lkiow"]
+[ext_resource type="Resource" uid="uid://bs0do6lrydqvj" path="res://resources/statistics/stats/beauty.tres" id="3_1t1tb"]
+[ext_resource type="Texture2D" uid="uid://bs2x54nqgthf0" path="res://assets/art/entities/Aqua_Tilesheet.png" id="3_ct55g"]
+[ext_resource type="Resource" uid="uid://vlpltsfq760p" path="res://resources/statistics/stats/oxygen.tres" id="4_3yl6u"]
+[ext_resource type="Resource" uid="uid://c5k7rk8jpkbh5" path="res://resources/statistics/stats/quality.tres" id="4_bg5yo"]
+
+[sub_resource type="Resource" id="Resource_v4bkc"]
+script = ExtResource("2_lkiow")
+stat = ExtResource("4_3yl6u")
+maximum = 200.0
+target = 120.0
+minimum = 100.0
+
+[sub_resource type="Resource" id="Resource_fbsju"]
+script = ExtResource("2_lkiow")
+stat = ExtResource("4_bg5yo")
+maximum = 200.0
+target = 100.0
+minimum = 100.0
+
+[sub_resource type="Resource" id="Resource_25yc1"]
+script = ExtResource("2_a4s3a")
+stat = ExtResource("3_1t1tb")
+variation = 15.0
+maximum = 200.0
+minimum = 0.0
+
+[sub_resource type="Resource" id="Resource_d8bcq"]
+script = ExtResource("2_a4s3a")
+stat = ExtResource("4_3yl6u")
+variation = 5.0
+maximum = 200.0
+minimum = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhpof"]
+atlas = ExtResource("3_ct55g")
+region = Rect2(0, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_8kk6n")
+max_food = 300
+food_regimes = Array[int]([1])
+food_threshold = 100
+max_speed = 50.0
+acceleration = 3.0
+max_health = 30
+stats_requirements = Array[ExtResource("2_lkiow")]([SubResource("Resource_v4bkc"), SubResource("Resource_fbsju")])
+grow_time = 20
+life_span = 600
+start_scale = 0.05
+display_name = "Whalex"
+description = "[color=#588b7e]+ Strongly increase Beauty[/color]
+[color=#d15d77]- Strongly consumes oxygen[/color]
+[color=#d15d77]- Strongly consumes food[/color]"
+rarity = 5
+cost = 0
+stats_variations = Array[ExtResource("2_a4s3a")]([SubResource("Resource_25yc1"), SubResource("Resource_d8bcq")])
+income_variation = 2.0
+texture = ExtResource("2_1nynv")
+texture_display = SubResource("AtlasTexture_nhpof")
+scale = 1.0

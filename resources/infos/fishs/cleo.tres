@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="FishInfos" load_steps=12 format=3 uid="uid://cwuxmaaxewrtd"]
+
+[ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_o5jg6"]
+[ext_resource type="Script" path="res://resources/statistics/stat_requirement.gd" id="2_axd1p"]
+[ext_resource type="Script" path="res://resources/statistics/stat_variation.gd" id="2_t1fel"]
+[ext_resource type="Resource" uid="uid://vlpltsfq760p" path="res://resources/statistics/stats/oxygen.tres" id="3_f8dnx"]
+[ext_resource type="Texture2D" uid="uid://rv3tbl1epji1" path="res://assets/art/entities/fishs/Turtle.png" id="4_0gq2i"]
+[ext_resource type="Resource" uid="uid://c5k7rk8jpkbh5" path="res://resources/statistics/stats/quality.tres" id="4_0lnfj"]
+[ext_resource type="Resource" uid="uid://bs0do6lrydqvj" path="res://resources/statistics/stats/beauty.tres" id="6_rmj8u"]
+
+[sub_resource type="Resource" id="Resource_p434g"]
+script = ExtResource("2_axd1p")
+stat = ExtResource("3_f8dnx")
+maximum = 200.0
+target = 100.0
+minimum = 60.0
+
+[sub_resource type="Resource" id="Resource_01jn7"]
+script = ExtResource("2_axd1p")
+stat = ExtResource("4_0lnfj")
+maximum = 200.0
+target = 100.0
+minimum = 60.0
+
+[sub_resource type="Resource" id="Resource_erku3"]
+script = ExtResource("2_t1fel")
+stat = ExtResource("3_f8dnx")
+variation = -2.0
+maximum = 200.0
+minimum = 0.0
+
+[sub_resource type="Resource" id="Resource_hjjn4"]
+script = ExtResource("2_t1fel")
+stat = ExtResource("6_rmj8u")
+variation = 5.0
+maximum = 200.0
+minimum = 0.0
+
+[resource]
+script = ExtResource("1_o5jg6")
+max_food = 50
+food_regimes = Array[int]([1])
+food_threshold = 30
+max_speed = 125.0
+acceleration = 3.0
+max_health = 5
+stats_requirements = Array[ExtResource("2_axd1p")]([SubResource("Resource_p434g"), SubResource("Resource_01jn7")])
+grow_time = 20
+life_span = 600
+start_scale = 0.2
+display_name = "Guppy"
+description = "[color=#588b7e]+ Increase Beauty a lot[/color]
+[color=#d15d77]- Consumes oxygen[/color]
+[color=#d15d77]- Consumes food a lot[/color]"
+rarity = 3
+cost = 0
+stats_variations = Array[ExtResource("2_t1fel")]([SubResource("Resource_erku3"), SubResource("Resource_hjjn4")])
+income_variation = 0.4
+texture = ExtResource("4_0gq2i")
+scale = 1.0

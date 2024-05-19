@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlantInfos" load_steps=11 format=3 uid="uid://sh6dtcv2cy4f"]
+[gd_resource type="Resource" script_class="PlantInfos" load_steps=13 format=3 uid="uid://sh6dtcv2cy4f"]
 
 [ext_resource type="Script" path="res://resources/infos/plant_infos.gd" id="1_scr3k"]
 [ext_resource type="Texture2D" uid="uid://dxqjgbepgh2mv" path="res://assets/art/entities/Aqua_Tilesheet_2.png" id="2_esq4f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://vlpltsfq760p" path="res://resources/statistics/stats/oxygen.tres" id="3_jolfd"]
 [ext_resource type="Script" path="res://resources/statistics/stat_variation.gd" id="4_c0u3p"]
 [ext_resource type="Resource" uid="uid://c5k7rk8jpkbh5" path="res://resources/statistics/stats/quality.tres" id="5_2v3c4"]
+[ext_resource type="Resource" uid="uid://bs0do6lrydqvj" path="res://resources/statistics/stats/beauty.tres" id="6_dymms"]
 
 [sub_resource type="Resource" id="Resource_1e0l1"]
 script = ExtResource("2_v748x")
@@ -17,7 +18,7 @@ minimum = 10.0
 [sub_resource type="Resource" id="Resource_bsmun"]
 script = ExtResource("4_c0u3p")
 stat = ExtResource("5_2v3c4")
-variation = 0.5
+variation = 3.0
 maximum = 100.0
 minimum = 0.0
 
@@ -28,9 +29,16 @@ variation = -1.0
 maximum = 200.0
 minimum = 0.0
 
+[sub_resource type="Resource" id="Resource_53fcm"]
+script = ExtResource("4_c0u3p")
+stat = ExtResource("6_dymms")
+variation = 1.0
+maximum = 200.0
+minimum = 0.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5oike"]
 atlas = ExtResource("2_esq4f")
-region = Rect2(4, 49, 27, 31)
+region = Rect2(32, 48, 32, 48)
 
 [resource]
 script = ExtResource("1_scr3k")
@@ -42,11 +50,12 @@ stats_requirements = Array[ExtResource("2_v748x")]([SubResource("Resource_1e0l1"
 grow_time = 20
 life_span = 600
 start_scale = 0.2
-display_name = "Gotod"
-description = "Base Plant"
+display_name = "Corrupt"
+description = "[color=#588b7e]+ Strongly increase quality[/color]
+[color=#d15d77]- Consumes oxygen[/color]"
 rarity = 4
 cost = 0
-stats_variations = Array[ExtResource("4_c0u3p")]([SubResource("Resource_bsmun"), SubResource("Resource_kv4p6")])
+stats_variations = Array[ExtResource("4_c0u3p")]([SubResource("Resource_bsmun"), SubResource("Resource_kv4p6"), SubResource("Resource_53fcm")])
 income_variation = 0.0
 texture = SubResource("AtlasTexture_5oike")
 scale = 1.0

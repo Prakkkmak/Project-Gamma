@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="FishInfos" load_steps=12 format=3 uid="uid://bld8uupgnvyjx"]
+
+[ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_vm4ug"]
+[ext_resource type="Script" path="res://resources/statistics/stat_variation.gd" id="2_65rjo"]
+[ext_resource type="Script" path="res://resources/statistics/stat_requirement.gd" id="2_fqat4"]
+[ext_resource type="Resource" uid="uid://vlpltsfq760p" path="res://resources/statistics/stats/oxygen.tres" id="3_dj3vv"]
+[ext_resource type="Texture2D" uid="uid://c0sn25klwn13b" path="res://assets/art/entities/fishs/Fish-2.png" id="4_fkdup"]
+[ext_resource type="Resource" uid="uid://bs0do6lrydqvj" path="res://resources/statistics/stats/beauty.tres" id="4_fq1ls"]
+[ext_resource type="Resource" uid="uid://c5k7rk8jpkbh5" path="res://resources/statistics/stats/quality.tres" id="4_xqsrt"]
+
+[sub_resource type="Resource" id="Resource_oon8f"]
+script = ExtResource("2_fqat4")
+stat = ExtResource("3_dj3vv")
+maximum = 200.0
+target = 100.0
+minimum = 35.0
+
+[sub_resource type="Resource" id="Resource_6pe8n"]
+script = ExtResource("2_fqat4")
+stat = ExtResource("4_xqsrt")
+maximum = 200.0
+target = 100.0
+minimum = 40.0
+
+[sub_resource type="Resource" id="Resource_erku3"]
+script = ExtResource("2_65rjo")
+stat = ExtResource("3_dj3vv")
+variation = -0.5
+maximum = 200.0
+minimum = 0.0
+
+[sub_resource type="Resource" id="Resource_v02b7"]
+script = ExtResource("2_65rjo")
+stat = ExtResource("4_fq1ls")
+variation = 3.0
+maximum = 200.0
+minimum = 0.0
+
+[resource]
+script = ExtResource("1_vm4ug")
+max_food = 30
+food_regimes = Array[int]([1])
+food_threshold = 15
+max_speed = 200.0
+acceleration = 3.0
+max_health = 5
+stats_requirements = Array[ExtResource("2_fqat4")]([SubResource("Resource_oon8f"), SubResource("Resource_6pe8n")])
+grow_time = 20
+life_span = 600
+start_scale = 0.2
+display_name = "Zippy"
+description = "[color=#588b7e]+ Provides beauty[/color]
+[color=#d15d77]- Consumes little oxygen[/color]
+"
+rarity = 4
+cost = 0
+stats_variations = Array[ExtResource("2_65rjo")]([SubResource("Resource_erku3"), SubResource("Resource_v02b7")])
+income_variation = 0.4
+texture = ExtResource("4_fkdup")
+scale = 1.0
