@@ -104,6 +104,60 @@ position = Vector2(-244, -15)
 [node name="Slot12" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
 position = Vector2(300, -28)
 
+[node name="Slot19" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-402, -12)
+
+[node name="Slot20" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-78, -21)
+
+[node name="Slot21" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(538, -28)
+
+[node name="Slot22" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-290, -21)
+
+[node name="Slot23" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(49, -18)
+
+[node name="Slot24" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(176, -21)
+
+[node name="Slot25" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-455, -35)
+
+[node name="Slot26" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-106, -6)
+
+[node name="Slot27" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(438, -10)
+
+[node name="Slot28" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-312, -6)
+
+[node name="Slot29" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(4, -6)
+
+[node name="Slot30" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(633, -9)
+
+[node name="Slot31" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-208, -6)
+
+[node name="Slot32" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(108, -6)
+
+[node name="Slot33" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(258, -6)
+
+[node name="Slot34" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-504, -21)
+
+[node name="Slot35" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(-188, -21)
+
+[node name="Slot36" type="Marker2D" parent="EntitiesNode/Slots/Ground"]
+position = Vector2(356, -34)
+
 [node name="QualityOverlay" type="Polygon2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(2, -25)
