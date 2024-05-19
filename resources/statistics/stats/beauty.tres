@@ -16,3 +16,4 @@ equilibre_factor = 1.0
 stable_delta = 10.0
 critical_delta = 40.0
 current_value = 0.0
+one_shot = true
