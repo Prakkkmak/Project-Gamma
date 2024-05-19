@@ -16,7 +16,7 @@ minimum = 10.0
 [sub_resource type="Resource" id="Resource_kv4p6"]
 script = ExtResource("4_s7l6o")
 stat = ExtResource("3_i4om7")
-variation = -100.0
+variation = -2.0
 maximum = 200.0
 minimum = 0.0
 
@@ -28,6 +28,7 @@ region = Rect2(0, 48, 32, 32)
 script = ExtResource("1_g40rx")
 food_positions = Array[Vector2]([Vector2(6, -15), Vector2(-2, 30)])
 total_food = 150.0
+grow_speed = 1.0
 max_health = 50
 stats_requirements = Array[ExtResource("2_0es3a")]([SubResource("Resource_1e0l1")])
 display_name = "Coral"

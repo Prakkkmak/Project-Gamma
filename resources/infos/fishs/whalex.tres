@@ -26,14 +26,14 @@ minimum = 80.0
 [sub_resource type="Resource" id="Resource_aqiwj"]
 script = ExtResource("5_515fc")
 stat = ExtResource("3_xo3s6")
-variation = 180.0
+variation = -15.0
 maximum = 200.0
 minimum = 0.0
 
 [sub_resource type="Resource" id="Resource_4mijw"]
 script = ExtResource("5_515fc")
 stat = ExtResource("6_5x7n6")
-variation = 10.0
+variation = 15.0
 maximum = 200.0
 minimum = 0.0
 
@@ -52,11 +52,12 @@ max_health = 30
 stats_requirements = Array[ExtResource("2_am7js")]([SubResource("Resource_6b0js"), SubResource("Resource_su1ya")])
 display_name = "Whalex"
 description = "[color=#588b7e]+ Strongly increase Beauty[/color]
+[color=#588b7e]+ Provides a lot of gold[/color]
 [color=#d15d77]- Consumes a lot oxygen[/color]
 [color=#d15d77]- Strongly consumes food[/color]"
 rarity = 5
 stats_variations = Array[ExtResource("5_515fc")]([SubResource("Resource_aqiwj"), SubResource("Resource_4mijw")])
-income_variation = 120.0
+income_variation = 30.0
 texture = ExtResource("2_kqvhe")
 texture_display = SubResource("AtlasTexture_nhpof")
 scale = 1.0

@@ -32,12 +32,13 @@ region = Rect2(48, 0, 16, 32)
 script = ExtResource("1_58uef")
 food_positions = Array[Vector2]([Vector2(-8, -30), Vector2(4, -80), Vector2(4, -60)])
 total_food = 50.0
+grow_speed = 1.0
 max_health = 50
 stats_requirements = Array[Resource("res://resources/statistics/stat_requirement.gd")]([])
 display_name = "Gotod"
 description = "[color=#588b7e]+ Provides oxygen[/color]
 [color=#588b7e]+ Provides food[/color]"
-rarity = 1
+rarity = 2
 stats_variations = Array[ExtResource("4_mjt47")]([SubResource("Resource_ws864"), SubResource("Resource_a6qw0")])
 income_variation = 0.0
 texture = SubResource("AtlasTexture_5oike")

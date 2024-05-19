@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=10 format=3 uid="uid://xa4wc1gthmtl"]
+[gd_resource type="Resource" script_class="Deck" load_steps=8 format=3 uid="uid://xa4wc1gthmtl"]
 
 [ext_resource type="Resource" uid="uid://da3acdfcvk0w0" path="res://resources/infos/fishs/seraphin.tres" id="1_hxw85"]
 [ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="1_p1osy"]
@@ -6,13 +6,11 @@
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_mn6ku"]
 [ext_resource type="Script" path="res://resources/infos/deck.gd" id="4_2qswd"]
 [ext_resource type="Resource" uid="uid://c5v21dn3asjyq" path="res://resources/infos/fishs/whalex.tres" id="4_xnb6y"]
-[ext_resource type="Resource" uid="uid://dck65nqigd3gp" path="res://resources/infos/plants/crimson.tres" id="5_m0rek"]
-[ext_resource type="Resource" uid="uid://j3khiuqeyi1e" path="res://resources/infos/plants/sucrelune.tres" id="7_kmw67"]
 [ext_resource type="Texture2D" uid="uid://ddw808petch64" path="res://assets/art/ui/booster_whalex.png" id="9_7sq5f"]
 
 [resource]
 script = ExtResource("4_2qswd")
-elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_hxw85"), ExtResource("2_mcqj6"), ExtResource("3_mn6ku"), ExtResource("4_xnb6y"), ExtResource("5_m0rek"), ExtResource("1_p1osy"), ExtResource("7_kmw67")])
+elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_hxw85"), ExtResource("2_mcqj6"), ExtResource("3_mn6ku"), ExtResource("4_xnb6y"), ExtResource("1_p1osy")])
 price = 100.0
 price_multi = 1.5
 pick_choices = 5

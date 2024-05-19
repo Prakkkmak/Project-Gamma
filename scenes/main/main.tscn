@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=23 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://xa4wc1gthmtl" path="res://resources/decks/whalex_deck.tres" id="7_risfd"]
 [ext_resource type="Resource" uid="uid://c4fmgallbf11h" path="res://resources/decks/Neptune_deck.tres" id="8_1h34p"]
 [ext_resource type="Resource" uid="uid://cvdq10yeayxf4" path="res://resources/decks/plants_deck.tres" id="9_nunr5"]
+[ext_resource type="Resource" uid="uid://bt4jkyxw3plj6" path="res://resources/decks/food_deck.tres" id="10_p6a0w"]
 [ext_resource type="PackedScene" uid="uid://cdt57b7ylyvme" path="res://ui/aquarium_panel/aquarium_panel.tscn" id="10_pqo2w"]
 [ext_resource type="Texture2D" uid="uid://c2tb310c6plav" path="res://assets/art/ui/shop_button.png" id="14_6iph4"]
 [ext_resource type="Texture2D" uid="uid://brwddgqeutyhv" path="res://assets/art/ui/shop_button_pressed.png" id="15_vxf1j"]
@@ -25,7 +26,7 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
 stats = Array[Resource("res://resources/statistics/stat.gd")]([ExtResource("2_264xs"), ExtResource("3_6rvwy"), ExtResource("4_no0ej")])
-decks = Array[Resource("res://resources/infos/deck.gd")]([ExtResource("18_ohny0"), ExtResource("6_h06vp"), ExtResource("7_risfd"), ExtResource("8_1h34p"), ExtResource("9_nunr5")])
+decks = Array[Resource("res://resources/infos/deck.gd")]([ExtResource("18_ohny0"), ExtResource("6_h06vp"), ExtResource("7_risfd"), ExtResource("8_1h34p"), ExtResource("9_nunr5"), ExtResource("10_p6a0w")])
 money = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

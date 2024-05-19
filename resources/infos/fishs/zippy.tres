@@ -25,7 +25,7 @@ minimum = 40.0
 [sub_resource type="Resource" id="Resource_erku3"]
 script = ExtResource("2_65rjo")
 stat = ExtResource("3_dj3vv")
-variation = 120.0
+variation = -3.0
 maximum = 200.0
 minimum = 0.0
 
@@ -54,10 +54,11 @@ max_health = 5
 stats_requirements = Array[ExtResource("2_fqat4")]([SubResource("Resource_oon8f"), SubResource("Resource_6pe8n")])
 display_name = "Zippy"
 description = "[color=#588b7e]+ Provides beauty[/color]
+[color=#588b7e]+ Provides gold[/color]
 [color=#d15d77]- Consumes little oxygen[/color]
 "
 rarity = 5
 stats_variations = Array[ExtResource("2_65rjo")]([SubResource("Resource_erku3"), SubResource("Resource_v02b7"), SubResource("Resource_ekgxs")])
-income_variation = 80.0
+income_variation = 10.0
 texture = ExtResource("4_fkdup")
 scale = 1.0
