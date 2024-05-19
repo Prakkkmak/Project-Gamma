@@ -16,7 +16,7 @@ minimum = 10.0
 [sub_resource type="Resource" id="Resource_kv4p6"]
 script = ExtResource("4_s7l6o")
 stat = ExtResource("3_i4om7")
-variation = -1.0
+variation = -100.0
 maximum = 200.0
 minimum = 0.0
 
@@ -27,18 +27,13 @@ region = Rect2(0, 48, 32, 32)
 [resource]
 script = ExtResource("1_g40rx")
 food_positions = Array[Vector2]([Vector2(6, -15), Vector2(-2, 30)])
-grow_speed = 3.0
 total_food = 150.0
 max_health = 50
 stats_requirements = Array[ExtResource("2_0es3a")]([SubResource("Resource_1e0l1")])
-grow_time = 20
-life_span = 600
-start_scale = 0.2
 display_name = "Coral"
 description = "[color=#588b7e]+ Provides plenty of food[/color]
 [color=#d15d77]- Consumes oxygen[/color]"
 rarity = 3
-cost = 0
 stats_variations = Array[ExtResource("4_s7l6o")]([SubResource("Resource_kv4p6")])
 income_variation = 0.0
 texture = SubResource("AtlasTexture_5oike")

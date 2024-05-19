@@ -9,7 +9,7 @@ signal count_updated(entity_infos: EntityInfos, count: int)
 signal stat_updated(stat: Stat, new_value: float)
 
 ## Second per aquarium tick
-@export var seconds_per_tick: float = 10.0
+@export var seconds_per_tick: float = 60.0
 
 
 @export var stats: Array[Stat] = []
@@ -40,7 +40,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	_update_constants(delta)
+	_update_constants(delta / seconds_per_tick)
 	
 
 func add_fish(fish_infos: FishInfos, position: Vector2 = Vector2.ZERO) -> void:

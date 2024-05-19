@@ -10,11 +10,17 @@
     "res://resources/infos/decks/": {
       "resource_local_to_scene": true,
       "resource_name": true
+    },
+    "res://resources/infos/fishs/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
     }
   },
   "recent_paths": [
     "res://resources/infos/decks/",
-    "res://resources/infos/"
+    "res://resources/infos/",
+    "res://resources/infos/fishs/",
+    "res://resources/infos/equipements/"
   ],
   "table_functions": {
 

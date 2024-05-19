@@ -25,25 +25,20 @@ minimum = 0.0
 [sub_resource type="Resource" id="Resource_s67d5"]
 script = ExtResource("4_gu570")
 stat = ExtResource("6_fwngd")
-variation = 1.0
+variation = 2.0
 maximum = 200.0
 minimum = 0.0
 
 [resource]
 script = ExtResource("1_lf3wv")
 food_positions = Array[Vector2]([Vector2(6, -15), Vector2(-1, -30)])
-grow_speed = 2.0
 total_food = 100.0
 max_health = 20
 stats_requirements = Array[ExtResource("2_2l46r")]([SubResource("Resource_cogso")])
-grow_time = 10
-life_span = 600
-start_scale = 0.2
 display_name = "Sucrelune"
 description = "[color=#588b7e]+ Provides little oxygen[/color]
 [color=#588b7e]+ Provides lot of food[/color]"
 rarity = 2
-cost = 0
 stats_variations = Array[ExtResource("4_gu570")]([SubResource("Resource_6h5wl"), SubResource("Resource_s67d5")])
 income_variation = 0.0
 texture = ExtResource("2_2ue7p")

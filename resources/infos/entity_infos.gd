@@ -14,9 +14,6 @@ enum Rarity { INVALID, D, C, B, A, S }
 ## rarity
 @export var rarity: Rarity = Rarity.D
 
-## Price of the entity
-@export var cost: int = 0
-
 
 @export var stats_variations: Array[StatVariation] = []
 

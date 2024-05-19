@@ -29,7 +29,7 @@ func enable() -> void:
 
 
 func disable() -> void:
-	booster_texture_button.modulate = Color.BLACK
+	booster_texture_button.modulate = booster_texture_button.modulate.lerp(Color.BLACK, 0.8)
 	booster_texture_button.disabled = true
 	price_label.hide()
 

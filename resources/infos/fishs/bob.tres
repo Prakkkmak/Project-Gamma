@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FishInfos" load_steps=10 format=3 uid="uid://c1ijeeu6deqp6"]
+[gd_resource type="Resource" script_class="FishInfos" load_steps=10 format=3 uid="uid://bmu23gm4pveuq"]
 
 [ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_c5v5d"]
 [ext_resource type="Script" path="res://resources/statistics/stat_requirement.gd" id="2_6y5pg"]
@@ -17,14 +17,14 @@ minimum = 1.0
 [sub_resource type="Resource" id="Resource_t4rww"]
 script = ExtResource("4_cwqg3")
 stat = ExtResource("5_vr7lc")
-variation = 0.1
+variation = 11.0
 maximum = 100.0
 minimum = 0.0
 
 [sub_resource type="Resource" id="Resource_x3uqy"]
 script = ExtResource("4_cwqg3")
 stat = ExtResource("3_yne4g")
-variation = -0.2
+variation = -11.0
 maximum = 100.0
 minimum = 0.0
 
@@ -37,15 +37,11 @@ max_speed = 35.0
 acceleration = 1.0
 max_health = 5
 stats_requirements = Array[ExtResource("2_6y5pg")]([SubResource("Resource_8m1jt")])
-grow_time = 10
-life_span = 600
-start_scale = 0.2
 display_name = "Bob"
 description = "[color=#588b7e]+ Increase environmental quality[/color]
 [color=#d15d77]- Slightly consumes oxygen[/color]"
 rarity = 2
-cost = 0
 stats_variations = Array[ExtResource("4_cwqg3")]([SubResource("Resource_t4rww"), SubResource("Resource_x3uqy")])
-income_variation = 0.1
+income_variation = 10.0
 texture = ExtResource("2_7h3s8")
 scale = 1.0
