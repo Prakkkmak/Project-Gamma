@@ -11,11 +11,11 @@ extends Resource
 @export var texture: Texture
 
 const rarity_weight: Dictionary = {
-	EntityInfos.Rarity.D: 90,
-	EntityInfos.Rarity.C: 30,
-	EntityInfos.Rarity.B: 15,
-	EntityInfos.Rarity.A: 7,
-	EntityInfos.Rarity.S: 1,
+	EntityInfos.Rarity.D: 80,
+	EntityInfos.Rarity.C: 40,
+	EntityInfos.Rarity.B: 20,
+	EntityInfos.Rarity.A: 10,
+	EntityInfos.Rarity.S: 2,
 }
 
 var rarity_elements: Dictionary = {

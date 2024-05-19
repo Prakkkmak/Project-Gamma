@@ -167,7 +167,7 @@ func _on_eating_state_processing(delta: float) -> void:
 			target_food.stop_eating()
 			target_food.depleted.disconnect(_on_food_depleted)
 			target_food = null
-			state_chart.send_event("idle")
+			state_chart.send_event("swim")
 	else:
 		state_chart.send_event("idle")
 
@@ -176,7 +176,7 @@ func _on_food_depleted() -> void:
 	target_food.stop_eating()
 	target_food.depleted.disconnect(_on_food_depleted)
 	target_food = null
-	state_chart.send_event.call_deferred("idle")
+	state_chart.send_event.call_deferred("swim")
 	
 
 #endregion
