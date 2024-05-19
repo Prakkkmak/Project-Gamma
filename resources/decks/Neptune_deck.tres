@@ -1,16 +1,17 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=8 format=3 uid="uid://c4fmgallbf11h"]
+[gd_resource type="Resource" script_class="Deck" load_steps=9 format=3 uid="uid://c4fmgallbf11h"]
 
 [ext_resource type="Resource" uid="uid://da3acdfcvk0w0" path="res://resources/infos/fishs/seraphin.tres" id="1_ngd2u"]
 [ext_resource type="Resource" uid="uid://dns5p2u2gr11r" path="res://resources/infos/fishs/spun.tres" id="2_13jyk"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_khlei"]
 [ext_resource type="Resource" uid="uid://dck65nqigd3gp" path="res://resources/infos/plants/crimson.tres" id="5_ag6v1"]
+[ext_resource type="Resource" uid="uid://d4ksg13ofi4rb" path="res://resources/infos/fishs/neptune.tres" id="6_derlr"]
 [ext_resource type="Resource" uid="uid://djou2i3ugyi7j" path="res://resources/infos/fishs/cleo.tres" id="7_nc445"]
 [ext_resource type="Texture2D" uid="uid://5ehl0gdgj8vi" path="res://assets/art/ui/booster_neptune.png" id="8_4k07j"]
 [ext_resource type="Script" path="res://resources/infos/deck.gd" id="8_hxabg"]
 
 [resource]
 script = ExtResource("8_hxabg")
-elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_ngd2u"), ExtResource("2_13jyk"), ExtResource("3_khlei"), ExtResource("5_ag6v1"), ExtResource("7_nc445")])
+elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_ngd2u"), ExtResource("2_13jyk"), ExtResource("3_khlei"), ExtResource("5_ag6v1"), ExtResource("7_nc445"), ExtResource("6_derlr")])
 price = 200.0
 price_multi = 1.5
 pick_choices = 5
