@@ -142,16 +142,21 @@ func _track_entity(infos: EntityInfos, entity: Node) -> void:
 
 func _update_constants(delta: float) -> void:
 	var income: float = 0.0
+	for stat in stats:
+		if stat.one_shot:
+			stat.current_value = 0
 	for entity: Node in all_entites():
 		var entity_infos: EntityInfos = entity.get("infos") as EntityInfos
 		if !entity_infos:
 			return
-		for stat: Stat in stats:
-			var stat_variation: StatVariation = entity_infos.get_stat_variation(stat)
+		for stat_variation: StatVariation in entity_infos.stats_variations:
 			if stat_variation:
-				stat.apply_variation(stat_variation.get_variation() * delta)
-			if stat.id == "quality":
-				quality_overlay.color = lerp(quality_filter_color, Color.TRANSPARENT, stat.current_value / 100)
+				if stat_variation.stat.one_shot:
+					stat_variation.stat.apply_variation(stat_variation.get_variation())
+				else:
+					stat_variation.stat.apply_variation(stat_variation.get_variation() * delta)
+			if stat_variation.stat.id == "quality":
+				quality_overlay.color = lerp(quality_filter_color, Color.TRANSPARENT, stat_variation.stat.current_value / 100)
 		income += entity_infos.income_variation * delta
 		income_perseved.emit(income)
 	for stat: Stat in stats:

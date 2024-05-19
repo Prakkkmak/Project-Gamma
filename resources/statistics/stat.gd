@@ -25,6 +25,8 @@ extends Resource
 
 @export var current_value: float = 100.0
 
+@export var one_shot: bool = false
+
 func apply_variation(variation: float) -> void:
 	# Si le facteur d'équilibre n'est pas 1.0, appliquer un ajustement basé sur la distance
 	#FIXME FACTOR TO TEST
