@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bm842h44ddm1c"]
+[gd_scene load_steps=14 format=3 uid="uid://bm842h44ddm1c"]
 
 [ext_resource type="Script" path="res://ui/card/card.gd" id="1_4q8l6"]
 [ext_resource type="Texture2D" uid="uid://hy37u68jxudx" path="res://assets/art/ui/cardNew.png" id="1_r0fw3"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_i5cha"]
 [ext_resource type="Texture2D" uid="uid://bnjy3yyowl3v8" path="res://assets/art/ui/fish_placeholder.png" id="3_j1x6g"]
-[ext_resource type="PackedScene" uid="uid://c1ud5vathbrl1" path="res://ui/unit_progress_bar/unit_progress_bar.tscn" id="5_c70uk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4hkt"]
 atlas = ExtResource("1_r0fw3")
@@ -211,16 +210,6 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="FoodBar" parent="MarginContainer/CardInfosContainer/TopCardContainer" instance=ExtResource("5_c70uk")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(28, 16)
-layout_mode = 2
-mouse_filter = 1
-value = 2.0
-max = 3.0
-unit_amount = 3
-offset = 10.0
-
 [node name="DescriptionRichTextLabel" type="RichTextLabel" parent="MarginContainer/CardInfosContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 60)
@@ -228,7 +217,6 @@ layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 8
-bbcode_enabled = true
 text = "fef
 "
 

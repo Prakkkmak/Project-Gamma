@@ -52,7 +52,6 @@ func add_fish(fish_infos: FishInfos, position: Vector2 = Vector2.ZERO) -> void:
 	_track_entity(fish_infos, fish)
 
 
-
 func get_close_slot(position: Vector2) -> Node2D:
 	var slot_nodes: Array[Node] = ground_slots.get_children()
 	if slot_nodes.size() == 0:
@@ -63,6 +62,7 @@ func get_close_slot(position: Vector2) -> Node2D:
 			if (slot_node as Node2D).global_position.distance_to(position) < closer_slot.global_position.distance_to(position):
 				closer_slot = slot_node as Node2D
 	return closer_slot
+
 
 func preview_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> void:
 	var closed_node: Node2D = get_close_slot(position)
@@ -93,6 +93,7 @@ func add_plant(plant_infos: PlantInfos,  position: Vector2 = Vector2.ZERO) -> bo
 	slot_previewed = null
 	_track_entity(plant_infos, plant)
 	return true
+
 
 func add_food(food_infos: FoodInfos, position: Vector2 = Vector2.ZERO) -> void:
 	var fish_food: FishFood = fish_food_scene.instantiate()
