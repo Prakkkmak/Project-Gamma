@@ -4,7 +4,7 @@ extends PanelContainer
 @onready var aquarium_values_container: AquariumValuesContainer = %AquariumValuesContainer
 @onready var entities_happiness_container: EntitiesHappinessContainer = %EntitiesHappinessContainer
 @onready var money_value_container: MoneyValueContainer = %MoneyValueContainer
-@onready var happiness_hover: HappinessHover = $GridContainer/HappinessHover
+@onready var happiness_hover: HappinessHover = %HappinessHover
 @onready var aquarium_values_hover: PanelContainer = %AquariumValuesHover
 
 func _ready() -> void:

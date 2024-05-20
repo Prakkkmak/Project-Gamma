@@ -46,7 +46,7 @@ size_flags_horizontal = 4
 
 [node name="AquariumValuesHover" type="PanelContainer" parent="GridContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 150)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
 [node name="ConstantsDescription" type="RichTextLabel" parent="GridContainer/AquariumValuesHover"]
@@ -58,15 +58,24 @@ text = "[u]Oxygen:[/u] Provided by plants, consumed by fish and coral
 
 [u]Quality:[/u] Aquarium water quality. Increased with certain fish and coral.
 
-[u]Beauty:[/u] Increased with elements in the aquarium. Rare fish have a greater impact."
+[u]Beauty:[/u] Increased with elements in the aquarium. Rare fish have a greater impact.
+
+Certain fish and plants require a certain level of oxygen and quality to be placed."
 
 [node name="Expand5" type="Control" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HappinessHover" parent="GridContainer" instance=ExtResource("6_jh7li")]
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HappinessHover" parent="GridContainer/PanelContainer" instance=ExtResource("6_jh7li")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 0
 feature_happiness_display_scene = ExtResource("7_52n1t")
 
 [node name="Expand4" type="Control" parent="GridContainer"]
