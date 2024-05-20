@@ -92,7 +92,6 @@ func _on_card_used(entity_infos: EntityInfos, use_position: Vector2) -> void:
 
 
 func _on_shop_button_pressed() -> void:
-	shop_open_audio_stream_player.play()
 	shop.lock_by_money(money)
 	shop.show()
 

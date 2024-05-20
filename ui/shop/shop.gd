@@ -51,5 +51,4 @@ func _on_booster_selected(deck: Deck) -> void:
 
 
 func _on_close_button_pressed() -> void:
-	shop_close_audio_stream_player.play()
 	closed.emit()
