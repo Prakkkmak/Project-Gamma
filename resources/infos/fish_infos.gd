@@ -19,3 +19,7 @@ extends LivingInfos
 @export var is_eddible: bool = false
 
 @export var fixed_rotation: bool = false
+
+@export var food_usage_ratio: float = 1.0
+
+@export var chase_food_speed_multiply: float = 1.0

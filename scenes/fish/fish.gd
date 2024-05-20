@@ -55,6 +55,7 @@ func _ready() -> void:
 	locate_food.state_entered.connect(_on_locate_food_entered)
 	swiming_to_food.state_physics_processing.connect(_on_swiming_to_food_state_physics_processing)
 	swiming_to_food.state_entered.connect(_on_swiming_to_food_state_entered)
+	swiming_to_food.state_exited.connect(_on_swiming_to_food_exited)
 	eating.state_entered.connect(_on_eating_state_entered)
 	eating.state_processing.connect(_on_eating_state_processing)
 	die.state_entered.connect(_on_die_state_entered)
@@ -70,7 +71,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_dead:
 		return
-	current_food -= delta
+	current_food -= delta * infos.food_usage_ratio
 	if current_food < 0:
 		take_damage(delta)
 	food_label.text = "Food: " + str(floor(current_food))
@@ -82,6 +83,8 @@ func _process(delta: float) -> void:
 
 
 func take_damage(amount: float) -> void:
+	if is_dead:
+		return
 	animation_player.play("hurt")
 	current_health -= amount
 	if current_health < 0:
@@ -98,6 +101,8 @@ func _swim(delta: float) -> void:
 	if !infos.fixed_rotation:
 		look_at(global_position + velocity)
 		sprite.flip_v = velocity.x < 0
+	else:
+		sprite.flip_h = velocity.x > 0
 	move_and_slide()
 
 
@@ -151,11 +156,19 @@ func _on_locate_food_entered() -> void:
 		state_chart.send_event("swim")
 
 
+
+
 func _on_swiming_to_food_state_entered() -> void:
+	max_speed *= infos.chase_food_speed_multiply
+	acceleration *= infos.chase_food_speed_multiply
 	animation_player.play("swim")
 
+func _on_swiming_to_food_exited() -> void:
+	max_speed /= infos.chase_food_speed_multiply
+	acceleration /= infos.chase_food_speed_multiply
+
 func _on_swiming_to_food_state_physics_processing(delta: float) -> void:
-	if target_food:
+	if target_food && is_instance_valid(target_food):
 		navigation_agent.target_position = target_food.global_position
 	if navigation_agent.is_navigation_finished():
 		state_chart.send_event("food_reached")
@@ -164,13 +177,13 @@ func _on_swiming_to_food_state_physics_processing(delta: float) -> void:
 
 
 func _on_eating_state_entered() -> void:
-	if target_food && current_food < infos.max_food:
+	if target_food && current_food < infos.max_food && is_instance_valid(target_food):
 		target_food.start_eating()
 		animation_player.play("eat")
 
 
 func _on_eating_state_processing(delta: float) -> void:
-	if target_food:
+	if target_food && is_instance_valid(target_food):
 		if current_food < infos.max_food:
 			var eated: float = target_food.eat(delta * 5)
 			current_food += eated
@@ -184,6 +197,8 @@ func _on_eating_state_processing(delta: float) -> void:
 
 
 func _on_food_depleted() -> void:
+	if is_dead:
+		return
 	target_food.stop_eating()
 	target_food.depleted.disconnect(_on_food_depleted)
 	target_food = null
@@ -194,9 +209,13 @@ func _on_die_state_entered() -> void:
 	is_dead = true
 	sprite.flip_v = false
 	animation_player.play("die")
+	animation_player.animation_changed.connect(_debug_problem)
+	animation_player.animation_finished.connect(_debug_problem)
 	if food_component:
 		food_component.queue_free()
 
+func _debug_problem() -> void:
+	print("problem anim changed")
 
 func _on_eated(old_amount: float, new_amount: float) -> void:
 	animation_player.play("hurt")
@@ -204,7 +223,8 @@ func _on_eated(old_amount: float, new_amount: float) -> void:
 
 
 func _on_eated_finished() -> void:
-	state_chart.send_event("die")
+	if !is_dead:
+		state_chart.send_event("die")
 #endregion
 
 

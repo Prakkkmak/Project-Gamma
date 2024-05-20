@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="FishInfos" load_steps=10 format=3 uid="uid://dooxvkl7rny07"]
+
+[ext_resource type="Script" path="res://resources/infos/fish_infos.gd" id="1_itdsl"]
+[ext_resource type="Script" path="res://resources/statistics/stat_variation.gd" id="2_6u1ny"]
+[ext_resource type="Resource" uid="uid://vlpltsfq760p" path="res://resources/statistics/stats/oxygen.tres" id="3_we3yy"]
+[ext_resource type="Resource" uid="uid://bs0do6lrydqvj" path="res://resources/statistics/stats/beauty.tres" id="4_bpqf1"]
+[ext_resource type="Texture2D" uid="uid://ceql7ih167165" path="res://assets/art/entities/fishs/Shark.png" id="5_s08g8"]
+[ext_resource type="Texture2D" uid="uid://bs2x54nqgthf0" path="res://assets/art/entities/Aqua_Tilesheet.png" id="6_23ahx"]
+
+[sub_resource type="Resource" id="Resource_aqiwj"]
+script = ExtResource("2_6u1ny")
+stat = ExtResource("3_we3yy")
+variation = -8.0
+maximum = 200.0
+minimum = 0.0
+
+[sub_resource type="Resource" id="Resource_4mijw"]
+script = ExtResource("2_6u1ny")
+stat = ExtResource("4_bpqf1")
+variation = 15.0
+maximum = 200.0
+minimum = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhpof"]
+atlas = ExtResource("6_23ahx")
+region = Rect2(0, 128, 32, 32)
+
+[resource]
+script = ExtResource("1_itdsl")
+max_food = 70
+food_regimes = Array[int]([0])
+food_threshold = 30
+max_speed = 100.0
+acceleration = 10.0
+is_eddible = false
+fixed_rotation = false
+food_usage_ratio = 0.2
+chase_food_speed_multiply = 2.0
+max_health = 30
+stats_requirements = Array[Resource("res://resources/statistics/stat_requirement.gd")]([])
+display_name = "Finn"
+description = "[color=#588b7e]+ Strongly increase Beauty[/color]
+[color=#588b7e]+ Provides a lot of gold[/color]
+[color=#d15d77]- Consumes oxygen[/color]
+[color=#d15d77]- Eat small fishes[/color]"
+rarity = 1
+stats_variations = Array[ExtResource("2_6u1ny")]([SubResource("Resource_aqiwj"), SubResource("Resource_4mijw")])
+income_variation = 30.0
+texture = ExtResource("5_s08g8")
+texture_display = SubResource("AtlasTexture_nhpof")
+scale = 1.0
