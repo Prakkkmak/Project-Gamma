@@ -52,7 +52,7 @@ stats_requirements = Array[ExtResource("2_mm560")]([SubResource("Resource_wu2nq"
 display_name = "Spun"
 description = "[color=#588b7e]+ Slightly provides gold[/color]
 [color=#d15d77]- Consumes little oxygen[/color]"
-rarity = 1
+rarity = 2
 stats_variations = Array[ExtResource("5_qadq8")]([SubResource("Resource_l4qhy"), SubResource("Resource_5k8ea")])
 income_variation = 1.0
 texture = ExtResource("2_cgebx")

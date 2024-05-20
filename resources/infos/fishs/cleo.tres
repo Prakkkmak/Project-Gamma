@@ -53,7 +53,7 @@ display_name = "Cleo"
 description = "[color=#588b7e]+ Increase Beauty a lot[/color]
 [color=#d15d77]- Consumes oxygen[/color]
 [color=#d15d77]- Consumes food a lot[/color]"
-rarity = 3
+rarity = 4
 stats_variations = Array[ExtResource("2_t1fel")]([SubResource("Resource_erku3"), SubResource("Resource_hjjn4")])
 income_variation = 10.0
 texture = ExtResource("4_0gq2i")
