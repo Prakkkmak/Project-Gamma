@@ -22,6 +22,9 @@ signal card_stop_dragged()
 var hand_cards: Array[Card] = []
 
 
+func _ready() -> void:
+	discard_area.self_modulate = Color.TRANSPARENT
+
 func add_card(entity_info: EntityInfos) -> void:
 	if entity_info == null:
 		return
@@ -58,6 +61,7 @@ func _get_drop_zone(drop_position: Vector2) -> DropZone:
 
 
 func _on_card_drag_started(card: Card) -> void:
+	discard_area.self_modulate = Color.WHITE
 	for hand_card: Card in hand_cards:
 		hand_card.selectable = false
 
@@ -66,6 +70,7 @@ func _on_drag(card: Card) -> void:
 	card_dragged.emit(card.entity_infos)
 
 func _on_card_drag_stopped(drop_position: Vector2, card: Card) -> void:
+	discard_area.self_modulate = Color.TRANSPARENT
 	for hand_card: Card in hand_cards:
 		hand_card.selectable = true
 	var drop_zone: DropZone = _get_drop_zone(drop_position)
