@@ -141,7 +141,7 @@ _data = {
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
 stats = Array[Resource("res://resources/statistics/stat.gd")]([ExtResource("2_264xs"), ExtResource("3_6rvwy"), ExtResource("4_no0ej")])
-decks = Array[Resource("res://resources/infos/deck.gd")]([ExtResource("18_ohny0"), ExtResource("6_h06vp"), ExtResource("7_risfd"), ExtResource("8_1h34p"), ExtResource("11_ruqjs"), ExtResource("9_nunr5"), ExtResource("10_p6a0w")])
+decks = Array[Resource("res://resources/infos/deck.gd")]([ExtResource("18_ohny0"), ExtResource("6_h06vp"), ExtResource("7_risfd"), ExtResource("11_ruqjs"), ExtResource("8_1h34p"), ExtResource("9_nunr5"), ExtResource("10_p6a0w")])
 starting_cards = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("11_ythxq"), ExtResource("12_owuwg")])
 money = 10.0
 

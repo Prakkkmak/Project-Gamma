@@ -12,33 +12,33 @@ script = ExtResource("2_6y5pg")
 stat = ExtResource("3_yne4g")
 maximum = 200.0
 target = 100.0
-minimum = 1.0
+minimum = 2.0
 
 [sub_resource type="Resource" id="Resource_t4rww"]
 script = ExtResource("4_cwqg3")
 stat = ExtResource("5_vr7lc")
-variation = 1.9
+variation = 2.5
 maximum = 100.0
 minimum = 0.0
 
 [sub_resource type="Resource" id="Resource_x3uqy"]
 script = ExtResource("4_cwqg3")
 stat = ExtResource("3_yne4g")
-variation = -1.5
+variation = -2.0
 maximum = 100.0
 minimum = 0.0
 
 [resource]
 script = ExtResource("1_c5v5d")
-max_food = 100
+max_food = 80
 food_regimes = Array[int]([1])
-food_threshold = 70
-max_speed = 20.0
+food_threshold = 30
+max_speed = 15.0
 acceleration = 1.0
 is_eddible = true
 fixed_rotation = true
-food_usage_ratio = 0.2
-chase_food_speed_multiply = 1.9
+food_usage_ratio = 0.1
+chase_food_speed_multiply = 2.1
 max_health = 5
 stats_requirements = Array[ExtResource("2_6y5pg")]([SubResource("Resource_8m1jt")])
 display_name = "Bob"
