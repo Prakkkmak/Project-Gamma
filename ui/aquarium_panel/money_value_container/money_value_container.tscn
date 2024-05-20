@@ -12,7 +12,11 @@ alignment = 1
 script = ExtResource("1_apkue")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 2
 
 [node name="MoneyLabel" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
@@ -27,9 +31,5 @@ layout_mode = 2
 texture = ExtResource("2_4grvb")
 expand_mode = 2
 
-[node name="MoneyVariationLabel" type="Label" parent="."]
-unique_name_in_owner = true
+[node name="Control" type="Control" parent="HBoxContainer"]
 layout_mode = 2
-text = "
-"
-horizontal_alignment = 1

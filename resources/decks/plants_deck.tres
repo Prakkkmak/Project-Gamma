@@ -10,7 +10,7 @@
 [resource]
 script = ExtResource("4_pmbnv")
 elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_gesiy"), ExtResource("3_df67l"), ExtResource("3_2o4fc"), ExtResource("4_sn34e")])
-price = 49.0
+price = 50.0
 price_multi = 1.5
 pick_choices = 6
 max_choices = 2

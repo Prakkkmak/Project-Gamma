@@ -42,7 +42,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 
 [node name="AquariumValuesHover" type="PanelContainer" parent="GridContainer"]
 unique_name_in_owner = true

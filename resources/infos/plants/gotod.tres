@@ -39,7 +39,7 @@ region = Rect2(48, 0, 16, 48)
 
 [resource]
 script = ExtResource("1_58uef")
-food_positions = Array[Vector2]([Vector2(6, -15), Vector2(-1, -30), Vector2(-2, -40), Vector2(0, -80)])
+food_positions = Array[Vector2]([Vector2(6, -15), Vector2(-1, -30), Vector2(-2, -50), Vector2(0, -80)])
 total_food = 140.0
 grow_speed = 1.25
 max_health = 20
