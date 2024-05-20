@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=32 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://xa4wc1gthmtl" path="res://resources/decks/whalex_deck.tres" id="7_risfd"]
 [ext_resource type="Resource" uid="uid://c4fmgallbf11h" path="res://resources/decks/Neptune_deck.tres" id="8_1h34p"]
 [ext_resource type="Resource" uid="uid://cvdq10yeayxf4" path="res://resources/decks/plants_deck.tres" id="9_nunr5"]
-[ext_resource type="Resource" uid="uid://bt4jkyxw3plj6" path="res://resources/decks/food_deck.tres" id="10_p6a0w"]
+[ext_resource type="Resource" path="res://resources/decks/food_deck.tres" id="10_p6a0w"]
 [ext_resource type="PackedScene" uid="uid://cdt57b7ylyvme" path="res://ui/aquarium_panel/aquarium_panel.tscn" id="10_pqo2w"]
 [ext_resource type="Resource" uid="uid://b6w8xi1p85g38" path="res://resources/decks/finn_deck.tres" id="11_ruqjs"]
 [ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="11_ythxq"]
@@ -25,6 +25,84 @@
 [ext_resource type="AudioStream" uid="uid://kib3t356qx0t" path="res://assets/music/TylerSong3_Normal.wav" id="16_jjp52"]
 [ext_resource type="PackedScene" uid="uid://b3njed5ym1io8" path="res://ui/shop/shop.tscn" id="17_6heg4"]
 [ext_resource type="Resource" uid="uid://5n0li5plpiy3" path="res://resources/decks/bob_deck.tres" id="18_ohny0"]
+[ext_resource type="Texture2D" uid="uid://c2l3bxgta7tns" path="res://assets/art/entities/fishs/BobaWhale.png" id="25_jklfs"]
+[ext_resource type="AudioStream" uid="uid://hfq8wbykddpe" path="res://assets/sfx/pluck_002.ogg" id="26_vdbx2"]
+[ext_resource type="AudioStream" uid="uid://ds0kfyktcgn3q" path="res://assets/music/underwater-loop-amb-6182.mp3" id="27_5bevl"]
+
+[sub_resource type="Animation" id="Animation_jpnuq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/StartContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vtxv8"]
+resource_name = "start"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/StartContainer:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5, 10.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/StartContainer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(11.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-80.0, -80.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hlva7"]
+_data = {
+"RESET": SubResource("Animation_jpnuq"),
+"start": SubResource("Animation_vtxv8")
+}
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
@@ -77,8 +155,53 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
+[node name="StartContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/StartContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/StartContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("25_jklfs")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/StartContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "Reach 100 Beauty and clean the aquarium
+(There is no proper end for now but you can keep playing)"
+horizontal_alignment = 1
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("16_jjp52")
 autoplay = true
 bus = &"Music"
+
+[node name="ShopOpenAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("26_vdbx2")
+volume_db = -20.0
+bus = &"Sfx"
+
+[node name="AmbiantAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_5bevl")
+autoplay = true
+bus = &"Sfx"
+
+[node name="StartingAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hlva7")
+}
+autoplay = "start"
