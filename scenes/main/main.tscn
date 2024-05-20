@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=26 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -25,7 +25,6 @@
 [ext_resource type="AudioStream" uid="uid://kib3t356qx0t" path="res://assets/music/TylerSong3_Normal.wav" id="16_jjp52"]
 [ext_resource type="PackedScene" uid="uid://b3njed5ym1io8" path="res://ui/shop/shop.tscn" id="17_6heg4"]
 [ext_resource type="Resource" uid="uid://5n0li5plpiy3" path="res://resources/decks/bob_deck.tres" id="18_ohny0"]
-[ext_resource type="AudioStream" uid="uid://hfq8wbykddpe" path="res://assets/sfx/pluck_002.ogg" id="26_vdbx2"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
@@ -83,9 +82,3 @@ unique_name_in_owner = true
 stream = ExtResource("16_jjp52")
 autoplay = true
 bus = &"Music"
-
-[node name="ShopOpenAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("26_vdbx2")
-volume_db = -20.0
-bus = &"Sfx"
