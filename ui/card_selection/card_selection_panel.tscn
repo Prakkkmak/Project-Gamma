@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdio5n87rp04y"]
+[gd_scene load_steps=10 format=3 uid="uid://bdio5n87rp04y"]
 
 [ext_resource type="Script" path="res://ui/card_selection/card_selection_panel.gd" id="1_6y3uu"]
 [ext_resource type="PackedScene" uid="uid://bm842h44ddm1c" path="res://ui/card/card.tscn" id="2_8af0g"]
@@ -6,6 +6,9 @@
 [ext_resource type="Resource" uid="uid://dns5p2u2gr11r" path="res://resources/infos/fishs/spun.tres" id="3_jwacy"]
 [ext_resource type="Texture2D" uid="uid://je2h1me15g7i" path="res://assets/art/ui/validate_button.png" id="5_f5y2e"]
 [ext_resource type="Texture2D" uid="uid://07cotckfaw41" path="res://assets/art/ui/validate_button_pressed.png" id="6_fln28"]
+[ext_resource type="Texture2D" uid="uid://tary6amewksl" path="res://assets/art/ui/reroll_button.png" id="7_toxlg"]
+[ext_resource type="Texture2D" uid="uid://bpfv7uhaltxur" path="res://assets/art/ui/reroll_button_pressed.png" id="8_ancnu"]
+[ext_resource type="Texture2D" uid="uid://c2bskovklntwr" path="res://assets/art/ui/reroll_button_disabled.png" id="9_8b8u8"]
 
 [node name="CardSelectionPanel" type="PanelContainer"]
 anchors_preset = 15
@@ -70,7 +73,10 @@ texture_normal = ExtResource("5_f5y2e")
 texture_pressed = ExtResource("6_fln28")
 texture_hover = ExtResource("5_f5y2e")
 
-[node name="RerollButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="RerollButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Reroll"
+texture_normal = ExtResource("7_toxlg")
+texture_pressed = ExtResource("8_ancnu")
+texture_hover = ExtResource("7_toxlg")
+texture_disabled = ExtResource("9_8b8u8")

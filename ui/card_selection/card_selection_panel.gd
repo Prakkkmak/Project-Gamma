@@ -8,7 +8,7 @@ signal rerolled
 @export var default_selection: Array[EntityInfos] = []
 @export var card_scene: PackedScene
 
-@onready var reroll_button: Button = %RerollButton
+@onready var reroll_button: TextureButton = %RerollButton
 @onready var validate_button: TextureButton = %ValidateButton
 
 @onready var cards_display: HBoxContainer = %CardsDisplay
