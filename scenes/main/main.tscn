@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=27 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://xa4wc1gthmtl" path="res://resources/decks/whalex_deck.tres" id="7_risfd"]
 [ext_resource type="Resource" uid="uid://c4fmgallbf11h" path="res://resources/decks/Neptune_deck.tres" id="8_1h34p"]
 [ext_resource type="Resource" uid="uid://cvdq10yeayxf4" path="res://resources/decks/plants_deck.tres" id="9_nunr5"]
-[ext_resource type="Resource" path="res://resources/decks/food_deck.tres" id="10_p6a0w"]
+[ext_resource type="Resource" uid="uid://bt4jkyxw3plj6" path="res://resources/decks/food_deck.tres" id="10_p6a0w"]
 [ext_resource type="PackedScene" uid="uid://cdt57b7ylyvme" path="res://ui/aquarium_panel/aquarium_panel.tscn" id="10_pqo2w"]
 [ext_resource type="Resource" uid="uid://b6w8xi1p85g38" path="res://resources/decks/finn_deck.tres" id="11_ruqjs"]
 [ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="11_ythxq"]
@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://b3njed5ym1io8" path="res://ui/shop/shop.tscn" id="17_6heg4"]
 [ext_resource type="Resource" uid="uid://5n0li5plpiy3" path="res://resources/decks/bob_deck.tres" id="18_ohny0"]
 [ext_resource type="AudioStream" uid="uid://hfq8wbykddpe" path="res://assets/sfx/pluck_002.ogg" id="26_vdbx2"]
-[ext_resource type="AudioStream" uid="uid://ds0kfyktcgn3q" path="res://assets/music/underwater-loop-amb-6182.mp3" id="27_5bevl"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
@@ -89,9 +88,4 @@ bus = &"Music"
 unique_name_in_owner = true
 stream = ExtResource("26_vdbx2")
 volume_db = -20.0
-bus = &"Sfx"
-
-[node name="AmbiantAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("27_5bevl")
-autoplay = true
 bus = &"Sfx"
