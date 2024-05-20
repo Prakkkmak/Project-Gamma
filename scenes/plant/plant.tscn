@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bssw0yhkh8n64"]
+[gd_scene load_steps=11 format=3 uid="uid://bssw0yhkh8n64"]
 
 [ext_resource type="Script" path="res://scenes/plant/plant.gd" id="1_27i6o"]
 [ext_resource type="PackedScene" uid="uid://coeetj41k63yn" path="res://components/food_component/food_component.tscn" id="2_hscoc"]
 [ext_resource type="Texture2D" uid="uid://bs2x54nqgthf0" path="res://assets/art/entities/Aqua_Tilesheet.png" id="2_yhavg"]
+[ext_resource type="Texture2D" uid="uid://dxqjgbepgh2mv" path="res://assets/art/entities/Aqua_Tilesheet_2.png" id="4_2gdak"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m51o8"]
 atlas = ExtResource("2_yhavg")
@@ -46,6 +47,14 @@ _data = {
 "idle": SubResource("Animation_hr5lq")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_onjb1"]
+atlas = ExtResource("4_2gdak")
+region = Rect2(52, 36, 8, 8)
+
+[sub_resource type="Curve" id="Curve_wwlmi"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0749415, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Plant" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_27i6o")
@@ -65,3 +74,16 @@ autoplay = "idle"
 
 [node name="FoodComponentsNode" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -30.5)
+amount = 20
+lifetime = 30.0
+fract_delta = false
+texture = SubResource("AtlasTexture_onjb1")
+emission_shape = 3
+emission_rect_extents = Vector2(5, -15)
+gravity = Vector2(0, -10)
+scale_amount_min = 0.2
+scale_amount_curve = SubResource("Curve_wwlmi")
+color = Color(1, 1, 1, 0.772549)
