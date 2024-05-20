@@ -61,7 +61,7 @@ description = "[color=#588b7e]+ Strongly increase Beauty[/color]
 [color=#d15d77]- Strongly consumes food[/color]"
 rarity = 5
 stats_variations = Array[ExtResource("5_515fc")]([SubResource("Resource_aqiwj"), SubResource("Resource_4mijw")])
-income_variation = 15.0
+income_variation = 30.0
 texture = ExtResource("2_kqvhe")
 texture_display = SubResource("AtlasTexture_nhpof")
 scale = 1.0

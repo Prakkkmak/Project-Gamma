@@ -63,6 +63,6 @@ description = "[color=#588b7e]+ Provides beauty[/color]
 "
 rarity = 5
 stats_variations = Array[ExtResource("2_65rjo")]([SubResource("Resource_erku3"), SubResource("Resource_v02b7"), SubResource("Resource_ekgxs")])
-income_variation = 10.0
+income_variation = 13.0
 texture = ExtResource("4_fkdup")
 scale = 1.0
