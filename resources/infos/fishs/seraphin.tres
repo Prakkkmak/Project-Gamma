@@ -60,8 +60,8 @@ display_name = "Seraphin"
 description = "[color=#588b7e]+ Provides quality[/color]
 [color=#588b7e]+ Provides gold[/color]
 [color=#d15d77]- Consumes oxygen[/color]"
-rarity = 4
+rarity = 3
 stats_variations = Array[ExtResource("5_jthan")]([SubResource("Resource_nxdsm"), SubResource("Resource_c2hi8"), SubResource("Resource_kt0f6")])
-income_variation = 11.0
+income_variation = 14.0
 texture = ExtResource("2_4t43o")
 scale = 1.0
