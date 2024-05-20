@@ -5,10 +5,17 @@ extends PanelContainer
 @onready var entities_happiness_container: EntitiesHappinessContainer = %EntitiesHappinessContainer
 @onready var money_value_container: MoneyValueContainer = %MoneyValueContainer
 @onready var happiness_hover: HappinessHover = $GridContainer/HappinessHover
+@onready var aquarium_values_hover: PanelContainer = %AquariumValuesHover
 
 func _ready() -> void:
 	entities_happiness_container.entity_happiness_view_mouse_entered.connect(_on_entity_happiness_view_mouse_entered)
 	entities_happiness_container.entity_happiness_view_mouse_exited.connect(_on_entity_happiness_view_mouse_exited)
+	
+	aquarium_values_container.mouse_entered.connect(_on_aquarium_values_container_mouse_entered)
+	aquarium_values_container.mouse_exited.connect(_on_aquarium_values_container_mouse_exited)
+	
+	happiness_hover.modulate = Color.TRANSPARENT
+	aquarium_values_hover.modulate = Color.TRANSPARENT
 
 
 
@@ -39,9 +46,17 @@ func update_entity_count(entity_info: EntityInfos, count: int) -> void:
 
 
 func _on_entity_happiness_view_mouse_entered(entity_info: EntityInfos, happiness_stats: HappinessStats) -> void:
-	happiness_hover.show()
+	happiness_hover.modulate = Color.WHITE
 	happiness_hover.fill_infos(entity_info, happiness_stats)
 
 
 func _on_entity_happiness_view_mouse_exited(entity_info: EntityInfos) -> void:
-	happiness_hover.hide()
+	happiness_hover.modulate = Color.TRANSPARENT
+
+
+func _on_aquarium_values_container_mouse_entered() -> void:
+	aquarium_values_hover.modulate = Color.WHITE
+
+
+func _on_aquarium_values_container_mouse_exited() -> void:
+	aquarium_values_hover.modulate = Color.TRANSPARENT

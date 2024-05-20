@@ -44,20 +44,32 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Void" type="Control" parent="GridContainer"]
+[node name="AquariumValuesHover" type="PanelContainer" parent="GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
+[node name="ConstantsDescription" type="RichTextLabel" parent="GridContainer/AquariumValuesHover"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "Blabla description a compléter par Hiily
+
+Oxygen:
+Quality:
+Beauty:"
+
+[node name="Expand5" type="Control" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="HappinessHover" parent="GridContainer" instance=ExtResource("6_jh7li")]
-visible = false
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 feature_happiness_display_scene = ExtResource("7_52n1t")
 
-[node name="Void2" type="Control" parent="GridContainer"]
+[node name="Expand4" type="Control" parent="GridContainer"]
 layout_mode = 2
-
-[node name="Void3" type="Control" parent="GridContainer"]
-layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MoneyHover" type="PanelContainer" parent="GridContainer"]
 layout_mode = 2

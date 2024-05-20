@@ -119,10 +119,10 @@ func get_happiness(entity_infos: EntityInfos) -> HappinessStats:
 			sum_food += fish.current_food
 		var average_food: float = sum_food / current_entities.size()
 		var food_ratio: float = average_food / (living_infos as FishInfos).food_threshold
-		happiness_stats.add_feature("food", food_ratio)
+		happiness_stats.add_feature("Food", food_ratio)
 	for stat_requirement: StatRequirement in living_infos.stats_requirements:
 		var current_stat_ratio: float = abs(stat_requirement.target - stat_requirement.stat.current_value) / stat_requirement.get_gap()
-		happiness_stats.add_feature(stat_requirement.stat.id, 1.0 - current_stat_ratio)
+		happiness_stats.add_feature(stat_requirement.stat.display_name, 1.0 - current_stat_ratio)
 	return happiness_stats
 
 
