@@ -1,8 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://btnf52ln1b6px"]
+[gd_scene load_steps=14 format=3 uid="uid://btnf52ln1b6px"]
 
 [ext_resource type="Script" path="res://ui/hand_panel/hand_panel.gd" id="1_3qlg7"]
 [ext_resource type="PackedScene" uid="uid://bm842h44ddm1c" path="res://ui/card/card.tscn" id="2_e0vau"]
 [ext_resource type="Texture2D" uid="uid://cab32lpo5nef1" path="res://assets/art/ui/discard.png" id="3_2f18m"]
+[ext_resource type="AudioStream" uid="uid://78yfid5sx66k" path="res://assets/sfx/bubbles-single1.wav" id="4_fqpk2"]
+[ext_resource type="AudioStream" uid="uid://bmhj4w5tqjagi" path="res://assets/sfx/bubbles-single2.wav" id="5_72f8j"]
+[ext_resource type="AudioStream" uid="uid://dowd27dwwjfr0" path="res://assets/sfx/bubbles-single3.wav" id="6_ehqk4"]
+[ext_resource type="AudioStream" uid="uid://ccpe3t666752q" path="res://assets/sfx/cardShove1.ogg" id="7_hhj7j"]
+[ext_resource type="AudioStream" uid="uid://cse6itxp8afr4" path="res://assets/sfx/paper_ripped_-_1.mp3" id="7_jve1d"]
+[ext_resource type="AudioStream" uid="uid://c644qr53kxvm2" path="res://assets/sfx/cardShove2.ogg" id="8_yo87u"]
+[ext_resource type="AudioStream" uid="uid://b2im837b6pe0s" path="res://assets/sfx/cardShove3.ogg" id="9_2eq5w"]
+[ext_resource type="AudioStream" uid="uid://f48frwwxw5yh" path="res://assets/sfx/cardShove4.ogg" id="10_5uqf0"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_84ai3"]
+streams_count = 3
+stream_0/stream = ExtResource("4_fqpk2")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_72f8j")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_ehqk4")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yg2ea"]
+streams_count = 4
+stream_0/stream = ExtResource("7_hhj7j")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("8_yo87u")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("9_2eq5w")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("10_5uqf0")
+stream_3/weight = 1.0
 
 [node name="HandPanel" type="PanelContainer"]
 self_modulate = Color(1, 1, 1, 0)
@@ -61,3 +89,21 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_2f18m")
 stretch_mode = 2
+
+[node name="CardUsedAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_84ai3")
+volume_db = -4.0
+bus = &"Sfx"
+
+[node name="CardDragAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_yg2ea")
+volume_db = -20.0
+bus = &"Sfx"
+
+[node name="DiscardAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_jve1d")
+volume_db = -4.0
+bus = &"Sfx"

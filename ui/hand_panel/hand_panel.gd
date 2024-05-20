@@ -16,6 +16,9 @@ signal card_stop_dragged()
 @onready var use_area: ColorRect = %UseArea
 @onready var discard_area: TextureRect = %DiscardArea
 
+@onready var card_used_audio_stream_player: AudioStreamPlayer = %CardUsedAudioStreamPlayer
+@onready var discard_audio_stream_player: AudioStreamPlayer = %DiscardAudioStreamPlayer
+@onready var card_drag_audio_stream_player: AudioStreamPlayer = %CardDragAudioStreamPlayer
 
 
 
@@ -64,6 +67,7 @@ func _on_card_drag_started(card: Card) -> void:
 	discard_area.self_modulate = Color.WHITE
 	for hand_card: Card in hand_cards:
 		hand_card.selectable = false
+	card_drag_audio_stream_player.play()
 
 
 func _on_drag(card: Card) -> void:
@@ -76,9 +80,11 @@ func _on_card_drag_stopped(drop_position: Vector2, card: Card) -> void:
 	var drop_zone: DropZone = _get_drop_zone(drop_position)
 	if drop_zone == DropZone.USE:
 		card_used.emit(card.entity_infos, drop_position)
+		card_used_audio_stream_player.play()
 		delete_card(hand_cards.find(card))
 	elif drop_zone == DropZone.DISCARD:
 		delete_card(hand_cards.find(card))
+		discard_audio_stream_player.play()
 		card_discarded.emit(card.entity_infos)
 	else:
 		card.reset_position()

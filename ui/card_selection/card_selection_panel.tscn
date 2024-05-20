@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdio5n87rp04y"]
+[gd_scene load_steps=12 format=3 uid="uid://bdio5n87rp04y"]
 
 [ext_resource type="Script" path="res://ui/card_selection/card_selection_panel.gd" id="1_6y3uu"]
 [ext_resource type="PackedScene" uid="uid://bm842h44ddm1c" path="res://ui/card/card.tscn" id="2_8af0g"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://tary6amewksl" path="res://assets/art/ui/reroll_button.png" id="7_toxlg"]
 [ext_resource type="Texture2D" uid="uid://bpfv7uhaltxur" path="res://assets/art/ui/reroll_button_pressed.png" id="8_ancnu"]
 [ext_resource type="Texture2D" uid="uid://c2bskovklntwr" path="res://assets/art/ui/reroll_button_disabled.png" id="9_8b8u8"]
+[ext_resource type="AudioStream" uid="uid://cgy1ywd6f8jka" path="res://assets/sfx/cardOpenPackage2.ogg" id="10_q0jj6"]
+[ext_resource type="AudioStream" uid="uid://bn41cpnawetaw" path="res://assets/sfx/cardTakeOutPackage2.ogg" id="10_yaonk"]
 
 [node name="CardSelectionPanel" type="PanelContainer"]
 anchors_preset = 15
@@ -80,3 +82,15 @@ texture_normal = ExtResource("7_toxlg")
 texture_pressed = ExtResource("8_ancnu")
 texture_hover = ExtResource("7_toxlg")
 texture_disabled = ExtResource("9_8b8u8")
+
+[node name="CardOpenAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_q0jj6")
+volume_db = -20.0
+bus = &"Sfx"
+
+[node name="CardTakeOutAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_yaonk")
+volume_db = -20.0
+bus = &"Sfx"

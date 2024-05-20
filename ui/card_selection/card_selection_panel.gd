@@ -14,6 +14,10 @@ signal rerolled
 @onready var cards_display: HBoxContainer = %CardsDisplay
 @onready var pick_instruction_label: Label = $CenterContainer/VBoxContainer/PickInstructionLabel
 
+@onready var card_open_audio_stream_player: AudioStreamPlayer = %CardOpenAudioStreamPlayer
+@onready var card_take_out_audio_stream_player: AudioStreamPlayer = %CardTakeOutAudioStreamPlayer
+
+
 
 var cards: Array[Card] = []
 var current_cards_selected: Array[Card] = []
@@ -43,6 +47,8 @@ func display_selection(entities_infos: Array[EntityInfos], new_selectable_amount
 		card.mouse_exited.connect(_on_mouse_exited.bind(card))
 	pick_instruction_label.text = "Pick " + str(new_selectable_amount) + " cards !"
 	selectable_amount = new_selectable_amount
+	card_open_audio_stream_player.play()
+	
 
 
 func cards_remaining() -> int:
@@ -75,6 +81,7 @@ func _on_validate_button_pressed() -> void:
 	for current_card_selected: Card in current_cards_selected:
 		entities.append(current_card_selected.entity_infos)
 	entities_selected.emit(entities)
+	card_take_out_audio_stream_player.play()
 
 func _on_reroll_button_pressed() -> void:
 	rerolled.emit()

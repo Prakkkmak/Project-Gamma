@@ -13,6 +13,7 @@ signal closed
 @onready var close_button: TextureButton = %CloseButton
 @onready var boosters_grid: GridContainer = %Boosters
 
+@onready var shop_close_audio_stream_player: AudioStreamPlayer = %ShopCloseAudioStreamPlayer
 
 func _ready() -> void:
 	set_decks(starting_decks)
@@ -50,4 +51,5 @@ func _on_booster_selected(deck: Deck) -> void:
 
 
 func _on_close_button_pressed() -> void:
+	shop_close_audio_stream_player.play()
 	closed.emit()
