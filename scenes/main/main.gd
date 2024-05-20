@@ -21,6 +21,7 @@ extends Node
 @onready var shop: Shop = %Shop
 @onready var money_label: Label = %MoneyLabel
 
+var last_deck_reroll: Deck
 
 
 func _ready() -> void:
@@ -36,6 +37,7 @@ func _ready() -> void:
 	aquarium.happiness_updated.connect(_on_happiness_updated)
 	aquarium.count_updated.connect(_on_count_updated)
 	card_selection_panel.entities_selected.connect(_on_entities_selected)
+	card_selection_panel.rerolled.connect(_on_rerolled)
 	aquarium_panel.set_money(money)
 	shop.set_decks(decks)
 	shop.closed.connect(_on_shop_closed)
@@ -49,12 +51,18 @@ func _ready() -> void:
 		hand_panel.add_card(starting_card)
 
 
+func _process(delta: float) -> void:
+	shop_button.disabled = hand_panel.get_remaining_size() < 3
+
+
 func open_booster(deck: Deck) -> void:
 	money -= deck.price
 	aquarium_panel.set_money(money)
 	var entities: Array[EntityInfos] = deck.draw()
 	card_selection_panel.show()
 	card_selection_panel.display_selection(entities, deck.max_choices)
+	card_selection_panel.disable_reroll(money < deck.price)
+	last_deck_reroll = deck
 
 
 func _on_card_dragged(entity_infos: EntityInfos) -> void:
@@ -104,6 +112,8 @@ func _on_entities_selected(entities_infos: Array[EntityInfos]) -> void:
 		hand_panel.add_card(entity_infos)
 	card_selection_panel.hide()
 
+func _on_rerolled() -> void:
+	open_booster(last_deck_reroll)
 
 func _on_shop_closed() -> void:
 	shop.hide()

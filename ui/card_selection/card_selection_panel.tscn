@@ -57,10 +57,20 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="ValidateButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ValidateButton" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("5_f5y2e")
 texture_pressed = ExtResource("6_fln28")
 texture_hover = ExtResource("5_f5y2e")
+
+[node name="RerollButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reroll"

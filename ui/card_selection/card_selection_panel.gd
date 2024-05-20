@@ -3,13 +3,16 @@ extends PanelContainer
 
 
 signal entities_selected(entities_infos: Array[EntityInfos])
+signal rerolled
 
 @export var default_selection: Array[EntityInfos] = []
 @export var card_scene: PackedScene
 
+@onready var reroll_button: Button = %RerollButton
+@onready var validate_button: TextureButton = %ValidateButton
+
 @onready var cards_display: HBoxContainer = %CardsDisplay
 @onready var pick_instruction_label: Label = $CenterContainer/VBoxContainer/PickInstructionLabel
-@onready var validate_button: TextureButton = $CenterContainer/VBoxContainer/ValidateButton
 
 
 var cards: Array[Card] = []
@@ -18,6 +21,11 @@ var selectable_amount: int = 0
 
 func _ready() -> void:
 	validate_button.pressed.connect(_on_validate_button_pressed)
+	reroll_button.pressed.connect(_on_reroll_button_pressed)
+
+
+func disable_reroll(value: bool) -> void:
+	reroll_button.disabled = value
 
 func display_selection(entities_infos: Array[EntityInfos], new_selectable_amount: int) -> void:
 	cards = []
@@ -67,3 +75,6 @@ func _on_validate_button_pressed() -> void:
 	for current_card_selected: Card in current_cards_selected:
 		entities.append(current_card_selected.entity_infos)
 	entities_selected.emit(entities)
+
+func _on_reroll_button_pressed() -> void:
+	rerolled.emit()
