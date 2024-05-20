@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Deck" load_steps=8 format=3 uid="uid://xa4wc1gthmtl"]
 
 [ext_resource type="Resource" uid="uid://da3acdfcvk0w0" path="res://resources/infos/fishs/seraphin.tres" id="1_hxw85"]
-[ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="1_p1osy"]
+[ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/sucrelune.tres" id="1_p1osy"]
 [ext_resource type="Resource" uid="uid://dns5p2u2gr11r" path="res://resources/infos/fishs/spun.tres" id="2_mcqj6"]
 [ext_resource type="Resource" uid="uid://bb2t6k7708afk" path="res://resources/infos/fishs/guppy.tres" id="3_mn6ku"]
 [ext_resource type="Script" path="res://resources/infos/deck.gd" id="4_2qswd"]

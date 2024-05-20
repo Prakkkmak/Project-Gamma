@@ -54,6 +54,6 @@ description = "[color=#588b7e]+ Slightly provides gold[/color]
 [color=#d15d77]- Consumes little oxygen[/color]"
 rarity = 1
 stats_variations = Array[ExtResource("2_bukdy")]([SubResource("Resource_erku3"), SubResource("Resource_dprkb")])
-income_variation = 1.5
+income_variation = 1.6
 texture = ExtResource("2_uj138")
 scale = 1.0

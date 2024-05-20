@@ -45,7 +45,7 @@ description = "[color=#588b7e]+ Increase Beauty a lot[/color]
 [color=#d15d77]- Eat small fishes[/color]"
 rarity = 4
 stats_variations = Array[ExtResource("2_6u1ny")]([SubResource("Resource_aqiwj"), SubResource("Resource_4mijw")])
-income_variation = 15.0
+income_variation = 20.0
 texture = ExtResource("5_s08g8")
 texture_display = SubResource("AtlasTexture_nhpof")
 scale = 1.0

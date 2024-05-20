@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Deck" load_steps=6 format=3 uid="uid://5n0li5plpiy3"]
 
 [ext_resource type="Script" path="res://resources/infos/deck.gd" id="1_e45pr"]
-[ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/gotod.tres" id="1_kl26s"]
+[ext_resource type="Resource" uid="uid://c0rr05lawi7j5" path="res://resources/infos/plants/sucrelune.tres" id="1_kl26s"]
 [ext_resource type="Resource" uid="uid://bmu23gm4pveuq" path="res://resources/infos/fishs/bob.tres" id="2_31ar2"]
 [ext_resource type="Resource" uid="uid://sh6dtcv2cy4f" path="res://resources/infos/plants/coral.tres" id="3_4bsq7"]
 [ext_resource type="Texture2D" uid="uid://cs4aglfdw7vql" path="res://assets/art/ui/booster_bob.png" id="4_d310u"]

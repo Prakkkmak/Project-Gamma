@@ -1,46 +1,55 @@
-[gd_resource type="Resource" script_class="PlantInfos" load_steps=10 format=3 uid="uid://c0rr05lawi7j5"]
+[gd_resource type="Resource" script_class="PlantInfos" load_steps=13 format=3 uid="uid://j3khiuqeyi1e"]
 
 [ext_resource type="Script" path="res://resources/infos/plant_infos.gd" id="1_58uef"]
 [ext_resource type="Texture2D" uid="uid://bs2x54nqgthf0" path="res://assets/art/entities/Aqua_Tilesheet.png" id="2_it0u7"]
+[ext_resource type="Script" path="res://resources/statistics/stat_requirement.gd" id="2_qkgoo"]
+[ext_resource type="Resource" uid="uid://c5k7rk8jpkbh5" path="res://resources/statistics/stats/quality.tres" id="3_i1gbx"]
 [ext_resource type="Resource" uid="uid://vlpltsfq760p" path="res://resources/statistics/stats/oxygen.tres" id="3_khltf"]
 [ext_resource type="Resource" uid="uid://bs0do6lrydqvj" path="res://resources/statistics/stats/beauty.tres" id="4_lu3jq"]
 [ext_resource type="Script" path="res://resources/statistics/stat_variation.gd" id="4_mjt47"]
 
-[sub_resource type="Resource" id="Resource_ws864"]
-script = ExtResource("4_mjt47")
-stat = ExtResource("3_khltf")
-variation = 9.0
-maximum = 125.0
-minimum = 0.0
+[sub_resource type="Resource" id="Resource_cogso"]
+script = ExtResource("2_qkgoo")
+stat = ExtResource("3_i1gbx")
+maximum = 200.0
+target = 100.0
+minimum = 25.0
 
-[sub_resource type="Resource" id="Resource_a6qw0"]
+[sub_resource type="Resource" id="Resource_6h5wl"]
 script = ExtResource("4_mjt47")
 stat = ExtResource("4_lu3jq")
 variation = 1.0
 maximum = 200.0
 minimum = 0.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5oike"]
+[sub_resource type="Resource" id="Resource_s67d5"]
+script = ExtResource("4_mjt47")
+stat = ExtResource("3_khltf")
+variation = 12.0
+maximum = 200.0
+minimum = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg65x"]
 atlas = ExtResource("2_it0u7")
 region = Rect2(48, 0, 16, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_upy4q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5an04"]
 atlas = ExtResource("2_it0u7")
-region = Rect2(48, 0, 16, 32)
+region = Rect2(48, 0, 16, 48)
 
 [resource]
 script = ExtResource("1_58uef")
-food_positions = Array[Vector2]([Vector2(-8, -30), Vector2(4, -80), Vector2(4, -60)])
-total_food = 35.0
-grow_speed = 0.25
-max_health = 50
-stats_requirements = Array[Resource("res://resources/statistics/stat_requirement.gd")]([])
+food_positions = Array[Vector2]([Vector2(6, -15), Vector2(-1, -30), Vector2(-2, -40), Vector2(0, -80)])
+total_food = 140.0
+grow_speed = 1.25
+max_health = 20
+stats_requirements = Array[ExtResource("2_qkgoo")]([SubResource("Resource_cogso")])
 display_name = "Gotod"
-description = "[color=#588b7e]+ Provides little oxygen[/color]
-[color=#588b7e]+ Provides little food[/color]"
+description = "[color=#588b7e]+ Provides oxygen[/color]
+[color=#588b7e]+ Provides lots of food[/color]"
 rarity = 2
-stats_variations = Array[ExtResource("4_mjt47")]([SubResource("Resource_ws864"), SubResource("Resource_a6qw0")])
+stats_variations = Array[ExtResource("4_mjt47")]([SubResource("Resource_6h5wl"), SubResource("Resource_s67d5")])
 income_variation = 0.0
-texture = SubResource("AtlasTexture_5oike")
-texture_display = SubResource("AtlasTexture_upy4q")
+texture = SubResource("AtlasTexture_cg65x")
+texture_display = SubResource("AtlasTexture_5an04")
 scale = 1.0
