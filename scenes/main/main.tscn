@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=35 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -25,17 +25,27 @@
 [ext_resource type="AudioStream" uid="uid://kib3t356qx0t" path="res://assets/music/TylerSong3_Normal.wav" id="16_jjp52"]
 [ext_resource type="PackedScene" uid="uid://b3njed5ym1io8" path="res://ui/shop/shop.tscn" id="17_6heg4"]
 [ext_resource type="Resource" uid="uid://5n0li5plpiy3" path="res://resources/decks/bob_deck.tres" id="18_ohny0"]
-[ext_resource type="Texture2D" uid="uid://c2l3bxgta7tns" path="res://assets/art/entities/fishs/BobaWhale.png" id="25_jklfs"]
+[ext_resource type="Texture2D" uid="uid://bs2x54nqgthf0" path="res://assets/art/entities/Aqua_Tilesheet.png" id="25_7wffd"]
 [ext_resource type="AudioStream" uid="uid://hfq8wbykddpe" path="res://assets/sfx/pluck_002.ogg" id="26_vdbx2"]
 [ext_resource type="AudioStream" uid="uid://ds0kfyktcgn3q" path="res://assets/music/underwater-loop-amb-6182.mp3" id="27_5bevl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5bta"]
+bg_color = Color(0.145098, 0.168627, 0.211765, 1)
+
+[sub_resource type="Theme" id="Theme_uincy"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_g5bta")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq1yi"]
+atlas = ExtResource("25_7wffd")
+region = Rect2(0, 32, 48, 32)
+
 [sub_resource type="Animation" id="Animation_jpnuq"]
-length = 0.001
+length = 17.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("CanvasLayer/StartContainer:modulate")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
@@ -47,9 +57,21 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AmbiantAudioStreamPlayer:volume_db")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -96,6 +118,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [-80.0, -80.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AmbiantAudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -20.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hlva7"]
@@ -162,6 +196,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = SubResource("Theme_uincy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/StartContainer"]
 layout_mode = 2
@@ -169,11 +204,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/StartContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("25_jklfs")
-expand_mode = 1
+texture = SubResource("AtlasTexture_mq1yi")
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="CanvasLayer/StartContainer/VBoxContainer"]
 layout_mode = 2
