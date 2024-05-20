@@ -12,7 +12,7 @@ script = ExtResource("1_48kel")
 food_amount = 50.0
 regime = 1
 display_name = " Food"
-description = ""
+description = "[color=#588b7e]+ Provides lots of food[/color]"
 rarity = 4
 stats_variations = Array[Resource("res://resources/statistics/stat_variation.gd")]([])
 income_variation = 0.0

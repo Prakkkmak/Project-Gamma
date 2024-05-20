@@ -222,9 +222,8 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = SubResource("FontVariation_0ih2i")
 theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
-text = "\"ezrzrz
-zerzer
-zerzerze"
+text = "
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

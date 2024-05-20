@@ -38,7 +38,7 @@ max_health = 20
 stats_requirements = Array[ExtResource("2_2l46r")]([SubResource("Resource_cogso")])
 display_name = "Sucrelune"
 description = "[color=#588b7e]+ Provides little oxygen[/color]
-[color=#588b7e]+ Provides lot of food[/color]"
+[color=#588b7e]+ Provides lots of food[/color]"
 rarity = 2
 stats_variations = Array[ExtResource("4_gu570")]([SubResource("Resource_6h5wl"), SubResource("Resource_s67d5")])
 income_variation = 0.0
