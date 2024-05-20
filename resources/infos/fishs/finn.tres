@@ -17,7 +17,7 @@ minimum = 0.0
 [sub_resource type="Resource" id="Resource_4mijw"]
 script = ExtResource("2_6u1ny")
 stat = ExtResource("4_bpqf1")
-variation = 15.0
+variation = 10.0
 maximum = 200.0
 minimum = 0.0
 
@@ -39,7 +39,7 @@ chase_food_speed_multiply = 2.0
 max_health = 30
 stats_requirements = Array[Resource("res://resources/statistics/stat_requirement.gd")]([])
 display_name = "Finn"
-description = "[color=#588b7e]+ Strongly increase Beauty[/color]
+description = "[color=#588b7e]+ Increase Beauty a lot[/color]
 [color=#588b7e]+ Provides a lot of gold[/color]
 [color=#d15d77]- Consumes oxygen[/color]
 [color=#d15d77]- Eat small fishes[/color]"
