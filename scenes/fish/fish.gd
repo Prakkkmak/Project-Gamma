@@ -66,6 +66,7 @@ func _ready() -> void:
 		food_component.max_food = infos.max_food
 		food_component.eated.connect(_on_eated)
 		food_component.eated_finished.connect(_on_eated_finished)
+		food_component.modulate = food_component.modulate.lerp(Color.TRANSPARENT, 0.7)
 	
 
 func _process(delta: float) -> void:
