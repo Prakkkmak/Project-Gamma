@@ -51,7 +51,8 @@ layout_mode = 2
 
 [node name="ConstantsDescription" type="RichTextLabel" parent="GridContainer/AquariumValuesHover"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 14
 bbcode_enabled = true
 text = "[u]Oxygen:[/u] Provided by plants, consumed by fish and coral
 
