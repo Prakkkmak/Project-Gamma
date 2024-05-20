@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dcqj5iy5ck7yl"]
+[gd_scene load_steps=28 format=3 uid="uid://dcqj5iy5ck7yl"]
 
 [ext_resource type="PackedScene" uid="uid://bjbe3uptptyyj" path="res://scenes/aquarium/aquarium.tscn" id="1_kdlov"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lxdxq"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b3njed5ym1io8" path="res://ui/shop/shop.tscn" id="17_6heg4"]
 [ext_resource type="Resource" uid="uid://5n0li5plpiy3" path="res://resources/decks/bob_deck.tres" id="18_ohny0"]
 [ext_resource type="AudioStream" uid="uid://hfq8wbykddpe" path="res://assets/sfx/pluck_002.ogg" id="26_vdbx2"]
+[ext_resource type="AudioStream" uid="uid://ds0kfyktcgn3q" path="res://assets/music/underwater-loop-amb-6182.mp3" id="27_5bevl"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxdxq")
@@ -88,4 +89,9 @@ bus = &"Music"
 unique_name_in_owner = true
 stream = ExtResource("26_vdbx2")
 volume_db = -20.0
+bus = &"Sfx"
+
+[node name="AmbiantAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_5bevl")
+autoplay = true
 bus = &"Sfx"
