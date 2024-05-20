@@ -14,7 +14,7 @@ signal card_stop_dragged()
 
 @onready var cards_container: HBoxContainer = %CardsContainer
 @onready var use_area: ColorRect = %UseArea
-@onready var discard_area: ColorRect = %DiscardArea
+@onready var discard_area: TextureRect = %DiscardArea
 
 
 
