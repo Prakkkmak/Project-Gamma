@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=6 format=3 uid="uid://bt4jkyxw3plj6"]
+[gd_resource type="Resource" script_class="Deck" load_steps=6 format=3 uid="uid://c1hxa3v7ll1vi"]
 
 [ext_resource type="Resource" uid="uid://dnp6rfjsbuhq0" path="res://resources/infos/foods/food_vegetable_high.tres" id="1_hvk52"]
 [ext_resource type="Resource" uid="uid://bfeedp6lqr23b" path="res://resources/infos/foods/food_vegetable_low.tres" id="2_a8qfm"]
@@ -9,8 +9,8 @@
 [resource]
 script = ExtResource("5_0qmhm")
 elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_hvk52"), ExtResource("2_a8qfm"), ExtResource("3_vgojo")])
-price = 40.0
+price = 30.0
 price_multi = 1.5
-pick_choices = 5
-max_choices = 1
+pick_choices = 3
+max_choices = 2
 texture = ExtResource("5_3oj68")

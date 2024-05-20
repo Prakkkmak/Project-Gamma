@@ -38,15 +38,15 @@ minimum = 0.0
 
 [resource]
 script = ExtResource("1_5pg2d")
-max_food = 50
+max_food = 30
 food_regimes = Array[int]([1])
-food_threshold = 25
+food_threshold = 15
 max_speed = 200.0
 acceleration = 3.0
 is_eddible = true
 fixed_rotation = false
-food_usage_ratio = 1.0
-chase_food_speed_multiply = 1.0
+food_usage_ratio = 1.4
+chase_food_speed_multiply = 1.2
 max_health = 5
 stats_requirements = Array[ExtResource("2_mm560")]([SubResource("Resource_wu2nq"), SubResource("Resource_uqfli")])
 display_name = "Spun"

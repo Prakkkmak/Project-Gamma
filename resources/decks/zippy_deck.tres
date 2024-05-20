@@ -11,8 +11,8 @@
 [resource]
 script = ExtResource("4_vk1o4")
 elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource("1_xcsxf"), ExtResource("2_k8q67"), ExtResource("4_v1v5g"), ExtResource("5_jgnol"), ExtResource("6_7utps")])
-price = 11.0
+price = 15.0
 price_multi = 1.5
-pick_choices = 5
+pick_choices = 6
 max_choices = 2
 texture = ExtResource("8_djcfl")

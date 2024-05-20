@@ -32,14 +32,14 @@ minimum = 0.0
 [sub_resource type="Resource" id="Resource_c2hi8"]
 script = ExtResource("5_jthan")
 stat = ExtResource("6_848xp")
-variation = 5.0
+variation = 4.0
 maximum = 200.0
 minimum = 0.0
 
 [sub_resource type="Resource" id="Resource_kt0f6"]
 script = ExtResource("5_jthan")
 stat = ExtResource("4_uofei")
-variation = 10.0
+variation = 7.0
 maximum = 200.0
 minimum = 0.0
 
@@ -60,7 +60,7 @@ display_name = "Seraphin"
 description = "[color=#588b7e]+ Provides quality[/color]
 [color=#588b7e]+ Provides gold[/color]
 [color=#d15d77]- Consumes oxygen[/color]"
-rarity = 3
+rarity = 4
 stats_variations = Array[ExtResource("5_jthan")]([SubResource("Resource_nxdsm"), SubResource("Resource_c2hi8"), SubResource("Resource_kt0f6")])
 income_variation = 5.0
 texture = ExtResource("2_4t43o")

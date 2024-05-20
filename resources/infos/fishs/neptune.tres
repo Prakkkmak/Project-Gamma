@@ -21,7 +21,7 @@ script = ExtResource("2_lkiow")
 stat = ExtResource("4_bg5yo")
 maximum = 200.0
 target = 100.0
-minimum = 100.0
+minimum = 98.0
 
 [sub_resource type="Resource" id="Resource_25yc1"]
 script = ExtResource("2_a4s3a")
@@ -61,7 +61,7 @@ description = "[color=#588b7e]+ Strongly increase Beauty[/color]
 [color=#d15d77]- Strongly consumes food[/color]"
 rarity = 5
 stats_variations = Array[ExtResource("2_a4s3a")]([SubResource("Resource_25yc1"), SubResource("Resource_d8bcq")])
-income_variation = 30.0
+income_variation = 20.0
 texture = ExtResource("2_1nynv")
 texture_display = SubResource("AtlasTexture_nhpof")
 scale = 1.0

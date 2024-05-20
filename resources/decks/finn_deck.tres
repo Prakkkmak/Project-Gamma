@@ -13,5 +13,5 @@ elements = Array[Resource("res://resources/infos/entity_infos.gd")]([ExtResource
 price = 250.0
 price_multi = 1.5
 pick_choices = 5
-max_choices = 2
+max_choices = 1
 texture = ExtResource("6_eoiko")
